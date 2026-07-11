@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	/* Colors come from data/config.json (injected in app/layout.tsx). */
+	--ink: #17171a;
+	--ink-soft: #5f5f68;
+	--paper: #ffffff;
+	--paper-soft: #f6f7f9;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	color: var(--ink);
+	background: var(--paper);
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	* {
+		animation: none !important;
+		transition: none !important;
+	}
+}

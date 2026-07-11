@@ -1,0 +1,398 @@
+{
+  "id": "business-mri",
+  "title": "Business MRI™",
+  "tagline": "A full-body scan of your business: operations, sales, marketing, automation, AI readiness and more.",
+  "description": "24 quick questions that scan every part of your business — operations, sales, marketing, customer experience, automation, AI readiness, leadership and systems — then show you exactly where you're losing time and money.",
+  "icon": "🩺",
+  "estimatedMinutes": 5,
+  "featured": true,
+  "categories": [
+    {
+      "id": "operations",
+      "label": "Operations",
+      "recommendation": "Document your 3 most repeated processes as simple checklists, then automate or delegate the most time-consuming one this month."
+    },
+    {
+      "id": "sales",
+      "label": "Sales",
+      "recommendation": "Set up a simple sales pipeline (even a spreadsheet works) and add automated follow-up so no lead is ever forgotten."
+    },
+    {
+      "id": "marketing",
+      "label": "Marketing",
+      "recommendation": "Pick ONE marketing channel that already brings you clients and double down on it with a consistent weekly rhythm before adding anything new."
+    },
+    {
+      "id": "customer-experience",
+      "label": "Customer Experience",
+      "recommendation": "Create an automated onboarding sequence and a review-request system — happy clients should be asked for a review within 48 hours."
+    },
+    {
+      "id": "automation",
+      "label": "Automation",
+      "recommendation": "List every task you do more than 3 times a week. Automate the top 2 with simple tools like Zapier, Make or your CRM's built-in automations."
+    },
+    {
+      "id": "ai-readiness",
+      "label": "AI Readiness",
+      "recommendation": "Start using AI for one real task this week — drafting emails, proposals or content. Small daily use builds the muscle fast."
+    },
+    {
+      "id": "leadership",
+      "label": "Leadership",
+      "recommendation": "Block 2 hours a week for working ON the business (strategy, systems, growth) and protect that time like a client meeting."
+    },
+    {
+      "id": "systems",
+      "label": "Systems",
+      "recommendation": "Create one central place (a simple shared drive or Notion page) where every process, password and template lives — so the business runs on systems, not memory."
+    }
+  ],
+  "questions": [
+    {
+      "id": "ops-1",
+      "category": "operations",
+      "text": "How are your day-to-day processes documented?",
+      "options": [
+        { "label": "They're not — everything lives in people's heads", "points": 0 },
+        { "label": "A few notes here and there", "points": 1 },
+        { "label": "Key processes are written down", "points": 2 },
+        { "label": "Clear, up-to-date checklists for almost everything", "points": 3 }
+      ]
+    },
+    {
+      "id": "ops-2",
+      "category": "operations",
+      "text": "How often do tasks fall through the cracks or get done twice?",
+      "options": [
+        { "label": "All the time — it's chaos some weeks", "points": 0 },
+        { "label": "A few times a month", "points": 1 },
+        { "label": "Rarely", "points": 2 },
+        { "label": "Almost never — we have a reliable system", "points": 3 }
+      ]
+    },
+    {
+      "id": "ops-3",
+      "category": "operations",
+      "text": "How much of your week goes to repetitive admin work (data entry, scheduling, copying info between tools)?",
+      "options": [
+        { "label": "10+ hours — it eats my week", "points": 0 },
+        { "label": "5–10 hours", "points": 1 },
+        { "label": "2–5 hours", "points": 2 },
+        { "label": "Under 2 hours — most of it is automated", "points": 3 }
+      ]
+    },
+    {
+      "id": "sales-1",
+      "category": "sales",
+      "text": "What happens when a new lead contacts your business?",
+      "options": [
+        { "label": "We reply when we get a chance — sometimes days later", "points": 0 },
+        { "label": "We usually reply within a day", "points": 1 },
+        { "label": "We reply within a few hours", "points": 2 },
+        { "label": "They get an instant automated response plus fast personal follow-up", "points": 3 }
+      ]
+    },
+    {
+      "id": "sales-2",
+      "category": "sales",
+      "text": "Do you know exactly how many leads you got last month and where they came from?",
+      "options": [
+        { "label": "No idea", "points": 0 },
+        { "label": "A rough guess", "points": 1 },
+        { "label": "Yes, roughly tracked", "points": 2 },
+        { "label": "Yes — tracked precisely in a CRM", "points": 3 }
+      ]
+    },
+    {
+      "id": "sales-3",
+      "category": "sales",
+      "text": "How do you follow up with leads who don't buy right away?",
+      "options": [
+        { "label": "We don't — if they go quiet, they're gone", "points": 0 },
+        { "label": "We follow up once or twice manually", "points": 1 },
+        { "label": "We have a loose follow-up routine", "points": 2 },
+        { "label": "Automated follow-up sequence until they buy or opt out", "points": 3 }
+      ]
+    },
+    {
+      "id": "mkt-1",
+      "category": "marketing",
+      "text": "How consistent is your marketing?",
+      "options": [
+        { "label": "We market only when things get slow", "points": 0 },
+        { "label": "Sporadic — bursts of activity, then silence", "points": 1 },
+        { "label": "Fairly regular on 1–2 channels", "points": 2 },
+        { "label": "Consistent weekly output on channels that work", "points": 3 }
+      ]
+    },
+    {
+      "id": "mkt-2",
+      "category": "marketing",
+      "text": "Do you have an email list you contact regularly?",
+      "options": [
+        { "label": "No list at all", "points": 0 },
+        { "label": "A list, but we rarely email it", "points": 1 },
+        { "label": "We email monthly", "points": 2 },
+        { "label": "We email weekly or bi-weekly with valuable content", "points": 3 }
+      ]
+    },
+    {
+      "id": "mkt-3",
+      "category": "marketing",
+      "text": "Do you know your cost to acquire a new customer?",
+      "options": [
+        { "label": "Never calculated it", "points": 0 },
+        { "label": "A vague idea", "points": 1 },
+        { "label": "Yes, for our main channel", "points": 2 },
+        { "label": "Yes, for every channel — we track it monthly", "points": 3 }
+      ]
+    },
+    {
+      "id": "cx-1",
+      "category": "customer-experience",
+      "text": "What does a new client's first week with you look like?",
+      "options": [
+        { "label": "It varies — we wing it every time", "points": 0 },
+        { "label": "A welcome email, then ad-hoc", "points": 1 },
+        { "label": "A consistent manual onboarding routine", "points": 2 },
+        { "label": "A polished, mostly automated onboarding experience", "points": 3 }
+      ]
+    },
+    {
+      "id": "cx-2",
+      "category": "customer-experience",
+      "text": "How do you collect reviews and testimonials?",
+      "options": [
+        { "label": "We don't ask — reviews happen by luck", "points": 0 },
+        { "label": "We ask occasionally when we remember", "points": 1 },
+        { "label": "We ask every happy client manually", "points": 2 },
+        { "label": "Automated review requests after every job or milestone", "points": 3 }
+      ]
+    },
+    {
+      "id": "cx-3",
+      "category": "customer-experience",
+      "text": "How quickly do existing clients get answers to their questions?",
+      "options": [
+        { "label": "It can take days", "points": 0 },
+        { "label": "Usually within a day", "points": 1 },
+        { "label": "Within a few hours", "points": 2 },
+        { "label": "Fast replies plus self-serve answers (FAQ, portal, chatbot)", "points": 3 }
+      ]
+    },
+    {
+      "id": "auto-1",
+      "category": "automation",
+      "text": "How many of your repetitive tasks are automated today?",
+      "options": [
+        { "label": "None — everything is manual", "points": 0 },
+        { "label": "One or two small things", "points": 1 },
+        { "label": "Several key workflows", "points": 2 },
+        { "label": "Most repetitive work runs without us touching it", "points": 3 }
+      ]
+    },
+    {
+      "id": "auto-2",
+      "category": "automation",
+      "text": "Do your main tools (calendar, CRM, invoicing, email) talk to each other?",
+      "options": [
+        { "label": "No — we copy information between them by hand", "points": 0 },
+        { "label": "A couple are connected", "points": 1 },
+        { "label": "Most are connected", "points": 2 },
+        { "label": "Fully connected — data flows automatically", "points": 3 }
+      ]
+    },
+    {
+      "id": "auto-3",
+      "category": "automation",
+      "text": "How are appointments booked with you?",
+      "options": [
+        { "label": "Back-and-forth emails or phone tag", "points": 0 },
+        { "label": "Mostly manual with some online booking", "points": 1 },
+        { "label": "Online booking for most appointments", "points": 2 },
+        { "label": "Online booking with automated reminders and follow-ups", "points": 3 }
+      ]
+    },
+    {
+      "id": "ai-1",
+      "category": "ai-readiness",
+      "text": "How is your business using AI right now?",
+      "options": [
+        { "label": "Not at all", "points": 0 },
+        { "label": "Occasional ChatGPT use by one person", "points": 1 },
+        { "label": "Regular AI use for writing, research or admin", "points": 2 },
+        { "label": "AI is built into our daily workflows", "points": 3 }
+      ]
+    },
+    {
+      "id": "ai-2",
+      "category": "ai-readiness",
+      "text": "How does your team feel about adopting AI tools?",
+      "options": [
+        { "label": "Resistant or fearful", "points": 0 },
+        { "label": "Curious but nobody leads it", "points": 1 },
+        { "label": "Open — a few people experiment", "points": 2 },
+        { "label": "Enthusiastic — we actively look for AI wins", "points": 3 }
+      ]
+    },
+    {
+      "id": "ai-3",
+      "category": "ai-readiness",
+      "text": "Is your business data (clients, projects, documents) organized enough for AI tools to use?",
+      "options": [
+        { "label": "Scattered across inboxes and desktops", "points": 0 },
+        { "label": "Some structure, lots of mess", "points": 1 },
+        { "label": "Mostly organized in shared systems", "points": 2 },
+        { "label": "Clean, centralized and consistently organized", "points": 3 }
+      ]
+    },
+    {
+      "id": "lead-1",
+      "category": "leadership",
+      "text": "How much of your week is spent working ON the business (strategy, systems) vs IN it (delivery, firefighting)?",
+      "options": [
+        { "label": "Zero — I'm buried in daily work", "points": 0 },
+        { "label": "An hour here and there", "points": 1 },
+        { "label": "A few protected hours weekly", "points": 2 },
+        { "label": "Significant, scheduled strategic time every week", "points": 3 }
+      ]
+    },
+    {
+      "id": "lead-2",
+      "category": "leadership",
+      "text": "Do you have clear goals and numbers you review every month?",
+      "options": [
+        { "label": "No formal goals or reviews", "points": 0 },
+        { "label": "Goals exist but we rarely check them", "points": 1 },
+        { "label": "We review key numbers monthly", "points": 2 },
+        { "label": "Clear goals, weekly scorecard, monthly review rhythm", "points": 3 }
+      ]
+    },
+    {
+      "id": "lead-3",
+      "category": "leadership",
+      "text": "If you took two weeks off, what would happen?",
+      "options": [
+        { "label": "Things would grind to a halt", "points": 0 },
+        { "label": "Major problems would pile up", "points": 1 },
+        { "label": "The team would mostly cope", "points": 2 },
+        { "label": "Business as usual — it runs without me", "points": 3 }
+      ]
+    },
+    {
+      "id": "sys-1",
+      "category": "systems",
+      "text": "Where does important business knowledge live (processes, templates, passwords)?",
+      "options": [
+        { "label": "In my head", "points": 0 },
+        { "label": "Scattered across email, notes and chat", "points": 1 },
+        { "label": "Mostly in one shared place", "points": 2 },
+        { "label": "One organized, up-to-date central hub", "points": 3 }
+      ]
+    },
+    {
+      "id": "sys-2",
+      "category": "systems",
+      "text": "How does a new hire learn how you do things?",
+      "options": [
+        { "label": "They shadow someone and figure it out", "points": 0 },
+        { "label": "Some verbal training, no materials", "points": 1 },
+        { "label": "Basic written guides exist", "points": 2 },
+        { "label": "A structured onboarding with documented processes", "points": 3 }
+      ]
+    },
+    {
+      "id": "sys-3",
+      "category": "systems",
+      "text": "How standardized is the work you deliver to clients?",
+      "options": [
+        { "label": "Every job is reinvented from scratch", "points": 0 },
+        { "label": "Loose patterns, lots of variation", "points": 1 },
+        { "label": "Templates and checklists for core work", "points": 2 },
+        { "label": "Repeatable, consistent delivery system", "points": 3 }
+      ]
+    }
+  ],
+  "bands": [
+    {
+      "min": 0,
+      "max": 39,
+      "label": "Critical — Your business is running you",
+      "summary": "Your business depends heavily on manual effort and memory. That means long hours, missed leads and money left on the table every single week. The good news: businesses at this stage see the fastest, most dramatic wins from basic systems and automation.",
+      "hoursSavedPerWeek": "10–20 hrs / week",
+      "revenueOpportunity": "$30,000–$100,000+ / year",
+      "actionPlan": [
+        "Week 1: Write down every repetitive task you and your team do. Circle the 3 that eat the most time.",
+        "Week 1: Set up instant lead response — an auto-reply plus a same-hour follow-up rule for every new inquiry.",
+        "Week 2: Add online booking (e.g. Calendly) so appointments stop requiring back-and-forth emails.",
+        "Week 2: Put every lead into one list or simple CRM — nothing lives in inboxes anymore.",
+        "Week 3: Automate your #1 most repetitive task using your CRM, Zapier or an AI assistant.",
+        "Week 3: Create an automated review-request message that goes out after every completed job.",
+        "Week 4: Document your single most important process as a one-page checklist.",
+        "Week 4: Book an AI Audit to map which fixes will pay off fastest for your specific business."
+      ]
+    },
+    {
+      "min": 40,
+      "max": 59,
+      "label": "At Risk — Working hard, leaking value",
+      "summary": "You have some structure, but too much still depends on manual effort. Leads slip away, hours vanish into admin work, and growth feels like it always requires more of YOU. Targeted automation could change that within 30 days.",
+      "hoursSavedPerWeek": "6–12 hrs / week",
+      "revenueOpportunity": "$20,000–$60,000 / year",
+      "actionPlan": [
+        "Week 1: Audit where your hours went last week — mark every task that a tool or template could do.",
+        "Week 1: Tighten lead response to under 15 minutes with an auto-reply plus notification system.",
+        "Week 2: Build one automated follow-up sequence for leads that don't buy immediately.",
+        "Week 2: Connect your two most-used tools so data stops being copied by hand.",
+        "Week 3: Standardize client onboarding into a repeatable, mostly automated sequence.",
+        "Week 3: Start using AI weekly for drafting emails, proposals and content.",
+        "Week 4: Document your top 3 processes and assign clear owners.",
+        "Week 4: Book an AI Audit to prioritize your next automations by ROI."
+      ]
+    },
+    {
+      "min": 60,
+      "max": 79,
+      "label": "Solid — Strong foundation, untapped upside",
+      "summary": "Your business runs well — better than most. But 'well' still hides real money: partially automated follow-up, inconsistent systems and underused AI are quietly capping your growth. You're in the perfect position to compound small optimizations into a big edge.",
+      "hoursSavedPerWeek": "3–8 hrs / week",
+      "revenueOpportunity": "$10,000–$40,000 / year",
+      "actionPlan": [
+        "Week 1: Review your category scores below — pick your single weakest area as this month's focus.",
+        "Week 1: Set a measurable 30-day target for that area (e.g. 'respond to 100% of leads in 5 minutes').",
+        "Week 2: Automate the biggest remaining manual workflow end-to-end.",
+        "Week 2: Introduce AI into one client-facing process (proposals, reports or communication).",
+        "Week 3: Build a simple weekly scorecard with your 5 most important numbers.",
+        "Week 3: Train the team on the new systems so improvements stick.",
+        "Week 4: Delegate or automate one task that still needs the owner personally.",
+        "Week 4: Book an AI Audit to identify advanced automations your competitors aren't using yet."
+      ]
+    },
+    {
+      "min": 80,
+      "max": 100,
+      "label": "Optimized — Now build your unfair advantage",
+      "summary": "Impressive. Your business runs on systems, not heroics. Your next opportunity isn't fixing leaks — it's using AI to widen the gap: faster delivery, smarter marketing and scale without headcount.",
+      "hoursSavedPerWeek": "2–5 hrs / week",
+      "revenueOpportunity": "$10,000–$30,000 / year in scale efficiency",
+      "actionPlan": [
+        "Week 1: Identify your most profitable service and map how AI could deliver it faster or better.",
+        "Week 1: Audit your tech stack for overlapping tools you can consolidate.",
+        "Week 2: Pilot an AI assistant for one internal function (research, reporting or client comms).",
+        "Week 2: Turn your best-performing marketing asset into an automated evergreen funnel.",
+        "Week 3: Build a knowledge base so AI tools can answer questions from YOUR business data.",
+        "Week 3: Set up quarterly systems reviews so nothing quietly decays.",
+        "Week 4: Explore a productized or scalable offer that runs mostly on systems.",
+        "Week 4: Book an AI Audit to pressure-test your stack against what's now possible."
+      ]
+    }
+  ],
+  "tools": [
+    { "name": "ChatGPT / Claude", "use": "Draft emails, proposals, job descriptions and marketing content in minutes." },
+    { "name": "Zapier or Make", "use": "Connect your tools so data moves automatically instead of by hand." },
+    { "name": "Calendly", "use": "Kill appointment phone-tag with online booking and automatic reminders." },
+    { "name": "HubSpot (free) or GoHighLevel", "use": "Track every lead and automate follow-up so nobody slips away." },
+    { "name": "Notion or Google Drive", "use": "One central hub for processes, templates and team knowledge." }
+  ]
+}

@@ -1,0 +1,227 @@
+{
+  "id": "founder-dependency",
+  "title": "Founder Dependency Score™",
+  "tagline": "Could your business run without you for a month? Find out — and fix it.",
+  "description": "12 questions that measure how much your business depends on you personally — and show you which systems, delegation moves and automations would set you free.",
+  "icon": "🔑",
+  "estimatedMinutes": 4,
+  "categories": [
+    {
+      "id": "delegation",
+      "label": "Delegation",
+      "recommendation": "List every task only you can do today. For each, ask: could someone else do this at 80% quality with a checklist? Start handing those off this month."
+    },
+    {
+      "id": "documentation",
+      "label": "Documentation",
+      "recommendation": "Record yourself doing your 3 most critical tasks (a simple screen recording works), have AI turn the transcripts into step-by-step guides, and store them in one shared hub."
+    },
+    {
+      "id": "systems",
+      "label": "Systems & Automation",
+      "recommendation": "Replace yourself with systems where possible: automated scheduling, follow-up, invoicing and reporting remove entire categories of founder work."
+    },
+    {
+      "id": "decisions",
+      "label": "Decision Making",
+      "recommendation": "Write simple decision rules (spending limits, discount rules, escalation criteria) so your team can decide without you for 90% of situations."
+    }
+  ],
+  "questions": [
+    {
+      "id": "del-1",
+      "category": "delegation",
+      "text": "How many of your weekly tasks could ONLY be done by you?",
+      "options": [
+        { "label": "Almost all of them", "points": 0 },
+        { "label": "More than half", "points": 1 },
+        { "label": "A few key ones", "points": 2 },
+        { "label": "Very few — most work is delegated", "points": 3 }
+      ]
+    },
+    {
+      "id": "del-2",
+      "category": "delegation",
+      "text": "Do clients insist on dealing with you personally?",
+      "options": [
+        { "label": "Always — I am the business", "points": 0 },
+        { "label": "Usually", "points": 1 },
+        { "label": "Sometimes", "points": 2 },
+        { "label": "Rarely — they trust the team and the system", "points": 3 }
+      ]
+    },
+    {
+      "id": "del-3",
+      "category": "delegation",
+      "text": "When you delegate a task, what usually happens?",
+      "options": [
+        { "label": "I don't delegate — faster to do it myself", "points": 0 },
+        { "label": "It comes back with problems I must fix", "points": 1 },
+        { "label": "It mostly gets done well", "points": 2 },
+        { "label": "It gets done well — clear instructions, clear ownership", "points": 3 }
+      ]
+    },
+    {
+      "id": "doc-1",
+      "category": "documentation",
+      "text": "If you disappeared for a month, could your team find how to do things in writing?",
+      "options": [
+        { "label": "No — it's all in my head", "points": 0 },
+        { "label": "Bits and pieces exist", "points": 1 },
+        { "label": "Core processes are documented", "points": 2 },
+        { "label": "Yes — a complete, current operations manual", "points": 3 }
+      ]
+    },
+    {
+      "id": "doc-2",
+      "category": "documentation",
+      "text": "Are your prices, packages and standard terms written down where the team can use them?",
+      "options": [
+        { "label": "No — pricing lives in my head", "points": 0 },
+        { "label": "Roughly", "points": 1 },
+        { "label": "Yes, documented", "points": 2 },
+        { "label": "Yes — documented with rules for exceptions", "points": 3 }
+      ]
+    },
+    {
+      "id": "doc-3",
+      "category": "documentation",
+      "text": "Could someone else access every account and tool if you were unreachable?",
+      "options": [
+        { "label": "No — passwords are mine alone", "points": 0 },
+        { "label": "Some shared informally", "points": 1 },
+        { "label": "Most are accessible", "points": 2 },
+        { "label": "Yes — secure shared password manager", "points": 3 }
+      ]
+    },
+    {
+      "id": "sys-1",
+      "category": "systems",
+      "text": "How much of your customer journey (booking, onboarding, follow-up, invoicing) runs automatically?",
+      "options": [
+        { "label": "None — I drive every step", "points": 0 },
+        { "label": "A little", "points": 1 },
+        { "label": "About half", "points": 2 },
+        { "label": "Most of it runs without me", "points": 3 }
+      ]
+    },
+    {
+      "id": "sys-2",
+      "category": "systems",
+      "text": "Does new business (leads, referrals, marketing) depend on your personal activity?",
+      "options": [
+        { "label": "Entirely — if I stop, leads stop", "points": 0 },
+        { "label": "Mostly", "points": 1 },
+        { "label": "Partially — some runs on systems", "points": 2 },
+        { "label": "No — marketing runs on systems and automation", "points": 3 }
+      ]
+    },
+    {
+      "id": "sys-3",
+      "category": "systems",
+      "text": "Have you taken a real vacation (1+ week, minimal contact) in the last year?",
+      "options": [
+        { "label": "No — impossible", "points": 0 },
+        { "label": "Yes, but I worked through it", "points": 1 },
+        { "label": "Yes, with some check-ins", "points": 2 },
+        { "label": "Yes — fully offline, business ran fine", "points": 3 }
+      ]
+    },
+    {
+      "id": "dec-1",
+      "category": "decisions",
+      "text": "How many decisions per day come to you that someone else could make?",
+      "options": [
+        { "label": "Constant — I'm the bottleneck for everything", "points": 0 },
+        { "label": "Many", "points": 1 },
+        { "label": "A few", "points": 2 },
+        { "label": "Rare — the team decides within clear rules", "points": 3 }
+      ]
+    },
+    {
+      "id": "dec-2",
+      "category": "decisions",
+      "text": "Does your team have written rules for common decisions (refunds, discounts, spending, exceptions)?",
+      "options": [
+        { "label": "No — they ask me every time", "points": 0 },
+        { "label": "Unwritten habits", "points": 1 },
+        { "label": "Rules for some situations", "points": 2 },
+        { "label": "Clear written guidelines with limits", "points": 3 }
+      ]
+    },
+    {
+      "id": "dec-3",
+      "category": "decisions",
+      "text": "If a problem hit while you were on a plane for 8 hours, what would happen?",
+      "options": [
+        { "label": "Everything would wait for me to land", "points": 0 },
+        { "label": "Panic, then wait", "points": 1 },
+        { "label": "The team would handle most of it", "points": 2 },
+        { "label": "Handled — clear escalation and authority exist", "points": 3 }
+      ]
+    }
+  ],
+  "bands": [
+    {
+      "min": 0,
+      "max": 39,
+      "label": "Owner-Trapped — You ARE the business",
+      "summary": "Right now, the business doesn't run without you — which caps your growth, your freedom and your company's sale value at whatever YOU can personally sustain. The escape route is systematic: document, delegate, automate — in that order.",
+      "hoursSavedPerWeek": "8–15 hrs / week within 90 days",
+      "revenueOpportunity": "$25,000–$80,000 / year + a sellable business",
+      "actionPlan": [
+        "Week 1: Track a week of your time. Mark every task as: only-me, delegatable, or automatable.",
+        "Week 1: Set up a shared password manager — remove yourself as the access bottleneck.",
+        "Week 2: Record screen videos of your 3 most critical tasks; have AI turn them into written guides.",
+        "Week 2: Automate scheduling and invoice chasing — two founder jobs gone.",
+        "Week 3: Delegate ONE recurring task fully, with a checklist and a named owner.",
+        "Week 3: Write decision rules: spending limits, discount limits, when to escalate.",
+        "Week 4: Take one full day off as a test. Note everything that breaks — that's next month's list.",
+        "Week 4: Book an AI Audit to map which founder tasks AI can absorb first."
+      ]
+    },
+    {
+      "min": 40,
+      "max": 69,
+      "label": "Partially Free — The bottleneck is shrinking",
+      "summary": "You've built some independence, but the business still leans on you for too many decisions, too much knowledge and too much daily drive. You're closer than you think: most owners at this stage can reach 'runs without me for 2 weeks' within a quarter.",
+      "hoursSavedPerWeek": "5–10 hrs / week within 90 days",
+      "revenueOpportunity": "$15,000–$50,000 / year + resilience",
+      "actionPlan": [
+        "Week 1: List every decision that reached you last week — write a rule for each repeat offender.",
+        "Week 1: Identify your weakest area from the breakdown below and make it the month's focus.",
+        "Week 2: Document the 3 processes that still live only in your head.",
+        "Week 2: Automate one customer-journey step you still drive manually.",
+        "Week 3: Hand a client relationship fully to a team member with a clear playbook.",
+        "Week 3: Build a marketing system that generates leads without your daily activity.",
+        "Week 4: Test with 3 days fully offline. Fix what wobbles.",
+        "Week 4: Book an AI Audit to accelerate the remaining handoffs with AI."
+      ]
+    },
+    {
+      "min": 70,
+      "max": 100,
+      "label": "Owner-Independent — Protect and compound it",
+      "summary": "Rare air: your business largely runs on systems and team, not your hourly presence. Your job now is protecting that freedom (systems decay!) and using it — for growth, higher-value work or eventually a premium exit.",
+      "hoursSavedPerWeek": "2–4 hrs / week in remaining polish",
+      "revenueOpportunity": "Higher business valuation + growth capacity",
+      "actionPlan": [
+        "Week 1: Stress-test: list the 3 things that would still need you in a crisis. Systemize one.",
+        "Week 1: Schedule quarterly reviews of your documentation so it stays current.",
+        "Week 2: Add AI to your reporting so you steer with a weekly scorecard, not meetings.",
+        "Week 2: Cross-train so no single person (including you) is a point of failure.",
+        "Week 3: Reinvest your freed time: new offer, new market or strategic partnerships.",
+        "Week 3: Have your #2 run the business for a full week while you observe only.",
+        "Week 4: Document YOUR remaining role — the last playbook is the founder's.",
+        "Week 4: Book an AI Audit to explore what full AI leverage makes possible next."
+      ]
+    }
+  ],
+  "tools": [
+    { "name": "Loom", "use": "Record how you do tasks once — it becomes training forever." },
+    { "name": "ChatGPT / Claude", "use": "Turn recordings and notes into clean written procedures instantly." },
+    { "name": "Notion", "use": "One hub for every process, playbook and decision rule." },
+    { "name": "1Password", "use": "Shared, secure access so you're not the password bottleneck." },
+    { "name": "Zapier or Make", "use": "Automate the routine steps you still push manually." }
+  ]
+}

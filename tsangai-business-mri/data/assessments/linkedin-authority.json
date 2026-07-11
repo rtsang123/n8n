@@ -1,0 +1,227 @@
+{
+  "id": "linkedin-authority",
+  "title": "LinkedIn Authority Score™",
+  "tagline": "Does your LinkedIn profile attract clients — or quietly turn them away?",
+  "description": "12 questions that score your LinkedIn profile on headline, visuals, story, content and trust — and show you exactly what to fix to attract clients.",
+  "icon": "💼",
+  "estimatedMinutes": 4,
+  "categories": [
+    {
+      "id": "profile",
+      "label": "Profile Foundations",
+      "recommendation": "Rewrite your headline around the client outcome you deliver ('I help X achieve Y') and add a branded banner with a clear promise — these two changes alone transform first impressions."
+    },
+    {
+      "id": "story",
+      "label": "About Section & CTA",
+      "recommendation": "Rewrite your About section to speak to your ideal client's problem, prove you solve it, and end with ONE clear call-to-action with a link."
+    },
+    {
+      "id": "content",
+      "label": "Content & Visibility",
+      "recommendation": "Post twice a week about client problems and results — use AI to draft posts from your real client stories so consistency doesn't depend on inspiration."
+    },
+    {
+      "id": "authority",
+      "label": "Authority & Trust",
+      "recommendation": "Collect 5 recommendations from past clients this month and add your best results to your Featured section — social proof does your selling for you."
+    }
+  ],
+  "questions": [
+    {
+      "id": "prof-1",
+      "category": "profile",
+      "text": "What does your LinkedIn headline say?",
+      "options": [
+        { "label": "Just my job title and company", "points": 0 },
+        { "label": "Title plus a few keywords", "points": 1 },
+        { "label": "It describes what I do for clients", "points": 2 },
+        { "label": "A clear 'I help X achieve Y' promise with proof", "points": 3 }
+      ]
+    },
+    {
+      "id": "prof-2",
+      "category": "profile",
+      "text": "What's in your banner image (the big image behind your photo)?",
+      "options": [
+        { "label": "The default blue background", "points": 0 },
+        { "label": "A generic stock image", "points": 1 },
+        { "label": "A branded image", "points": 2 },
+        { "label": "Branded banner with my promise and a call-to-action", "points": 3 }
+      ]
+    },
+    {
+      "id": "prof-3",
+      "category": "profile",
+      "text": "How professional is your profile photo?",
+      "options": [
+        { "label": "No photo, or a very casual one", "points": 0 },
+        { "label": "Decent but dated or low quality", "points": 1 },
+        { "label": "Good quality headshot", "points": 2 },
+        { "label": "Professional, friendly, recent headshot", "points": 3 }
+      ]
+    },
+    {
+      "id": "story-1",
+      "category": "story",
+      "text": "Who is your About section written for?",
+      "options": [
+        { "label": "It's empty or just a bio/resume", "points": 0 },
+        { "label": "Mostly about me and my career", "points": 1 },
+        { "label": "A mix of my story and client value", "points": 2 },
+        { "label": "Written to my ideal client: their problem, my solution, proof", "points": 3 }
+      ]
+    },
+    {
+      "id": "story-2",
+      "category": "story",
+      "text": "Does your profile tell people what to do next (book a call, visit a link, message you)?",
+      "options": [
+        { "label": "No call-to-action anywhere", "points": 0 },
+        { "label": "A website link, no invitation", "points": 1 },
+        { "label": "A CTA in one place", "points": 2 },
+        { "label": "Clear CTA in headline, About and Featured sections", "points": 3 }
+      ]
+    },
+    {
+      "id": "story-3",
+      "category": "story",
+      "text": "Are you using the Featured section (pinned links, lead magnets, results)?",
+      "options": [
+        { "label": "What Featured section?", "points": 0 },
+        { "label": "It exists but is outdated", "points": 1 },
+        { "label": "Yes, with a link or two", "points": 2 },
+        { "label": "Yes — lead magnet, best content and booking link", "points": 3 }
+      ]
+    },
+    {
+      "id": "cont-1",
+      "category": "content",
+      "text": "How often do you post on LinkedIn?",
+      "options": [
+        { "label": "Never, or a few times a year", "points": 0 },
+        { "label": "Monthly-ish", "points": 1 },
+        { "label": "Weekly", "points": 2 },
+        { "label": "2+ times per week, consistently", "points": 3 }
+      ]
+    },
+    {
+      "id": "cont-2",
+      "category": "content",
+      "text": "What do you mostly post about?",
+      "options": [
+        { "label": "I don't post", "points": 0 },
+        { "label": "Company news and reshares", "points": 1 },
+        { "label": "Industry tips and opinions", "points": 2 },
+        { "label": "Client problems, results and lessons — content that attracts buyers", "points": 3 }
+      ]
+    },
+    {
+      "id": "cont-3",
+      "category": "content",
+      "text": "Do you engage (comment meaningfully) with your ideal clients' posts?",
+      "options": [
+        { "label": "No", "points": 0 },
+        { "label": "Occasional likes", "points": 1 },
+        { "label": "Some comments when I have time", "points": 2 },
+        { "label": "Yes — deliberate daily engagement with target clients", "points": 3 }
+      ]
+    },
+    {
+      "id": "auth-1",
+      "category": "authority",
+      "text": "How many recommendations do you have from clients?",
+      "options": [
+        { "label": "None", "points": 0 },
+        { "label": "1–2, mostly from colleagues", "points": 1 },
+        { "label": "3–5 including clients", "points": 2 },
+        { "label": "6+ client recommendations mentioning results", "points": 3 }
+      ]
+    },
+    {
+      "id": "auth-2",
+      "category": "authority",
+      "text": "Does your profile show specific results or numbers you've achieved for clients?",
+      "options": [
+        { "label": "No", "points": 0 },
+        { "label": "Vague claims ('helped many businesses')", "points": 1 },
+        { "label": "Some specifics", "points": 2 },
+        { "label": "Concrete numbers and named outcomes throughout", "points": 3 }
+      ]
+    },
+    {
+      "id": "auth-3",
+      "category": "authority",
+      "text": "When prospects Google your name, does your LinkedIn make you look like the obvious expert?",
+      "options": [
+        { "label": "Honestly, no", "points": 0 },
+        { "label": "It's fine, not impressive", "points": 1 },
+        { "label": "It's strong", "points": 2 },
+        { "label": "Yes — it closes deals before the first call", "points": 3 }
+      ]
+    }
+  ],
+  "bands": [
+    {
+      "min": 0,
+      "max": 39,
+      "label": "Invisible — Prospects can't find a reason to trust you",
+      "summary": "Right now your LinkedIn is a missed opportunity: prospects who check you out (and they do — before almost every deal) find nothing that says 'this is the person to hire.' The fix is mostly writing, not time — and AI makes it fast.",
+      "hoursSavedPerWeek": "1–2 hrs / week once systemized",
+      "revenueOpportunity": "$10,000–$50,000 / year in inbound opportunities",
+      "actionPlan": [
+        "Week 1: Rewrite your headline: 'I help [ideal client] achieve [outcome]'.",
+        "Week 1: Upload a professional photo and a simple branded banner (Canva, 30 minutes).",
+        "Week 2: Rewrite your About section for your ideal client, ending with a clear CTA.",
+        "Week 2: Add your booking link and best proof to the Featured section.",
+        "Week 3: Ask 5 past clients for recommendations (send them a draft to make it easy).",
+        "Week 3: Draft 8 posts from real client stories using AI — schedule 2 per week.",
+        "Week 4: Spend 15 minutes a day commenting on ideal clients' posts.",
+        "Week 4: Book an AI Audit to systemize content creation permanently."
+      ]
+    },
+    {
+      "min": 40,
+      "max": 69,
+      "label": "Present but not Persuasive",
+      "summary": "Your profile exists and looks respectable — but it reads like a resume, not a client magnet. You're one strong rewrite and a consistent posting rhythm away from LinkedIn actually generating conversations.",
+      "hoursSavedPerWeek": "1–2 hrs / week once systemized",
+      "revenueOpportunity": "$10,000–$35,000 / year in inbound opportunities",
+      "actionPlan": [
+        "Week 1: Upgrade your headline from title to client promise.",
+        "Week 1: Fix your weakest area from the score breakdown below.",
+        "Week 2: Restructure your About section: their problem → your solution → proof → CTA.",
+        "Week 2: Refresh the Featured section with a lead magnet and booking link.",
+        "Week 3: Build a 2-post-per-week rhythm using AI drafts from client stories.",
+        "Week 3: Request recommendations from your 3 best clients.",
+        "Week 4: Start 15 minutes of daily strategic commenting.",
+        "Week 4: Book an AI Audit to automate your content pipeline."
+      ]
+    },
+    {
+      "min": 70,
+      "max": 100,
+      "label": "Authority — Now scale the machine",
+      "summary": "Your LinkedIn presence is genuinely strong — clear positioning, proof and activity. The next level is leverage: systemized content, deliberate outreach and converting profile visitors into booked calls automatically.",
+      "hoursSavedPerWeek": "1–2 hrs / week via content systems",
+      "revenueOpportunity": "$10,000–$30,000 / year in accelerated pipeline",
+      "actionPlan": [
+        "Week 1: Audit your last 10 posts — double down on the 2 formats that got real engagement.",
+        "Week 1: Add a direct booking link everywhere a prospect might look.",
+        "Week 2: Build an AI-assisted content system: 1 hour to draft a month of posts.",
+        "Week 2: Create one flagship piece (guide or case study) for the Featured section.",
+        "Week 3: Start deliberate outreach: 5 warm, personalized conversations per week.",
+        "Week 3: Track profile views → conversations → calls in a simple sheet.",
+        "Week 4: Ask your best clients for results-focused recommendations.",
+        "Week 4: Book an AI Audit to connect LinkedIn into your full lead pipeline."
+      ]
+    }
+  ],
+  "tools": [
+    { "name": "ChatGPT / Claude", "use": "Draft headlines, About sections and a month of posts from your client stories." },
+    { "name": "Canva", "use": "Professional banner and post graphics in minutes, no designer needed." },
+    { "name": "Shield or LinkedIn analytics", "use": "See which content actually attracts your buyers." },
+    { "name": "Calendly", "use": "A booking link so profile visitors can become meetings instantly." },
+    { "name": "Taplio or Buffer", "use": "Schedule posts so consistency doesn't depend on motivation." }
+  ]
+}

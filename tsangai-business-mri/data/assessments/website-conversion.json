@@ -1,0 +1,304 @@
+{
+  "id": "website-conversion",
+  "title": "Website Conversion Score™",
+  "tagline": "20 smart questions that reveal why your website isn't turning visitors into clients.",
+  "description": "Answer 20 quick questions about your website and get a conversion score plus the highest-priority improvements — no technical scan, no jargon.",
+  "icon": "🖥️",
+  "estimatedMinutes": 5,
+  "categories": [
+    {
+      "id": "clarity",
+      "label": "Clarity & First Impression",
+      "recommendation": "Rewrite your homepage headline so a stranger instantly knows what you do, who it's for and why it matters — then say it above the fold."
+    },
+    {
+      "id": "trust",
+      "label": "Trust & Proof",
+      "recommendation": "Add testimonials with real names and photos, your reviews score, and any credentials or badges near every point where visitors decide."
+    },
+    {
+      "id": "cta",
+      "label": "Calls to Action",
+      "recommendation": "Give every page ONE obvious next step — a large, high-contrast button with action words like 'Book my free call' — and repeat it down the page."
+    },
+    {
+      "id": "contact",
+      "label": "Contact & Booking Ease",
+      "recommendation": "Make contacting you effortless: visible phone number, short forms (3 fields max) and online booking so visitors can act at 11pm."
+    },
+    {
+      "id": "content",
+      "label": "Content & Answers",
+      "recommendation": "Answer your buyers' real questions on the site — pricing guidance, process, FAQs — so visitors don't leave to find answers elsewhere."
+    }
+  ],
+  "questions": [
+    {
+      "id": "clar-1",
+      "category": "clarity",
+      "text": "Can a first-time visitor tell what you do within 5 seconds of landing on your homepage?",
+      "options": [
+        { "label": "Honestly, no", "points": 0 },
+        { "label": "Maybe, if they read a bit", "points": 1 },
+        { "label": "Yes, it's fairly clear", "points": 2 },
+        { "label": "Instantly — headline says what, who for, and why", "points": 3 }
+      ]
+    },
+    {
+      "id": "clar-2",
+      "category": "clarity",
+      "text": "Does your website look modern and professional on a phone?",
+      "options": [
+        { "label": "No — it's broken or dated on mobile", "points": 0 },
+        { "label": "Usable but clunky", "points": 1 },
+        { "label": "Decent", "points": 2 },
+        { "label": "Excellent — designed mobile-first", "points": 3 }
+      ]
+    },
+    {
+      "id": "clar-3",
+      "category": "clarity",
+      "text": "Does your homepage speak to a specific type of client?",
+      "options": [
+        { "label": "No — it's generic, for 'everyone'", "points": 0 },
+        { "label": "Somewhat", "points": 1 },
+        { "label": "Yes, our ideal client would feel it's for them", "points": 3 }
+      ]
+    },
+    {
+      "id": "clar-4",
+      "category": "clarity",
+      "text": "How fast does your website load?",
+      "options": [
+        { "label": "Slow — I've noticed it myself", "points": 0 },
+        { "label": "Not sure", "points": 1 },
+        { "label": "Fast on both phone and desktop", "points": 3 }
+      ]
+    },
+    {
+      "id": "trust-1",
+      "category": "trust",
+      "text": "Do you display client testimonials on your website?",
+      "options": [
+        { "label": "None", "points": 0 },
+        { "label": "A few, without names or photos", "points": 1 },
+        { "label": "Several with real names", "points": 2 },
+        { "label": "Many, with names, photos and specific results", "points": 3 }
+      ]
+    },
+    {
+      "id": "trust-2",
+      "category": "trust",
+      "text": "Do you show your Google (or industry) review rating on the site?",
+      "options": [
+        { "label": "No", "points": 0 },
+        { "label": "It's mentioned somewhere", "points": 1 },
+        { "label": "Yes, prominently with a live count", "points": 3 }
+      ]
+    },
+    {
+      "id": "trust-3",
+      "category": "trust",
+      "text": "Do you display trust badges (certifications, associations, awards, guarantees)?",
+      "options": [
+        { "label": "No", "points": 0 },
+        { "label": "One or two, buried", "points": 1 },
+        { "label": "Yes, visible near decision points", "points": 3 }
+      ]
+    },
+    {
+      "id": "trust-4",
+      "category": "trust",
+      "text": "Are there real photos of you and your team (not just stock photos)?",
+      "options": [
+        { "label": "All stock photos", "points": 0 },
+        { "label": "A mix", "points": 1 },
+        { "label": "Yes — real people, real work", "points": 3 }
+      ]
+    },
+    {
+      "id": "trust-5",
+      "category": "trust",
+      "text": "Do you share case studies or before/after results?",
+      "options": [
+        { "label": "No", "points": 0 },
+        { "label": "One or two", "points": 1 },
+        { "label": "Yes, with specific numbers and stories", "points": 3 }
+      ]
+    },
+    {
+      "id": "cta-1",
+      "category": "cta",
+      "text": "Does every page have a clear, obvious button telling visitors what to do next?",
+      "options": [
+        { "label": "No — pages just end", "points": 0 },
+        { "label": "Some pages do", "points": 1 },
+        { "label": "Most pages", "points": 2 },
+        { "label": "Every page, repeated as you scroll", "points": 3 }
+      ]
+    },
+    {
+      "id": "cta-2",
+      "category": "cta",
+      "text": "Is your main call-to-action visible without scrolling on your homepage?",
+      "options": [
+        { "label": "No", "points": 0 },
+        { "label": "Only on desktop", "points": 1 },
+        { "label": "Yes, on desktop and mobile", "points": 3 }
+      ]
+    },
+    {
+      "id": "cta-3",
+      "category": "cta",
+      "text": "Do you offer a low-commitment first step (free guide, assessment, consult) for visitors not ready to buy?",
+      "options": [
+        { "label": "No — it's 'contact us' or nothing", "points": 0 },
+        { "label": "A newsletter signup", "points": 1 },
+        { "label": "Yes — a genuinely valuable free offer", "points": 3 }
+      ]
+    },
+    {
+      "id": "cta-4",
+      "category": "cta",
+      "text": "Do your buttons use action language ('Get my free quote') instead of vague labels ('Submit', 'Learn more')?",
+      "options": [
+        { "label": "Mostly vague labels", "points": 0 },
+        { "label": "A mix", "points": 1 },
+        { "label": "Yes — specific, benefit-driven button text", "points": 3 }
+      ]
+    },
+    {
+      "id": "cont-1",
+      "category": "contact",
+      "text": "Is your phone number visible at the top of every page?",
+      "options": [
+        { "label": "No", "points": 0 },
+        { "label": "It's on the contact page only", "points": 1 },
+        { "label": "Yes, clickable on mobile too", "points": 3 }
+      ]
+    },
+    {
+      "id": "cont-2",
+      "category": "contact",
+      "text": "Can visitors book an appointment online without calling or emailing?",
+      "options": [
+        { "label": "No", "points": 0 },
+        { "label": "They can request a time by form", "points": 1 },
+        { "label": "Yes — real online booking with available slots", "points": 3 }
+      ]
+    },
+    {
+      "id": "cont-3",
+      "category": "contact",
+      "text": "How long is your contact form?",
+      "options": [
+        { "label": "Long — 6+ fields", "points": 0 },
+        { "label": "4–5 fields", "points": 1 },
+        { "label": "Short — name, contact, message", "points": 3 }
+      ]
+    },
+    {
+      "id": "cont-4",
+      "category": "contact",
+      "text": "What happens right after someone submits your form?",
+      "options": [
+        { "label": "Nothing — we reply when we see it", "points": 0 },
+        { "label": "A generic thank-you page", "points": 1 },
+        { "label": "Instant confirmation + fast personal follow-up", "points": 3 }
+      ]
+    },
+    {
+      "id": "content-1",
+      "category": "content",
+      "text": "Does your website answer frequently asked questions?",
+      "options": [
+        { "label": "No FAQ anywhere", "points": 0 },
+        { "label": "A short, generic FAQ", "points": 1 },
+        { "label": "Yes — real questions buyers actually ask", "points": 3 }
+      ]
+    },
+    {
+      "id": "content-2",
+      "category": "content",
+      "text": "Do you give visitors any pricing guidance (ranges, starting-at, or how pricing works)?",
+      "options": [
+        { "label": "No pricing information at all", "points": 0 },
+        { "label": "Vague mentions", "points": 1 },
+        { "label": "Yes — clear ranges or process", "points": 3 }
+      ]
+    },
+    {
+      "id": "content-3",
+      "category": "content",
+      "text": "Does your site clearly explain what happens after someone contacts you (your process)?",
+      "options": [
+        { "label": "No", "points": 0 },
+        { "label": "Sort of, scattered around", "points": 1 },
+        { "label": "Yes — a simple step-by-step 'how it works'", "points": 3 }
+      ]
+    }
+  ],
+  "bands": [
+    {
+      "min": 0,
+      "max": 39,
+      "label": "Leaking Visitors",
+      "summary": "Your website is likely losing most of its potential clients before they ever contact you. Visitors arrive, can't quickly see why they should trust you or what to do next, and leave — often straight to a competitor. These are fixable problems, and most don't require a redesign.",
+      "hoursSavedPerWeek": "2–4 hrs / week in chasing colder leads",
+      "revenueOpportunity": "$20,000–$75,000 / year in recovered leads",
+      "actionPlan": [
+        "Week 1: Rewrite your homepage headline: what you do, who it's for, why choose you.",
+        "Week 1: Put your phone number and one big CTA button at the top of every page.",
+        "Week 2: Add 3–5 testimonials with real names near your calls-to-action.",
+        "Week 2: Cut your contact form to 3 fields and add an instant confirmation.",
+        "Week 3: Add online booking so visitors can schedule without emailing.",
+        "Week 3: Write an FAQ answering the 8 questions prospects always ask.",
+        "Week 4: Check everything on your phone — fix anything awkward.",
+        "Week 4: Book an AI Audit to add automated follow-up behind the website."
+      ]
+    },
+    {
+      "min": 40,
+      "max": 69,
+      "label": "Converting Below Potential",
+      "summary": "Your website does some things right, but gaps in trust signals, calls-to-action or contact ease are costing you a meaningful share of would-be clients. A focused month of fixes typically lifts conversions noticeably.",
+      "hoursSavedPerWeek": "1–3 hrs / week",
+      "revenueOpportunity": "$10,000–$40,000 / year in recovered leads",
+      "actionPlan": [
+        "Week 1: Fix your weakest category from the breakdown below first.",
+        "Week 1: Make one primary CTA appear consistently on every page.",
+        "Week 2: Strengthen proof: add specific-result testimonials and your review score.",
+        "Week 2: Add a low-commitment offer for visitors who aren't ready to buy.",
+        "Week 3: Add or improve online booking and shorten forms.",
+        "Week 3: Add pricing guidance and a 'how it works' section.",
+        "Week 4: Ask 3 people who match your ideal client to browse the site and narrate their thoughts.",
+        "Week 4: Book an AI Audit to connect the website to automated lead follow-up."
+      ]
+    },
+    {
+      "min": 70,
+      "max": 100,
+      "label": "High-Converting Website",
+      "summary": "Your website is doing its job better than most in your industry — clear, trustworthy and easy to act on. Your growth lever now is what happens after the click: follow-up speed, nurture and getting more of the right visitors to the site.",
+      "hoursSavedPerWeek": "1–2 hrs / week",
+      "revenueOpportunity": "$5,000–$25,000 / year in optimization gains",
+      "actionPlan": [
+        "Week 1: Verify follow-up speed: every form submission should get a response within minutes.",
+        "Week 1: Add automated email nurture for leads who don't book immediately.",
+        "Week 2: A/B test your homepage headline against one alternative.",
+        "Week 2: Add one more proof asset: a case study with numbers.",
+        "Week 3: Review analytics: which pages leak visitors? Improve the worst one.",
+        "Week 3: Make sure every service page has its own CTA and proof.",
+        "Week 4: Turn your best content into a lead magnet with follow-up attached.",
+        "Week 4: Book an AI Audit to explore AI chat and instant-answer tools for the site."
+      ]
+    }
+  ],
+  "tools": [
+    { "name": "Calendly", "use": "Online booking so visitors can act instantly." },
+    { "name": "Google Business Profile", "use": "Collect and showcase the reviews your website should display." },
+    { "name": "ChatGPT / Claude", "use": "Rewrite headlines, CTAs and FAQs in clear, persuasive language." },
+    { "name": "Hotjar (free tier)", "use": "Watch where real visitors get stuck on your pages." },
+    { "name": "Tidio or Crisp", "use": "Simple website chat that answers questions before visitors leave." }
+  ]
+}

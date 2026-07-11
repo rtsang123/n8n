@@ -1,0 +1,245 @@
+{
+  "id": "ai-readiness",
+  "title": "AI Readiness Score™",
+  "tagline": "How ready is your business to profit from AI? Find your score and your quick wins.",
+  "description": "12 questions that measure how your business uses AI and automation today — and reveal the quick wins that could save you hours every week.",
+  "icon": "🤖",
+  "estimatedMinutes": 4,
+  "categories": [
+    {
+      "id": "current-usage",
+      "label": "Current AI Usage",
+      "recommendation": "Pick one daily task (emails, proposals, social posts) and use AI for it every day this week. Consistency beats experiments."
+    },
+    {
+      "id": "automation",
+      "label": "Automation",
+      "recommendation": "Connect your two most-used tools with Zapier or Make so information moves without copy-paste."
+    },
+    {
+      "id": "processes",
+      "label": "Processes",
+      "recommendation": "Write down your 3 most repeated processes as simple checklists — AI and automation can only follow processes that exist on paper."
+    },
+    {
+      "id": "team-adoption",
+      "label": "Team Adoption",
+      "recommendation": "Name an 'AI champion' on your team and run a 30-minute weekly share of what worked. Adoption spreads through wins, not mandates."
+    }
+  ],
+  "questions": [
+    {
+      "id": "use-1",
+      "category": "current-usage",
+      "text": "How often does anyone in your business use AI tools like ChatGPT or Claude?",
+      "options": [
+        { "label": "Never", "points": 0 },
+        { "label": "Once in a while, out of curiosity", "points": 1 },
+        { "label": "Weekly, for real work", "points": 2 },
+        { "label": "Daily — it's part of how we operate", "points": 3 }
+      ]
+    },
+    {
+      "id": "use-2",
+      "category": "current-usage",
+      "text": "Which best describes what you use AI for today?",
+      "options": [
+        { "label": "Nothing yet", "points": 0 },
+        { "label": "Occasional writing help", "points": 1 },
+        { "label": "Writing, research and brainstorming regularly", "points": 2 },
+        { "label": "Embedded in client work, marketing and operations", "points": 3 }
+      ]
+    },
+    {
+      "id": "use-3",
+      "category": "current-usage",
+      "text": "Do you use AI anywhere in your customer communication (drafting replies, chat, follow-ups)?",
+      "options": [
+        { "label": "No", "points": 0 },
+        { "label": "We've tested it once or twice", "points": 1 },
+        { "label": "Yes, for drafting some replies", "points": 2 },
+        { "label": "Yes — AI drafts or handles a large share of it", "points": 3 }
+      ]
+    },
+    {
+      "id": "auto-1",
+      "category": "automation",
+      "text": "How much of your admin work (scheduling, invoicing, data entry) is automated?",
+      "options": [
+        { "label": "None — all manual", "points": 0 },
+        { "label": "A little", "points": 1 },
+        { "label": "About half", "points": 2 },
+        { "label": "Most of it", "points": 3 }
+      ]
+    },
+    {
+      "id": "auto-2",
+      "category": "automation",
+      "text": "When a new lead comes in, what happens automatically?",
+      "options": [
+        { "label": "Nothing — someone has to notice it", "points": 0 },
+        { "label": "We get a notification", "points": 1 },
+        { "label": "Auto-reply plus it's logged in our CRM", "points": 2 },
+        { "label": "Auto-reply, CRM entry and a follow-up sequence starts", "points": 3 }
+      ]
+    },
+    {
+      "id": "auto-3",
+      "category": "automation",
+      "text": "Do your core tools (email, calendar, CRM, accounting) share data automatically?",
+      "options": [
+        { "label": "No — we re-type things between tools", "points": 0 },
+        { "label": "One or two connections", "points": 1 },
+        { "label": "Several connections", "points": 2 },
+        { "label": "Fully connected stack", "points": 3 }
+      ]
+    },
+    {
+      "id": "proc-1",
+      "category": "processes",
+      "text": "Are your key business processes written down?",
+      "options": [
+        { "label": "No — they live in people's heads", "points": 0 },
+        { "label": "A few scattered notes", "points": 1 },
+        { "label": "Main processes documented", "points": 2 },
+        { "label": "Everything documented and kept current", "points": 3 }
+      ]
+    },
+    {
+      "id": "proc-2",
+      "category": "processes",
+      "text": "How organized is your business data (client info, files, project history)?",
+      "options": [
+        { "label": "Scattered everywhere", "points": 0 },
+        { "label": "Some structure, lots of exceptions", "points": 1 },
+        { "label": "Mostly centralized and tidy", "points": 2 },
+        { "label": "Clean, centralized, consistently named", "points": 3 }
+      ]
+    },
+    {
+      "id": "proc-3",
+      "category": "processes",
+      "text": "Could you hand a repeat task to a new assistant (human or AI) with written instructions today?",
+      "options": [
+        { "label": "No — I'd have to explain everything live", "points": 0 },
+        { "label": "For one or two tasks", "points": 1 },
+        { "label": "For many tasks", "points": 2 },
+        { "label": "For most of the business", "points": 3 }
+      ]
+    },
+    {
+      "id": "team-1",
+      "category": "team-adoption",
+      "text": "How does your team feel about AI?",
+      "options": [
+        { "label": "Worried or dismissive", "points": 0 },
+        { "label": "Indifferent", "points": 1 },
+        { "label": "Curious and open", "points": 2 },
+        { "label": "Actively excited and experimenting", "points": 3 }
+      ]
+    },
+    {
+      "id": "team-2",
+      "category": "team-adoption",
+      "text": "Has anyone in the business been given time or training to learn AI tools?",
+      "options": [
+        { "label": "No", "points": 0 },
+        { "label": "They explore on their own time", "points": 1 },
+        { "label": "Some informal training", "points": 2 },
+        { "label": "Yes — dedicated time and clear expectations", "points": 3 }
+      ]
+    },
+    {
+      "id": "team-3",
+      "category": "team-adoption",
+      "text": "Is there a clear owner for improving tools and automation in your business?",
+      "options": [
+        { "label": "Nobody", "points": 0 },
+        { "label": "Me, when I find time (rarely)", "points": 1 },
+        { "label": "Someone handles it informally", "points": 2 },
+        { "label": "Yes — a clear owner with time allocated", "points": 3 }
+      ]
+    }
+  ],
+  "bands": [
+    {
+      "min": 0,
+      "max": 39,
+      "label": "Pre-AI — Big wins waiting",
+      "summary": "Your business hasn't started its AI journey — which means the easiest, highest-return wins are all still on the table. Businesses at this stage typically reclaim 5–10 hours a week within their first month of adopting basic AI and automation.",
+      "hoursSavedPerWeek": "5–10 hrs / week",
+      "revenueOpportunity": "$15,000–$50,000 / year",
+      "actionPlan": [
+        "Week 1: Create a free ChatGPT or Claude account and use it daily for emails and writing.",
+        "Week 1: List every task you repeat more than 3 times a week.",
+        "Week 2: Set up online booking and an email auto-reply for new inquiries.",
+        "Week 2: Choose one simple CRM and put every lead in it.",
+        "Week 3: Use AI to draft one week of marketing content in a single sitting.",
+        "Week 3: Document your most repeated process as a checklist.",
+        "Week 4: Automate one workflow end-to-end with Zapier or Make.",
+        "Week 4: Book an AI Audit to build your personal AI roadmap."
+      ]
+    },
+    {
+      "min": 40,
+      "max": 59,
+      "label": "Experimenting — Time to systematize",
+      "summary": "You've dabbled with AI, but it isn't saving you real hours yet. The gap between 'playing with ChatGPT' and 'AI-powered business' is process — and you're one focused month away from closing it.",
+      "hoursSavedPerWeek": "4–8 hrs / week",
+      "revenueOpportunity": "$12,000–$40,000 / year",
+      "actionPlan": [
+        "Week 1: Pick your 3 most time-consuming weekly tasks and write an AI-assisted workflow for each.",
+        "Week 1: Create saved prompts/templates so good AI outputs are repeatable.",
+        "Week 2: Automate lead capture: every inquiry gets an instant reply and lands in your CRM.",
+        "Week 2: Connect two tools that currently require manual copy-paste.",
+        "Week 3: Introduce AI to one client-facing deliverable (proposals, reports, summaries).",
+        "Week 3: Run a 30-minute team session sharing what's working.",
+        "Week 4: Measure hours saved and pick the next 2 automations.",
+        "Week 4: Book an AI Audit to prioritize by return on effort."
+      ]
+    },
+    {
+      "min": 60,
+      "max": 79,
+      "label": "Adopting — Ahead of most competitors",
+      "summary": "You're genuinely ahead of the pack. AI and automation are working for you — now the opportunity is depth: connecting systems, standardizing prompts and letting AI touch revenue-generating work, not just admin.",
+      "hoursSavedPerWeek": "3–6 hrs / week",
+      "revenueOpportunity": "$10,000–$30,000 / year",
+      "actionPlan": [
+        "Week 1: Map every process AI touches today and score each by hours saved.",
+        "Week 1: Identify your one workflow still fully manual — that's this month's target.",
+        "Week 2: Build a shared prompt library so the whole team gets expert-level outputs.",
+        "Week 2: Add AI to your sales process: call prep, proposal drafts, follow-up personalization.",
+        "Week 3: Pilot an AI chatbot or assistant trained on your own FAQs and documents.",
+        "Week 3: Set an adoption metric (e.g. 'AI used in 80% of proposals').",
+        "Week 4: Review results and lock the wins into documented process.",
+        "Week 4: Book an AI Audit to find advanced plays your competitors haven't discovered."
+      ]
+    },
+    {
+      "min": 80,
+      "max": 100,
+      "label": "AI-Powered — Build your moat",
+      "summary": "Elite territory. AI is woven into how your business runs. Your next frontier is competitive advantage: custom AI assistants on your own data, AI-enhanced service delivery and scale without proportional headcount.",
+      "hoursSavedPerWeek": "2–4 hrs / week",
+      "revenueOpportunity": "$10,000–$25,000 / year in scale efficiency",
+      "actionPlan": [
+        "Week 1: Audit your AI stack for overlap and consolidate tools.",
+        "Week 1: Identify your highest-margin service and design an AI-enhanced version of it.",
+        "Week 2: Build a knowledge base so AI can answer from YOUR business data.",
+        "Week 2: Automate your reporting: numbers collected, summarized and delivered weekly by AI.",
+        "Week 3: Test an AI-first version of one client deliverable and compare quality and speed.",
+        "Week 3: Document your AI playbook so it survives team changes.",
+        "Week 4: Explore productizing your AI-enhanced expertise as a new offer.",
+        "Week 4: Book an AI Audit for an outside perspective on what's next."
+      ]
+    }
+  ],
+  "tools": [
+    { "name": "ChatGPT / Claude", "use": "Daily writing, thinking and research assistant." },
+    { "name": "Zapier or Make", "use": "Automate the busywork between your existing tools." },
+    { "name": "Fireflies or Otter", "use": "Automatic meeting notes and action items." },
+    { "name": "Calendly", "use": "Self-serve scheduling with automatic reminders." },
+    { "name": "Notion AI", "use": "A central, searchable brain for your business documents." }
+  ]
+}

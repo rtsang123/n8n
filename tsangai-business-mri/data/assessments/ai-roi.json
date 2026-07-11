@@ -1,0 +1,198 @@
+{
+  "id": "ai-roi",
+  "title": "AI ROI Calculator™",
+  "tagline": "See the dollar return AI could generate for your business this year.",
+  "description": "Enter a few numbers about your business and we'll estimate the yearly cost savings and revenue upside AI could realistically deliver — plus where to start.",
+  "icon": "📈",
+  "estimatedMinutes": 3,
+  "categories": [
+    {
+      "id": "leverage",
+      "label": "AI Leverage Potential",
+      "recommendation": "Start where ROI is instant: AI-drafted client communication and proposals. It costs almost nothing and pays back the same week."
+    },
+    {
+      "id": "readiness",
+      "label": "Implementation Readiness",
+      "recommendation": "Assign one owner and one hour per week to AI implementation. ROI comes from consistent rollout, not tools."
+    }
+  ],
+  "questions": [
+    {
+      "id": "revenue",
+      "type": "number",
+      "variable": "annualRevenue",
+      "text": "What is your approximate annual revenue?",
+      "help": "A rough number is fine — this stays on your device until you choose to share it.",
+      "placeholder": "500000",
+      "suffix": "$ / year",
+      "defaultValue": 0
+    },
+    {
+      "id": "employees",
+      "type": "number",
+      "variable": "teamSize",
+      "text": "How many people work in the business (including you)?",
+      "placeholder": "5",
+      "suffix": "people",
+      "defaultValue": 1
+    },
+    {
+      "id": "avg-wage",
+      "type": "number",
+      "variable": "avgHourlyCost",
+      "text": "What is your average hourly labour cost per person?",
+      "help": "Salary + overhead divided by hours. Many service businesses land between $30 and $80.",
+      "placeholder": "45",
+      "suffix": "$ / hour",
+      "defaultValue": 40
+    },
+    {
+      "id": "repetitive-hours",
+      "type": "number",
+      "variable": "repetitiveHoursPerPerson",
+      "text": "How many hours per week does each person spend on repetitive tasks?",
+      "help": "Emails, data entry, scheduling, reporting, copy-paste work. Industry average is 8–12.",
+      "placeholder": "10",
+      "suffix": "hours / person / week",
+      "defaultValue": 8
+    },
+    {
+      "id": "lev-1",
+      "category": "leverage",
+      "text": "How much of your client work follows a repeatable pattern?",
+      "options": [
+        { "label": "Almost none — every job is unique", "points": 1 },
+        { "label": "Some patterns", "points": 2 },
+        { "label": "Most work follows repeatable steps", "points": 3 },
+        { "label": "Highly standardized delivery", "points": 3 }
+      ]
+    },
+    {
+      "id": "lev-2",
+      "category": "leverage",
+      "text": "Do you currently lose leads or sales due to slow follow-up?",
+      "options": [
+        { "label": "Yes, regularly", "points": 0 },
+        { "label": "Sometimes", "points": 1 },
+        { "label": "Rarely", "points": 2 },
+        { "label": "Never — follow-up is automated", "points": 3 }
+      ]
+    },
+    {
+      "id": "ready-1",
+      "category": "readiness",
+      "text": "Is there someone in your business who could own an AI rollout (even part-time)?",
+      "options": [
+        { "label": "No — everyone is maxed out", "points": 0 },
+        { "label": "Maybe me, in theory", "points": 1 },
+        { "label": "Yes, with some guidance", "points": 2 },
+        { "label": "Yes — we have a clear owner", "points": 3 }
+      ]
+    },
+    {
+      "id": "ready-2",
+      "category": "readiness",
+      "text": "How quickly does your business usually adopt new tools?",
+      "options": [
+        { "label": "We resist change", "points": 0 },
+        { "label": "Slowly, with friction", "points": 1 },
+        { "label": "Reasonably fast when value is clear", "points": 2 },
+        { "label": "Fast — we like to be early", "points": 3 }
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "teamRepetitiveHours",
+      "label": "Team hours on repetitive work per year",
+      "formula": "repetitiveHoursPerPerson * teamSize * 50",
+      "format": "hours",
+      "description": "Total hours across your whole team spent on automatable work."
+    },
+    {
+      "id": "laborSavings",
+      "label": "Potential yearly labour savings",
+      "formula": "repetitiveHoursPerPerson * teamSize * 50 * avgHourlyCost * 5 / 10",
+      "format": "currency",
+      "description": "Assumes AI and automation recover a conservative 50% of repetitive time."
+    },
+    {
+      "id": "revenueUpside",
+      "label": "Potential yearly revenue upside",
+      "formula": "annualRevenue * 4 / 100",
+      "format": "currency",
+      "description": "A conservative 4% revenue lift from faster lead response, better follow-up and more selling time."
+    },
+    {
+      "id": "totalRoi",
+      "label": "Total estimated annual AI opportunity",
+      "formula": "laborSavings + revenueUpside",
+      "format": "currency",
+      "description": "Combined savings and upside — before tool costs, which are typically under $200/month."
+    }
+  ],
+  "bands": [
+    {
+      "min": 0,
+      "max": 39,
+      "label": "High Opportunity, Low Readiness",
+      "summary": "Your numbers above show a real dollar opportunity — but slow follow-up and stretched capacity are blocking it. The play: start tiny, prove ROI in weeks, and let the wins fund the rollout.",
+      "hoursSavedPerWeek": "See your calculation above",
+      "revenueOpportunity": "See your calculation above",
+      "actionPlan": [
+        "Week 1: Pick ONE high-cost repetitive task from this assessment as your pilot.",
+        "Week 1: Set a simple success metric (hours saved or response time).",
+        "Week 2: Implement the smallest possible AI fix for it (template, auto-reply, AI draft).",
+        "Week 2: Fix lead follow-up first if you're losing sales to slowness — that ROI is immediate.",
+        "Week 3: Measure the pilot honestly. Keep what works, kill what doesn't.",
+        "Week 3: Share the win with your team to build buy-in.",
+        "Week 4: Choose your next 2 automations based on the numbers above.",
+        "Week 4: Book an AI Audit to build an ROI-ranked rollout plan."
+      ]
+    },
+    {
+      "min": 40,
+      "max": 69,
+      "label": "Strong ROI Case",
+      "summary": "The math is on your side: your business has repeatable work, real labour costs and the capacity to adopt. The calculated opportunity above is achievable within 6–12 months with a steady rollout.",
+      "hoursSavedPerWeek": "See your calculation above",
+      "revenueOpportunity": "See your calculation above",
+      "actionPlan": [
+        "Week 1: Rank your repetitive tasks by (hours × hourly cost) — biggest number first.",
+        "Week 1: Assign an AI rollout owner with one protected hour per week.",
+        "Week 2: Automate lead response and follow-up end-to-end.",
+        "Week 2: Roll out AI drafting for email and proposals to the whole team.",
+        "Week 3: Automate one internal workflow (reporting, scheduling or invoicing).",
+        "Week 3: Create a shared prompt library so results are consistent.",
+        "Week 4: Compare hours saved vs the estimate above and adjust.",
+        "Week 4: Book an AI Audit to accelerate the remaining opportunity."
+      ]
+    },
+    {
+      "min": 70,
+      "max": 100,
+      "label": "Ready to Capture",
+      "summary": "You're primed: repeatable work, adoption appetite and ownership in place. The opportunity above is yours to capture — the only risk is moving too slowly while competitors catch up.",
+      "hoursSavedPerWeek": "See your calculation above",
+      "revenueOpportunity": "See your calculation above",
+      "actionPlan": [
+        "Week 1: Commit to a 90-day AI rollout with the dollar target calculated above.",
+        "Week 1: Kick off with the highest-cost workflow first.",
+        "Week 2: Deploy AI across client communication, proposals and content.",
+        "Week 2: Automate every hand-off between your core tools.",
+        "Week 3: Pilot an AI assistant on your own business data (FAQs, docs, pricing).",
+        "Week 3: Track savings weekly on a visible scorecard.",
+        "Week 4: Reinvest saved hours into sales capacity — that's where ROI compounds.",
+        "Week 4: Book an AI Audit to validate the plan and add advanced plays."
+      ]
+    }
+  ],
+  "tools": [
+    { "name": "ChatGPT / Claude", "use": "Team-wide drafting and thinking assistant — the fastest ROI in AI." },
+    { "name": "Zapier or Make", "use": "Automates hand-offs between tools; pays for itself in days." },
+    { "name": "GoHighLevel or HubSpot", "use": "Automated lead response and follow-up that recovers lost sales." },
+    { "name": "Fireflies", "use": "Meeting notes and action items captured automatically." },
+    { "name": "Motion or Reclaim", "use": "AI calendar management that protects productive time." }
+  ]
+}

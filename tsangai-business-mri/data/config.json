@@ -1,0 +1,15 @@
+{
+  "businessName": "TsangAI",
+  "productName": "TsangAI Business MRI™",
+  "tagline": "Find out what's silently costing your business time and money — in 5 minutes.",
+  "logoText": "TsangAI",
+  "bookingUrl": "https://calendly.com/YOUR-CALENDLY-LINK",
+  "contactEmail": "raymondtsang.ai@gmail.com",
+  "colors": {
+    "brand": "#0A6CFF",
+    "brandDark": "#0752C4",
+    "brandLight": "#E8F1FF",
+    "accent": "#0BBF7A"
+  },
+  "footerNote": "Built for service businesses in Canada and the USA."
+}

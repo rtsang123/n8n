@@ -1,0 +1,258 @@
+{
+  "id": "marketing-efficiency",
+  "title": "Marketing Efficiency Score™",
+  "tagline": "Is your marketing an engine or a money pit? Score it across 7 channels.",
+  "description": "14 questions that score your website, SEO, email, content, ads, social and AI usage — and show where your biggest growth opportunities hide.",
+  "icon": "📣",
+  "estimatedMinutes": 4,
+  "categories": [
+    {
+      "id": "website",
+      "label": "Website",
+      "recommendation": "Treat your website as your best salesperson: clear headline, proof, one strong call-to-action per page and online booking."
+    },
+    {
+      "id": "seo",
+      "label": "SEO & Local Visibility",
+      "recommendation": "Claim and fully complete your Google Business Profile, gather reviews weekly, and publish pages targeting the exact phrases your clients search."
+    },
+    {
+      "id": "email",
+      "label": "Email Marketing",
+      "recommendation": "Email your list at least twice a month with genuinely useful content. Your list is the only audience you own — use AI to make consistency effortless."
+    },
+    {
+      "id": "content",
+      "label": "Content & Social",
+      "recommendation": "Pick ONE platform where your clients actually spend time and post twice weekly using an AI-assisted content system — depth beats being everywhere."
+    },
+    {
+      "id": "ads",
+      "label": "Paid Advertising",
+      "recommendation": "Only scale ads once tracking works: know your cost per lead and cost per customer, or you're buying mystery boxes."
+    },
+    {
+      "id": "ai-marketing",
+      "label": "AI in Marketing",
+      "recommendation": "Use AI to multiply output: one client story becomes an email, three posts and a page section. Build the repurposing habit."
+    }
+  ],
+  "questions": [
+    {
+      "id": "web-1",
+      "category": "website",
+      "text": "Does your website consistently generate inquiries?",
+      "options": [
+        { "label": "Almost never", "points": 0 },
+        { "label": "Occasionally", "points": 1 },
+        { "label": "A steady trickle", "points": 2 },
+        { "label": "Yes — it's a reliable lead source", "points": 3 }
+      ]
+    },
+    {
+      "id": "web-2",
+      "category": "website",
+      "text": "Does every visitor have an obvious next step (book, call, download)?",
+      "options": [
+        { "label": "Not really", "points": 0 },
+        { "label": "On some pages", "points": 1 },
+        { "label": "Yes — clear CTAs everywhere", "points": 3 }
+      ]
+    },
+    {
+      "id": "seo-1",
+      "category": "seo",
+      "text": "When ideal clients search for your service in your area, do you show up?",
+      "options": [
+        { "label": "No / never checked", "points": 0 },
+        { "label": "Page 2 or worse", "points": 1 },
+        { "label": "First page for some searches", "points": 2 },
+        { "label": "Top results for our key searches", "points": 3 }
+      ]
+    },
+    {
+      "id": "seo-2",
+      "category": "seo",
+      "text": "How active is your Google Business Profile (reviews, photos, posts)?",
+      "options": [
+        { "label": "Unclaimed or bare", "points": 0 },
+        { "label": "Claimed, rarely touched", "points": 1 },
+        { "label": "Complete with steady reviews", "points": 2 },
+        { "label": "Actively managed — weekly reviews and updates", "points": 3 }
+      ]
+    },
+    {
+      "id": "email-1",
+      "category": "email",
+      "text": "How often do you email your list?",
+      "options": [
+        { "label": "We don't have a list", "points": 0 },
+        { "label": "Rarely — a few times a year", "points": 1 },
+        { "label": "Monthly", "points": 2 },
+        { "label": "Weekly or bi-weekly, consistently", "points": 3 }
+      ]
+    },
+    {
+      "id": "email-2",
+      "category": "email",
+      "text": "Do you have automated email sequences (welcome, nurture, win-back)?",
+      "options": [
+        { "label": "None", "points": 0 },
+        { "label": "A basic welcome email", "points": 1 },
+        { "label": "One or two sequences", "points": 2 },
+        { "label": "Full automated journeys for leads and clients", "points": 3 }
+      ]
+    },
+    {
+      "id": "cont-1",
+      "category": "content",
+      "text": "How consistently do you publish content (posts, videos, articles)?",
+      "options": [
+        { "label": "Rarely or never", "points": 0 },
+        { "label": "Random bursts", "points": 1 },
+        { "label": "Weekly on one channel", "points": 2 },
+        { "label": "Multiple times weekly, systemized", "points": 3 }
+      ]
+    },
+    {
+      "id": "cont-2",
+      "category": "content",
+      "text": "Does your content generate actual inquiries or just likes?",
+      "options": [
+        { "label": "Neither, honestly", "points": 0 },
+        { "label": "Some engagement, no leads", "points": 1 },
+        { "label": "Occasional leads", "points": 2 },
+        { "label": "Regular, trackable leads", "points": 3 }
+      ]
+    },
+    {
+      "id": "ads-1",
+      "category": "ads",
+      "text": "If you run paid ads, do you know your cost per lead and per customer?",
+      "options": [
+        { "label": "We've run ads with no tracking", "points": 0 },
+        { "label": "We don't run ads (and rely fully on other channels)", "points": 1 },
+        { "label": "Rough tracking", "points": 2 },
+        { "label": "Precise tracking — we know what a customer costs", "points": 3 }
+      ]
+    },
+    {
+      "id": "ads-2",
+      "category": "ads",
+      "text": "What happens to leads from ads or promotions?",
+      "options": [
+        { "label": "Same inbox pile as everything else", "points": 0 },
+        { "label": "Manual follow-up", "points": 1 },
+        { "label": "They enter a follow-up process", "points": 2 },
+        { "label": "Instant automated response + sequence + tracking", "points": 3 }
+      ]
+    },
+    {
+      "id": "aim-1",
+      "category": "ai-marketing",
+      "text": "Do you use AI to create or improve marketing content?",
+      "options": [
+        { "label": "Never", "points": 0 },
+        { "label": "Tried it a few times", "points": 1 },
+        { "label": "Regularly for drafts", "points": 2 },
+        { "label": "AI powers our whole content system", "points": 3 }
+      ]
+    },
+    {
+      "id": "aim-2",
+      "category": "ai-marketing",
+      "text": "Do you repurpose content (one piece becomes many)?",
+      "options": [
+        { "label": "No — everything is created from scratch", "points": 0 },
+        { "label": "Occasionally", "points": 1 },
+        { "label": "Often", "points": 2 },
+        { "label": "Systematically — every asset gets multiplied", "points": 3 }
+      ]
+    },
+    {
+      "id": "meas-1",
+      "category": "website",
+      "text": "Do you know which marketing channel brought your last 10 customers?",
+      "options": [
+        { "label": "No idea", "points": 0 },
+        { "label": "A guess", "points": 1 },
+        { "label": "Mostly known", "points": 2 },
+        { "label": "Tracked precisely", "points": 3 }
+      ]
+    },
+    {
+      "id": "meas-2",
+      "category": "email",
+      "text": "Is there a lead magnet (guide, checklist, assessment) growing your email list?",
+      "options": [
+        { "label": "No", "points": 0 },
+        { "label": "A newsletter signup box", "points": 1 },
+        { "label": "One lead magnet, modest results", "points": 2 },
+        { "label": "Yes — actively converting visitors to subscribers", "points": 3 }
+      ]
+    }
+  ],
+  "bands": [
+    {
+      "min": 0,
+      "max": 39,
+      "label": "Marketing on Hope",
+      "summary": "Your marketing is sporadic, untracked and heavily dependent on referrals or luck. That means feast-or-famine revenue. The fix isn't doing MORE marketing — it's building one simple, consistent, measured system at a time.",
+      "hoursSavedPerWeek": "2–4 hrs / week once systemized",
+      "revenueOpportunity": "$20,000–$75,000 / year",
+      "actionPlan": [
+        "Week 1: Ask your last 10 customers how they found you — that's your #1 channel.",
+        "Week 1: Claim and complete your Google Business Profile; ask 5 happy clients for reviews.",
+        "Week 2: Fix your website's headline and add one clear CTA to every page.",
+        "Week 2: Start collecting emails with a simple, genuinely useful lead magnet.",
+        "Week 3: Use AI to draft a month of content for ONE channel in one sitting.",
+        "Week 3: Send your first value-packed email to your list.",
+        "Week 4: Set up basic tracking: where did every inquiry this month come from?",
+        "Week 4: Book an AI Audit to design your full marketing engine."
+      ]
+    },
+    {
+      "min": 40,
+      "max": 69,
+      "label": "Active but Inefficient",
+      "summary": "You're doing real marketing — but inconsistency, weak follow-through and missing measurement are burning effort. Systemizing what already works will likely grow results more than any new channel would.",
+      "hoursSavedPerWeek": "2–4 hrs / week",
+      "revenueOpportunity": "$15,000–$50,000 / year",
+      "actionPlan": [
+        "Week 1: Double down: identify your best-performing channel and cut the worst.",
+        "Week 1: Fix your weakest category from the breakdown below.",
+        "Week 2: Build an AI-assisted content system: 1 hour to draft 2 weeks of content.",
+        "Week 2: Add a welcome sequence so new subscribers hear from you automatically.",
+        "Week 3: Connect marketing to sales: every lead gets instant, automated follow-up.",
+        "Week 3: Set up a simple monthly scorecard: leads, source, cost, customers.",
+        "Week 4: Repurpose your best asset into 5 formats.",
+        "Week 4: Book an AI Audit to eliminate the manual work in your engine."
+      ]
+    },
+    {
+      "min": 70,
+      "max": 100,
+      "label": "Marketing Engine",
+      "summary": "You've built what most small businesses never do: consistent, measured, multi-channel marketing. Your next gains come from compounding — deeper automation, sharper conversion and AI leverage that lets you scale output without scaling hours.",
+      "hoursSavedPerWeek": "1–3 hrs / week",
+      "revenueOpportunity": "$10,000–$40,000 / year",
+      "actionPlan": [
+        "Week 1: Audit funnel conversion at each step — fix the biggest drop-off.",
+        "Week 1: Review channel ROI and reallocate budget to winners.",
+        "Week 2: Add AI personalization to your email sequences.",
+        "Week 2: Turn your best performing content into an evergreen automated funnel.",
+        "Week 3: Test one new growth lever (referral program, partnership or new lead magnet).",
+        "Week 3: Automate your marketing reporting into a weekly AI summary.",
+        "Week 4: Document the whole engine so it runs without any one person.",
+        "Week 4: Book an AI Audit to find the advanced plays worth testing next."
+      ]
+    }
+  ],
+  "tools": [
+    { "name": "ChatGPT / Claude", "use": "Draft emails, posts, pages and ad copy in a fraction of the time." },
+    { "name": "MailerLite or Mailchimp", "use": "Email list, sequences and automation on a free tier." },
+    { "name": "Canva", "use": "Professional graphics for every channel without a designer." },
+    { "name": "Buffer or Later", "use": "Schedule weeks of social content in one sitting." },
+    { "name": "Google Business Profile", "use": "Free local visibility and the review engine that powers it." }
+  ]
+}

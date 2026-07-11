@@ -1,0 +1,7 @@
+# Netlify reads this file automatically. You should not need to change it.
+[build]
+  command = "npm run build"
+  publish = "out"
+
+[build.environment]
+  NODE_VERSION = "20"

@@ -1,0 +1,217 @@
+{
+  "id": "time-leak",
+  "title": "AI Time Leak Calculator™",
+  "tagline": "Calculate exactly how many hours — and dollars — your business loses to manual work every year.",
+  "description": "Answer a few quick questions about your week and we'll calculate the hours you're losing to manual work, what that costs you per year, and how much of it AI could win back.",
+  "icon": "⏳",
+  "estimatedMinutes": 3,
+  "categories": [
+    {
+      "id": "time-habits",
+      "label": "Time Protection Habits",
+      "recommendation": "Batch your admin into one fixed block per day and protect your peak hours for revenue work — then automate the batch itself."
+    },
+    {
+      "id": "delegation",
+      "label": "Delegation & Automation",
+      "recommendation": "Apply the rule: if a task repeats weekly and doesn't need YOUR judgment, it gets a checklist, then a delegate or an automation."
+    }
+  ],
+  "questions": [
+    {
+      "id": "admin-hours",
+      "type": "number",
+      "variable": "adminHours",
+      "text": "How many hours per week do you spend on admin work?",
+      "help": "Data entry, filing, paperwork, updating spreadsheets, moving info between tools.",
+      "placeholder": "6",
+      "suffix": "hours / week",
+      "defaultValue": 0
+    },
+    {
+      "id": "email-hours",
+      "type": "number",
+      "variable": "emailHours",
+      "text": "How many hours per week go to email and messages?",
+      "help": "Reading, replying, chasing responses, follow-ups.",
+      "placeholder": "8",
+      "suffix": "hours / week",
+      "defaultValue": 0
+    },
+    {
+      "id": "scheduling-hours",
+      "type": "number",
+      "variable": "schedulingHours",
+      "text": "How many hours per week go to scheduling and coordination?",
+      "help": "Booking appointments, rescheduling, reminders, phone tag.",
+      "placeholder": "3",
+      "suffix": "hours / week",
+      "defaultValue": 0
+    },
+    {
+      "id": "invoice-hours",
+      "type": "number",
+      "variable": "invoiceHours",
+      "text": "How many hours per week go to quotes, invoices and chasing payments?",
+      "placeholder": "2",
+      "suffix": "hours / week",
+      "defaultValue": 0
+    },
+    {
+      "id": "content-hours",
+      "type": "number",
+      "variable": "contentHours",
+      "text": "How many hours per week go to writing marketing content and social posts?",
+      "placeholder": "3",
+      "suffix": "hours / week",
+      "defaultValue": 0
+    },
+    {
+      "id": "hourly-rate",
+      "type": "number",
+      "variable": "hourlyRate",
+      "text": "What is one hour of your time worth?",
+      "help": "A quick way to estimate: your target annual income ÷ 2,000. Many owners use $75–$250.",
+      "placeholder": "100",
+      "suffix": "$ / hour",
+      "defaultValue": 75
+    },
+    {
+      "id": "habit-1",
+      "category": "time-habits",
+      "text": "How often does your planned work get derailed by interruptions and firefighting?",
+      "options": [
+        { "label": "Every day — my calendar is a suggestion", "points": 0 },
+        { "label": "Most days", "points": 1 },
+        { "label": "Occasionally", "points": 2 },
+        { "label": "Rarely — my time is well protected", "points": 3 }
+      ]
+    },
+    {
+      "id": "habit-2",
+      "category": "time-habits",
+      "text": "Do you batch similar tasks (email, calls, admin) into set time blocks?",
+      "options": [
+        { "label": "No — I handle things as they come", "points": 0 },
+        { "label": "I try, but it rarely sticks", "points": 1 },
+        { "label": "Yes, for some tasks", "points": 2 },
+        { "label": "Yes — my week runs on time blocks", "points": 3 }
+      ]
+    },
+    {
+      "id": "deleg-1",
+      "category": "delegation",
+      "text": "When a repetitive task shows up, what usually happens?",
+      "options": [
+        { "label": "I just do it myself — it's faster", "points": 0 },
+        { "label": "I do it, but feel I shouldn't be", "points": 1 },
+        { "label": "I delegate when someone's available", "points": 2 },
+        { "label": "It gets systematized: checklist, delegate or automation", "points": 3 }
+      ]
+    },
+    {
+      "id": "deleg-2",
+      "category": "delegation",
+      "text": "How much of your admin work could a well-instructed assistant or AI tool do?",
+      "options": [
+        { "label": "Honestly, most of it", "points": 0 },
+        { "label": "More than half", "points": 1 },
+        { "label": "Some of it", "points": 2 },
+        { "label": "Very little — it's already delegated or automated", "points": 3 }
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "weeklyLeak",
+      "label": "Hours lost per week",
+      "formula": "adminHours + emailHours + schedulingHours + invoiceHours + contentHours",
+      "format": "hours",
+      "description": "Total weekly hours going to manual, repetitive work."
+    },
+    {
+      "id": "yearlyLeak",
+      "label": "Hours lost per year",
+      "formula": "weeklyLeak * 50",
+      "format": "hours",
+      "description": "That's what those weekly hours add up to across a working year."
+    },
+    {
+      "id": "yearlyCost",
+      "label": "What that time costs you per year",
+      "formula": "weeklyLeak * hourlyRate * 50",
+      "format": "currency",
+      "description": "Hours lost per year multiplied by the value of your time."
+    },
+    {
+      "id": "annualOpportunity",
+      "label": "Annual recovery opportunity with AI",
+      "formula": "weeklyLeak * hourlyRate * 50 * 6 / 10",
+      "format": "currency",
+      "description": "AI and automation typically win back around 60% of repetitive-task time."
+    }
+  ],
+  "bands": [
+    {
+      "min": 0,
+      "max": 39,
+      "label": "Major Time Leak",
+      "summary": "Your week is leaking badly — repetitive work is consuming hours that should be going to clients, sales or your life. The numbers above show the real cost. The upside: leaks this size are usually fixed with a handful of well-chosen automations.",
+      "hoursSavedPerWeek": "See your calculation above",
+      "revenueOpportunity": "See your calculation above",
+      "actionPlan": [
+        "Week 1: Track one full week honestly — write down where every hour goes.",
+        "Week 1: Set up online booking to eliminate scheduling back-and-forth immediately.",
+        "Week 2: Create AI-drafted templates for your 10 most common email replies.",
+        "Week 2: Move invoicing to software that sends and chases payments automatically.",
+        "Week 3: Batch content creation: use AI to draft a month of posts in one sitting.",
+        "Week 3: Automate your #1 admin task with Zapier, Make or your existing tools.",
+        "Week 4: Protect two 2-hour deep-work blocks per week — no email, no calls.",
+        "Week 4: Book an AI Audit to systematically eliminate the rest of the leak."
+      ]
+    },
+    {
+      "min": 40,
+      "max": 69,
+      "label": "Moderate Time Leak",
+      "summary": "You've plugged some leaks, but real hours are still draining away each week — and the annual cost above shows it's worth fixing. A focused month of automation would put most of that time back in your calendar.",
+      "hoursSavedPerWeek": "See your calculation above",
+      "revenueOpportunity": "See your calculation above",
+      "actionPlan": [
+        "Week 1: Identify your top 3 time drains from this assessment.",
+        "Week 1: For each, decide: automate it, delegate it, or delete it.",
+        "Week 2: Set up AI drafting for email — aim to cut email time by a third.",
+        "Week 2: Automate appointment reminders and follow-ups.",
+        "Week 3: Create checklists for tasks you'll delegate, then hand them off.",
+        "Week 3: Batch content and admin into fixed weekly blocks.",
+        "Week 4: Measure your reclaimed hours against week 1.",
+        "Week 4: Book an AI Audit to capture the remaining opportunity."
+      ]
+    },
+    {
+      "min": 70,
+      "max": 100,
+      "label": "Well Protected",
+      "summary": "Your time habits are strong — you protect, batch and delegate better than most owners. Check the calculated numbers above: if there's still a meaningful leak, it's concentrated in a specific area, which makes it easy to target.",
+      "hoursSavedPerWeek": "See your calculation above",
+      "revenueOpportunity": "See your calculation above",
+      "actionPlan": [
+        "Week 1: Look at your single biggest hour-category above — that's your target.",
+        "Week 1: Design one automation or AI workflow to cut it in half.",
+        "Week 2: Implement it and template anything that repeats.",
+        "Week 2: Audit your team's time leaks — your habits may not have spread.",
+        "Week 3: Reinvest one reclaimed hour per week into sales or strategy.",
+        "Week 3: Document your time-protection system so it survives busy seasons.",
+        "Week 4: Review: is the reclaimed time going to high-value work?",
+        "Week 4: Book an AI Audit to find leaks you can no longer see yourself."
+      ]
+    }
+  ],
+  "tools": [
+    { "name": "Calendly", "use": "Eliminates scheduling back-and-forth completely." },
+    { "name": "ChatGPT / Claude", "use": "Drafts emails, content and documents in a fraction of the time." },
+    { "name": "Zapier or Make", "use": "Moves data between tools so you never copy-paste again." },
+    { "name": "QuickBooks / FreshBooks", "use": "Automatic invoicing and payment reminders." },
+    { "name": "Buffer or Later", "use": "Schedule a month of social content in one sitting." }
+  ]
+}

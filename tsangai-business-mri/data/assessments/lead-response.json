@@ -1,0 +1,239 @@
+{
+  "id": "lead-response",
+  "title": "Lead Response Score™",
+  "tagline": "How many leads are you losing to slow follow-up? Get your score and estimated lost revenue.",
+  "description": "12 questions about how your business handles new leads — speed, follow-up, CRM and automation — plus an estimate of the revenue slipping away.",
+  "icon": "⚡",
+  "estimatedMinutes": 4,
+  "categories": [
+    {
+      "id": "speed",
+      "label": "Response Speed",
+      "recommendation": "Aim for a first response within 5 minutes: an instant automated reply plus a notification that gets a human following up the same hour. Speed is the single biggest lever in lead conversion."
+    },
+    {
+      "id": "followup",
+      "label": "Follow-Up Persistence",
+      "recommendation": "Build an automated 5-touch follow-up sequence over 14 days (email + SMS). Most sales happen after the 3rd contact — most businesses stop after 1."
+    },
+    {
+      "id": "tracking",
+      "label": "CRM & Tracking",
+      "recommendation": "Put every lead into one CRM with a stage and a next action. If a lead isn't in the system, it doesn't exist — and it can't be followed up."
+    },
+    {
+      "id": "channels",
+      "label": "Channels & Automation",
+      "recommendation": "Add SMS to your follow-up mix (98% open rates) and automate booking so hot leads can schedule themselves the moment they're interested."
+    }
+  ],
+  "questions": [
+    {
+      "id": "leads-month",
+      "type": "number",
+      "variable": "leadsPerMonth",
+      "text": "Roughly how many new leads does your business get per month?",
+      "placeholder": "20",
+      "suffix": "leads / month",
+      "defaultValue": 10
+    },
+    {
+      "id": "deal-value",
+      "type": "number",
+      "variable": "avgDealValue",
+      "text": "What is your average customer worth (first sale or first year)?",
+      "placeholder": "2500",
+      "suffix": "$ / customer",
+      "defaultValue": 1000
+    },
+    {
+      "id": "speed-1",
+      "category": "speed",
+      "text": "How fast does a new lead typically get a first response?",
+      "options": [
+        { "label": "Next day or later", "points": 0 },
+        { "label": "Within a few hours", "points": 1 },
+        { "label": "Within the hour", "points": 2 },
+        { "label": "Within 5 minutes (automated + human)", "points": 3 }
+      ]
+    },
+    {
+      "id": "speed-2",
+      "category": "speed",
+      "text": "What happens to leads that arrive evenings or weekends?",
+      "options": [
+        { "label": "They wait until we're back", "points": 0 },
+        { "label": "Sometimes someone checks", "points": 1 },
+        { "label": "An auto-reply acknowledges them", "points": 2 },
+        { "label": "Instant auto-response with booking option, 24/7", "points": 3 }
+      ]
+    },
+    {
+      "id": "speed-3",
+      "category": "speed",
+      "text": "How do missed phone calls get handled?",
+      "options": [
+        { "label": "Voicemail, maybe a callback eventually", "points": 0 },
+        { "label": "We call back when free", "points": 1 },
+        { "label": "Same-day callback rule", "points": 2 },
+        { "label": "Instant missed-call text-back, automatically", "points": 3 }
+      ]
+    },
+    {
+      "id": "fu-1",
+      "category": "followup",
+      "text": "How many times do you follow up with a lead who doesn't respond?",
+      "options": [
+        { "label": "Zero — one reply and done", "points": 0 },
+        { "label": "Once or twice", "points": 1 },
+        { "label": "3–4 times", "points": 2 },
+        { "label": "5+ touches over 2+ weeks, automatically", "points": 3 }
+      ]
+    },
+    {
+      "id": "fu-2",
+      "category": "followup",
+      "text": "What happens to leads who say 'not right now'?",
+      "options": [
+        { "label": "Nothing — they're forgotten", "points": 0 },
+        { "label": "A note somewhere, rarely revisited", "points": 1 },
+        { "label": "Occasional manual check-ins", "points": 2 },
+        { "label": "Automated nurture until they're ready", "points": 3 }
+      ]
+    },
+    {
+      "id": "fu-3",
+      "category": "followup",
+      "text": "Do quotes and proposals get followed up automatically?",
+      "options": [
+        { "label": "No — we wait for them to reply", "points": 0 },
+        { "label": "We chase when we remember", "points": 1 },
+        { "label": "A manual follow-up routine exists", "points": 2 },
+        { "label": "Automated reminders until answered", "points": 3 }
+      ]
+    },
+    {
+      "id": "track-1",
+      "category": "tracking",
+      "text": "Where do your leads live?",
+      "options": [
+        { "label": "Inbox, voicemail and memory", "points": 0 },
+        { "label": "A spreadsheet, sometimes updated", "points": 1 },
+        { "label": "A CRM, mostly used", "points": 2 },
+        { "label": "A CRM — every lead, every stage, every next step", "points": 3 }
+      ]
+    },
+    {
+      "id": "track-2",
+      "category": "tracking",
+      "text": "Do you know your lead-to-customer conversion rate?",
+      "options": [
+        { "label": "No idea", "points": 0 },
+        { "label": "A guess", "points": 1 },
+        { "label": "Roughly tracked", "points": 2 },
+        { "label": "Tracked precisely, reviewed monthly", "points": 3 }
+      ]
+    },
+    {
+      "id": "chan-1",
+      "category": "channels",
+      "text": "Do you use SMS/text in your lead follow-up?",
+      "options": [
+        { "label": "No", "points": 0 },
+        { "label": "Occasionally, manually", "points": 1 },
+        { "label": "Yes, for some steps", "points": 2 },
+        { "label": "Yes — automated SMS is part of every sequence", "points": 3 }
+      ]
+    },
+    {
+      "id": "chan-2",
+      "category": "channels",
+      "text": "Can a hot lead book a call/appointment with you instantly, without back-and-forth?",
+      "options": [
+        { "label": "No — they must email or call", "points": 0 },
+        { "label": "We send times manually", "points": 1 },
+        { "label": "Online booking exists but isn't promoted", "points": 2 },
+        { "label": "Yes — booking link in every reply and sequence", "points": 3 }
+      ]
+    }
+  ],
+  "metrics": [
+    {
+      "id": "leadsAtRisk",
+      "label": "Leads at risk per year",
+      "formula": "leadsPerMonth * 12 * (100 - score) / 100 * 4 / 10",
+      "format": "number",
+      "description": "Leads likely lost yearly to slow response and weak follow-up, based on your score."
+    },
+    {
+      "id": "revenueAtRisk",
+      "label": "Estimated revenue lost per year",
+      "formula": "leadsAtRisk * avgDealValue * 25 / 100",
+      "format": "currency",
+      "description": "Assumes a conservative 25% of those at-risk leads would have converted with fast, persistent follow-up."
+    }
+  ],
+  "bands": [
+    {
+      "min": 0,
+      "max": 39,
+      "label": "Leaking Leads Daily",
+      "summary": "Leads are contacting your business — and then buying from whoever answers first. Research consistently shows responding within 5 minutes multiplies conversion many times over; right now, speed and follow-up gaps are actively funding your competitors. This is the most profitable fix available to you.",
+      "hoursSavedPerWeek": "3–6 hrs / week of manual chasing",
+      "revenueOpportunity": "See your calculation above",
+      "actionPlan": [
+        "Week 1: Set up an instant auto-reply (email + SMS if possible) for every new lead, 24/7.",
+        "Week 1: Add missed-call text-back so phone leads never go cold.",
+        "Week 2: Put every lead into one CRM — inbox-as-CRM ends now.",
+        "Week 2: Add your booking link to every automated reply.",
+        "Week 3: Build a 5-touch automated follow-up sequence over 14 days.",
+        "Week 3: Add automated reminders on every quote you send.",
+        "Week 4: Review: response time, follow-ups sent, leads booked.",
+        "Week 4: Book an AI Audit to wire the whole pipeline together properly."
+      ]
+    },
+    {
+      "min": 40,
+      "max": 69,
+      "label": "Losing Winnable Deals",
+      "summary": "You respond to leads — but not fast enough, and not persistently enough. The calculated revenue above is what that gap likely costs you. The good news: you have the pieces; they just need automation and consistency.",
+      "hoursSavedPerWeek": "2–4 hrs / week",
+      "revenueOpportunity": "See your calculation above",
+      "actionPlan": [
+        "Week 1: Cut first-response time to under 5 minutes with automation + notifications.",
+        "Week 1: Fix your weakest category from the breakdown below.",
+        "Week 2: Extend follow-up to 5+ touches — automated, so persistence is guaranteed.",
+        "Week 2: Add SMS to at least two steps of your sequence.",
+        "Week 3: Build a long-term nurture list for 'not right now' leads.",
+        "Week 3: Start tracking lead-to-customer conversion in your CRM.",
+        "Week 4: Compare this month's booked calls to last month's.",
+        "Week 4: Book an AI Audit to add AI qualification and smart routing."
+      ]
+    },
+    {
+      "min": 70,
+      "max": 100,
+      "label": "Fast & Persistent — Now optimize",
+      "summary": "Your lead handling beats the vast majority of small businesses — fast, tracked and persistent. From here, gains come from optimization: better qualification, smarter personalization and squeezing more conversion from the same lead flow.",
+      "hoursSavedPerWeek": "1–2 hrs / week",
+      "revenueOpportunity": "See your calculation above",
+      "actionPlan": [
+        "Week 1: Audit your sequence content — personalize by lead source or service interest.",
+        "Week 1: Verify every channel (form, phone, social, chat) feeds the CRM.",
+        "Week 2: Add AI lead qualification so your time goes to the hottest prospects.",
+        "Week 2: A/B test your first-response message.",
+        "Week 3: Build win-back automation for old closed-lost leads.",
+        "Week 3: Review conversion by source — shift budget to what converts.",
+        "Week 4: Document the whole system so it survives staff changes.",
+        "Week 4: Book an AI Audit to explore AI voice/chat answering for 24/7 coverage."
+      ]
+    }
+  ],
+  "tools": [
+    { "name": "GoHighLevel", "use": "All-in-one lead capture, SMS/email sequences and missed-call text-back." },
+    { "name": "HubSpot (free)", "use": "A solid free CRM to track every lead and stage." },
+    { "name": "Calendly", "use": "Let hot leads book instantly instead of waiting for replies." },
+    { "name": "ChatGPT / Claude", "use": "Write your entire follow-up sequence in an afternoon." },
+    { "name": "OpenPhone", "use": "Business phone with auto-replies and shared inboxes." }
+  ]
+}

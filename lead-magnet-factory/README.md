@@ -96,17 +96,17 @@ trust first.**
 - [x] #04 AI Prompt Starter Pack
 - [x] #05 AI Business Tech Stack
 
-**Tier 2 — next**
+**Tier 2 — built ✅**
 
-- [ ] #06 Automation Playbook
-- [ ] Website Audit
-- [ ] Business Systems Checklist
-- [ ] 30-Day AI Roadmap
-- [ ] Client Onboarding Playbook
-- [ ] Lead Follow-up Blueprint
+- [x] #06 15-Minute Website Audit
+- [x] #07 Business Systems Checklist
+- [x] #08 30-Day AI Roadmap
+- [x] #09 Client Onboarding Playbook
+- [x] #10 Lead Follow-Up Blueprint
 
 **Tier 3 — later**
 
+- [ ] #11 Automation Playbook
 - [ ] Hiring with AI · Meeting Playbook · Email Playbook · Content Engine ·
   Business Dashboard
 

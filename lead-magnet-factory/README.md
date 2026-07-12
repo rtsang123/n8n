@@ -104,11 +104,14 @@ trust first.**
 - [x] #09 Client Onboarding Playbook
 - [x] #10 Lead Follow-Up Blueprint
 
-**Tier 3 — later**
+**Tier 3 — built ✅**
 
-- [ ] #11 Automation Playbook
-- [ ] Hiring with AI · Meeting Playbook · Email Playbook · Content Engine ·
-  Business Dashboard
+- [x] #11 Automation Playbook
+- [x] #12 Hiring with AI
+- [x] #13 Meeting Playbook
+- [x] #14 Email Playbook
+- [x] #15 Content Engine
+- [x] #16 Business Dashboard
 
 **Content categories to mine:** Time (buyback, meetings, email, admin) ·
 Marketing (content system, LinkedIn, video, SEO) · Sales (follow-up,

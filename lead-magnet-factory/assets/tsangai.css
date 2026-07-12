@@ -1,0 +1,379 @@
+/* ============================================================
+   TsangAI Consulting — Lead Magnet Design System v1.0
+   Matches: TsangAI Growth Review Template v3
+   Print target: US Letter, backgrounds ON
+   ============================================================ */
+
+:root {
+  --navy: #0c2140;          /* brand dark navy (covers, callouts, table heads) */
+  --navy-2: #123059;        /* slightly lighter navy for depth */
+  --accent: #2e9bd6;        /* section labels, links, small accents */
+  --accent-bright: #3fa9f5; /* buttons, cover accents on navy */
+  --tint: #e3f2fc;          /* light blue bands, number chips */
+  --tint-2: #f4fafe;        /* faint blue row shading */
+  --ink: #1f2933;           /* body text */
+  --muted: #5f6b7a;         /* secondary text */
+  --line: #e2e6ea;          /* hairlines */
+  --quote-bg: #f1f2f4;      /* quote / note background */
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body {
+  font-family: "InterVariable", "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--ink);
+  font-size: 10.5pt;
+  line-height: 1.5;
+  background: #fff;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+@page { size: letter; margin: 0; }
+
+/* ---------- Page frame ---------- */
+
+.page {
+  width: 8.5in;
+  height: 11in;
+  padding: 0.65in 0.7in 0.55in;
+  page-break-after: always;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.page:last-child { page-break-after: auto; }
+
+.page-body { flex: 1 0 auto; }
+
+.page-footer {
+  flex-shrink: 0;
+  margin-top: 0.25in;
+  padding-top: 8pt;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  font-size: 8pt;
+  color: var(--muted);
+}
+.page-footer strong { color: var(--accent); font-weight: 600; }
+
+/* ---------- Type ---------- */
+
+h1 { font-size: 26pt; line-height: 1.15; font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: 17pt; line-height: 1.2; font-weight: 700; color: var(--ink); margin-bottom: 10pt; letter-spacing: -0.01em; }
+h3 { font-size: 12pt; font-weight: 700; margin-bottom: 4pt; }
+p  { margin-bottom: 8pt; }
+a  { color: var(--accent); }
+small, .small { font-size: 8.5pt; color: var(--muted); }
+
+.kicker {
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 6pt;
+}
+
+.lead { font-size: 11.5pt; color: var(--muted); }
+
+/* ---------- Cover (page 1) ---------- */
+
+.cover {
+  background: var(--navy);
+  color: #fff;
+  padding: 0.8in 0.8in 0.6in;
+}
+
+.cover .brand-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1.4in;
+}
+.brand {
+  font-size: 9.5pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-bright);
+}
+.brand .mark { margin-right: 4pt; }
+.doc-type {
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-bright);
+}
+
+.cover .series-tag {
+  display: inline-block;
+  border: 1px solid var(--accent-bright);
+  color: var(--accent-bright);
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4pt 10pt;
+  border-radius: 2pt;
+  margin-bottom: 18pt;
+}
+
+.cover h1 { font-size: 32pt; color: #fff; max-width: 6.2in; margin-bottom: 12pt; }
+.cover .subtitle { font-size: 13pt; line-height: 1.45; color: #c9d6e8; max-width: 5.8in; margin-bottom: 0.9in; }
+
+.cover-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18pt;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+  padding-top: 16pt;
+}
+.cover-meta .label {
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent-bright);
+  margin-bottom: 3pt;
+}
+.cover-meta .value { font-size: 9.5pt; color: #fff; line-height: 1.4; }
+
+.cover-foot {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  font-size: 8pt;
+  color: #8fa3c0;
+}
+
+/* ---------- Quote / consultant note ---------- */
+
+.quote {
+  background: var(--quote-bg);
+  border-left: 4px solid var(--navy);
+  padding: 12pt 14pt;
+  font-style: italic;
+  color: #3b4652;
+  margin-bottom: 16pt;
+}
+.quote .who { display: block; margin-top: 6pt; font-style: normal; font-weight: 700; color: var(--ink); }
+
+/* ---------- Stat band ---------- */
+
+.stat-band {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  background: var(--tint);
+  padding: 12pt 14pt;
+  gap: 14pt;
+  margin-bottom: 16pt;
+}
+.stat .big { font-size: 16pt; font-weight: 700; color: var(--ink); }
+.stat .cap { font-size: 8pt; color: var(--muted); line-height: 1.35; margin-top: 2pt; }
+
+/* ---------- Numbered steps ---------- */
+
+.step {
+  display: flex;
+  gap: 12pt;
+  padding: 9pt 0 10pt;
+  border-bottom: 1px solid var(--line);
+}
+.step:last-child { border-bottom: none; }
+.step .num {
+  flex: 0 0 auto;
+  width: 20pt;
+  height: 20pt;
+  border: 1.5px solid var(--accent);
+  background: var(--tint);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 10.5pt;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2pt;
+  margin-top: 2pt;
+}
+.step h3 { margin-bottom: 2pt; }
+.step p { margin-bottom: 3pt; color: #3b4652; }
+.step .do { font-size: 9pt; color: var(--muted); }
+.step .do strong { color: var(--accent); }
+
+/* ---------- Checklists ---------- */
+
+ul.checks { list-style: none; margin: 6pt 0 10pt; }
+ul.checks li {
+  padding: 3.5pt 0 3.5pt 20pt;
+  position: relative;
+}
+ul.checks li::before {
+  content: "\2713";
+  position: absolute;
+  left: 0;
+  top: 3.5pt;
+  color: var(--accent);
+  font-weight: 700;
+}
+ul.boxes { list-style: none; margin: 6pt 0 10pt; }
+ul.boxes li { padding: 3.5pt 0 3.5pt 22pt; position: relative; }
+ul.boxes li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 5.5pt;
+  width: 10pt;
+  height: 10pt;
+  border: 1.5px solid var(--accent);
+  border-radius: 2pt;
+  background: #fff;
+}
+
+/* ---------- Callouts ---------- */
+
+.callout {
+  background: var(--navy);
+  color: #fff;
+  padding: 16pt 18pt;
+  margin: 14pt 0;
+}
+.callout .kicker { color: var(--accent-bright); margin-bottom: 4pt; }
+.callout h3 { color: #fff; font-size: 14pt; margin-bottom: 5pt; }
+.callout p { color: #c9d6e8; margin-bottom: 0; }
+
+.tip {
+  border: 1px solid var(--accent);
+  background: var(--tint-2);
+  padding: 11pt 14pt;
+  margin: 12pt 0;
+}
+.tip .kicker { margin-bottom: 3pt; }
+.tip p { margin-bottom: 0; color: #3b4652; }
+
+/* ---------- Copy/paste asset boxes ---------- */
+
+.copybox {
+  background: #f7f8fa;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  padding: 10pt 12pt;
+  margin: 8pt 0 12pt;
+  font-family: "SF Mono", "Menlo", "Consolas", monospace;
+  font-size: 8.5pt;
+  line-height: 1.55;
+  color: #333d47;
+  white-space: pre-wrap;
+}
+.copybox .ph { color: var(--accent); font-weight: 700; }
+
+/* ---------- Tables ---------- */
+
+table { width: 100%; border-collapse: collapse; margin: 8pt 0 14pt; font-size: 9pt; }
+thead th {
+  background: var(--navy);
+  color: #fff;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 7pt 9pt;
+  text-align: left;
+}
+tbody td {
+  padding: 7pt 9pt;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+tbody tr:nth-child(even) td { background: var(--tint-2); }
+td.c, th.c { text-align: center; }
+.score-cell { width: 60pt; text-align: center; color: var(--muted); }
+
+/* ---------- Journey / ladder cards ---------- */
+
+.cards3 {
+  display: grid;
+  grid-template-columns: 1fr 16pt 1fr 16pt 1fr;
+  align-items: stretch;
+  gap: 0;
+  margin: 12pt 0 16pt;
+}
+.cards3 .card {
+  border: 1px solid var(--line);
+  padding: 11pt 12pt;
+}
+.cards3 .arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 12pt;
+  font-weight: 700;
+}
+.card .step-label {
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 3pt;
+}
+.card h3 { font-size: 10.5pt; margin-bottom: 3pt; }
+.card p { font-size: 8.5pt; color: var(--muted); margin-bottom: 0; }
+
+/* ---------- CTA block ---------- */
+
+.cta {
+  background: var(--navy);
+  color: #fff;
+  text-align: center;
+  padding: 22pt 30pt;
+  margin-top: 14pt;
+}
+.cta .kicker { color: var(--accent-bright); }
+.cta h2 { color: #fff; margin-bottom: 8pt; }
+.cta p { color: #c9d6e8; max-width: 5.6in; margin: 0 auto 14pt; }
+.btn {
+  display: inline-block;
+  background: var(--accent-bright);
+  color: var(--navy);
+  font-weight: 700;
+  font-size: 11pt;
+  text-decoration: none;
+  padding: 10pt 26pt;
+  border-radius: 2pt;
+}
+.cta .url { display: block; margin-top: 10pt; color: var(--accent-bright); font-size: 9.5pt; text-decoration: underline; }
+
+/* ---------- Collectible series tracker ---------- */
+
+.series {
+  border: 1px solid var(--line);
+  padding: 12pt 14pt;
+  margin-top: 14pt;
+}
+.series .kicker { margin-bottom: 6pt; }
+.series ul { list-style: none; columns: 2; column-gap: 24pt; }
+.series li { font-size: 9pt; padding: 2.5pt 0; color: var(--muted); break-inside: avoid; }
+.series li.current { color: var(--ink); font-weight: 700; }
+.series .box { display: inline-block; width: 9pt; text-align: center; margin-right: 5pt; color: var(--accent); font-weight: 700; }
+
+/* ---------- Worksheet lines ---------- */
+
+.write-line {
+  border-bottom: 1px solid #b9c2cc;
+  height: 18pt;
+  margin: 6pt 0;
+}
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20pt; }
+.three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14pt; }
+
+/* ---------- Utility ---------- */
+
+.mt-lg { margin-top: 18pt; }
+.mb-sm { margin-bottom: 6pt; }
+.divider { border: none; border-top: 2px solid var(--accent); margin: 10pt 0 16pt; }
+.muted { color: var(--muted); }

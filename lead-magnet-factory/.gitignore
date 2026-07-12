@@ -1,0 +1,3 @@
+# The finished PDFs are the deliverable — keep them in the repo,
+# overriding the monorepo-wide "dist" ignore rule.
+!dist/

@@ -13,6 +13,8 @@ Load the whole workspace and open the session. Steps:
    `context/voice-profile.md` if present.
 3. If the `marketing-engine` module is installed, also read
    `content/calendar.md` and list the files in `content/queue/`.
+4. If the `lead-engine` module is installed, also read `leads/pipeline.md`
+   and note any follow-ups due or overdue today.
 
 Then greet the owner **by name** (from `context/business-profile.md`) with a
 short status report — plain language, no file paths:
@@ -24,6 +26,8 @@ short status report — plain language, no file paths:
   and anything that looks empty or stale.
 - **Content:** if marketing-engine is installed — what's queued, what's
   planned this week, and whether the week's content has been generated yet.
+- **Leads:** if lead-engine is installed — how many follow-ups are due or
+  overdue today (overdue first; suggest `/lead-check` if any).
 - **Suggested next actions:** exactly 3, ranked, based on the state above.
   Examples: finish an unfinished interview, add past-content samples, run
   `/content-week` because nothing is planned for this week, or review a

@@ -18,13 +18,15 @@ break anything.
 
 Your AIOS ("AI Operating System") is a folder on your computer plus an app
 called **Claude Code**. The folder holds your AI's memory of your business;
-the app is where you talk to it. You'll install three "modules" — think of
+the app is where you talk to it. You'll install four "modules" — think of
 them as training courses your AI takes:
 
 1. **Context OS** — it interviews you and learns your business.
 2. **Brain Clone** — it learns to write the way *you* write.
 3. **Marketing Engine** — it researches topics and drafts your weekly
    Facebook and LinkedIn content.
+4. **Lead Engine** — it captures every inquiry the moment it arrives,
+   drafts your reply in your voice, and makes sure no follow-up slips.
 
 The order matters, and the system enforces it — so you can't get it wrong.
 
@@ -176,15 +178,37 @@ consultant — it usually means it needs a few more samples.
 2. Approve the file creations it asks for. This one has no interview — it's
    quick.
 
-**What you'll see:** confirmation that your AIOS is complete, and a
-suggestion to run `/content-week`. Resist for one moment — do Step 7 first,
-it's worth seeing.
+**What you'll see:** confirmation that the marketing engine is ready, and a
+suggestion to run `/content-week`. Resist for one moment — two quick steps
+first, they're worth it.
 
 **If something looks wrong:** if it refuses to install because there's no
 voice profile, Step 5 didn't finish — run `/brain-dump` and complete the
 calibration.
 
-## Step 7 — Your first `/prime` (2 minutes)
+## Step 7 — Install the Lead Engine (10 minutes)
+
+1. Type:
+
+   ```
+   /install-module lead-engine
+   ```
+
+2. Approve the file creations. It will then offer to **practice once** —
+   take it up on that: paste in any real inquiry you've received (an old
+   one is fine), and watch it capture the lead and draft your reply in
+   your voice.
+
+**What you'll see:** a tidy "lead card" made from your pasted inquiry, a
+ready-to-send reply, and a follow-up schedule. From now on, the habit is:
+inquiry arrives → paste it into `/log-lead` → copy the reply and send it.
+Each morning, type `/lead-check` — it tells you exactly who's due for a
+follow-up and writes the messages for you. Five minutes.
+
+**If something looks wrong:** same as Step 6 — if it refuses to install,
+finish `/brain-dump` first.
+
+## Step 8 — Your first `/prime` (2 minutes)
 
 `/prime` is how you'll start every session from now on. Type:
 
@@ -193,11 +217,11 @@ calibration.
 ```
 
 **What you'll see:** it greets you by name and gives you a short status
-report — your three modules installed, what your AI knows about you, and
-three suggested next actions. This is your daily front door: open Claude
-Code, `/prime`, go.
+report — your four modules installed, what your AI knows about you, any
+follow-ups due today, and three suggested next actions. This is your daily
+front door: open Claude Code, `/prime`, go.
 
-## Step 8 — Your first content (15–30 minutes)
+## Step 9 — Your first content (15–30 minutes)
 
 Type:
 
@@ -222,7 +246,8 @@ Here's what happens, in order:
 into Facebook or LinkedIn, post it, and tell Claude "posted" so it files it
 away in your archive.
 
-**That's your routine now:** once a week, 15–30 minutes — `/prime`, then
+**That's your routine now:** each morning, two minutes — `/prime`, then
+`/lead-check` if anything's due. Once a week, 15–30 minutes —
 `/content-week`, review, done. If three posts a week is too much, say so —
 it will shrink the plan. The rhythm you keep beats the rhythm you quit.
 
@@ -248,5 +273,7 @@ tailors for you — your real work always lives in Claude Code.)
   `/context-update` and tell it what changed.
 - **"The content is starting to sound off."** Type `/voice-check` and be
   picky again. Voices drift; two minutes re-tunes it.
+- **"A lead just came in and I'm busy."** That's exactly the moment: paste
+  it into `/log-lead` — thirty seconds now beats a lost lead tonight.
 - **Anything else:** your consultant at TsangAIConsulting. Seriously — that's
   part of what you're paying for.

@@ -22,13 +22,14 @@ realtor-aios/
     ├── .claude/commands/      ← /install-module and /prime
     ├── context/               ← the realtor's "brain" — built by the modules
     ├── system/modules.md      ← module install registry
-    └── modules/               ← the three installable modules
+    └── modules/               ← the four installable modules
         ├── context-os/        ← Context OS, Realtor Edition (install FIRST)
         ├── brain-clone/       ← voice capture → context/voice-profile.md
-        └── marketing-engine/  ← topic research + FB/LinkedIn content + weekly cadence
+        ├── marketing-engine/  ← topic research + FB/LinkedIn content + weekly cadence
+        └── lead-engine/       ← lead intake capture + follow-up in their voice
 ```
 
-## The three modules, in install order
+## The four modules, in install order
 
 1. **`context-os`** — Context OS, Realtor Edition. A structured interview that
    captures the realtor's market and farm area, niche and client types,
@@ -48,14 +49,22 @@ realtor-aios/
    they worked), platform-ready Facebook and LinkedIn content generated in the
    captured voice, and a simple weekly cadence the realtor can sustain.
 
+4. **`lead-engine`** — closes the intake leak. `/log-lead` turns any pasted
+   inquiry into a structured lead record plus an instant first reply in the
+   realtor's voice; `/lead-check` is the daily five minutes — who's due for
+   follow-up, with every message drafted. Paste-in/copy-out by design: no
+   account access, works alongside any CRM. (Requires context-os and
+   brain-clone; independent of marketing-engine — installable in either
+   order after the first two.)
+
 ## Delivering to a client
 
 1. Copy the whole `realtor-aios/` folder to the client's computer.
 2. Walk them through `INSTALLATION-GUIDE.md` (or do the install with them —
    the guide assumes they have never opened a terminal).
 3. Install order is enforced by the modules themselves: `context-os` →
-   `brain-clone` → `marketing-engine`. Each is installed by typing
-   `/install-module <name>` inside Claude Code.
+   `brain-clone` → then `marketing-engine` and `lead-engine`. Each is
+   installed by typing `/install-module <name>` inside Claude Code.
 4. Open `dashboard/dashboard.html` in a browser to show them the at-a-glance
    view of their AIOS (it ships with realistic sample data; it is a static
    companion view, not wired to the workspace).

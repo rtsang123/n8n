@@ -39,7 +39,7 @@ Installs commands: /research-topics, /generate-content, /content-week
 4. Update the registry (`system/modules.md`) per the `/install-module`
    procedure.
 
-5. Tell the owner their AIOS is now complete, and that the natural first
+5. Tell the owner the marketing engine is ready, and that the natural first
    move is `/content-week` — it will run topic research automatically the
    first time and produce their first week of drafts.
 

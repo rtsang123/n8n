@@ -85,6 +85,8 @@ Every module MUST follow this format so `/install-module` can run it:
 | 1 | `context-os` | The realtor's business context files in `context/` |
 | 2 | `brain-clone` | `context/voice-profile.md` — the captured writing voice |
 | 3 | `marketing-engine` | Topic research, FB/LinkedIn content, weekly cadence |
+| 4 | `lead-engine` | Lead intake capture + follow-up drafting in `leads/` |
 
-Install them in that order. Each module's INSTALL.md enforces its own
+Install 1 and 2 in that order; 3 and 4 both require the first two but are
+independent of each other. Each module's INSTALL.md enforces its own
 prerequisites, so installing out of order fails safely with instructions.

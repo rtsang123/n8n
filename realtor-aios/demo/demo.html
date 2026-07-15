@@ -1,0 +1,640 @@
+<title>Realtor AIOS — Working Demo</title>
+<style>
+  :root {
+    --page:      #0d0d0d;
+    --surface:   #141413;
+    --surface-2: #1b1b1a;
+    --ink:       #f4f2ec;
+    --ink-2:     #c3c2b7;
+    --ink-3:     #898781;
+    --hairline:  rgba(255,255,255,0.10);
+    --hairline-2:rgba(255,255,255,0.06);
+    --accent:    #e66767;
+    --accent-dim:#3a2222;
+    --good:      #0ca30c;
+    --warning:   #fab219;
+    --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  html { background: var(--page); }
+  body {
+    background: var(--page); color: var(--ink);
+    font-family: var(--sans); font-size: 16px; line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    margin: 0;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+
+  .topbar {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 22px 0; border-bottom: 1px solid var(--hairline-2);
+    font-size: 12px; letter-spacing: 0.26em; text-transform: lowercase; color: var(--ink-3);
+  }
+  .topbar b { color: var(--ink); font-weight: 600; }
+  .demo-chip {
+    font-size: 11px; letter-spacing: 0.18em; color: var(--accent);
+    border: 1px solid rgba(230,103,103,0.35); border-radius: 999px; padding: 3px 12px;
+  }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 88px 0 72px; position: relative; }
+  .hero .kanji {
+    position: absolute; right: 0; top: 34px; font-size: 150px; line-height: 1;
+    color: rgba(230,103,103,0.06); user-select: none; pointer-events: none;
+  }
+  .eyebrow {
+    font-size: 11.5px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--ink-3); margin: 0 0 18px;
+  }
+  h1 {
+    font-size: clamp(34px, 5.6vw, 54px); font-weight: 650; letter-spacing: -0.02em;
+    line-height: 1.12; margin: 0; max-width: 15ch; text-wrap: balance;
+  }
+  h1 em { font-style: normal; color: var(--accent); }
+  .hero p {
+    color: var(--ink-2); max-width: 56ch; margin: 26px 0 0; font-size: 17px;
+  }
+  .hero-cta {
+    display: inline-flex; align-items: center; gap: 10px; margin-top: 36px;
+    background: var(--accent); color: #140b0b; font-weight: 600; font-size: 15px;
+    padding: 12px 26px; border-radius: 999px; text-decoration: none;
+  }
+  .hero-cta:hover { background: #ee7f7f; }
+  .hero-note { display: block; margin-top: 14px; font-size: 13px; color: var(--ink-3); }
+
+  /* ---------- section scaffolding ---------- */
+  section { padding: 72px 0 0; }
+  .label {
+    font-size: 11.5px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--ink-3); margin: 0 0 8px;
+  }
+  h2 { font-size: 27px; font-weight: 650; letter-spacing: -0.015em; margin: 0 0 10px; text-wrap: balance; }
+  .lede { color: var(--ink-2); max-width: 60ch; margin: 0 0 36px; }
+
+  /* ---------- pain cards ---------- */
+  .pains { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .pain {
+    background: var(--surface); border: 1px solid var(--hairline-2); border-radius: 8px;
+    padding: 26px 28px; display: flex; flex-direction: column; gap: 10px;
+  }
+  .pain h3 { margin: 0; font-size: 17px; font-weight: 600; }
+  .pain p { margin: 0; color: var(--ink-2); font-size: 14.5px; flex: 1; }
+  .fix { font-size: 12.5px; color: var(--ink-3); border-top: 1px solid var(--hairline-2); padding-top: 12px; }
+  .fix code {
+    font-family: var(--mono); font-size: 12px; color: var(--accent);
+    background: var(--accent-dim); border-radius: 4px; padding: 1px 7px;
+  }
+
+  /* ---------- chat walkthrough ---------- */
+  .stage { margin-top: 8px; }
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
+  .tab {
+    font-family: var(--sans); font-size: 13px; color: var(--ink-3);
+    background: none; border: 1px solid var(--hairline-2); border-radius: 999px;
+    padding: 7px 16px; cursor: pointer;
+  }
+  .tab:hover { color: var(--ink-2); border-color: var(--hairline); }
+  .tab[aria-selected="true"] { color: var(--ink); border-color: var(--accent); }
+  .tab .n { color: var(--accent); font-variant-numeric: tabular-nums; margin-right: 6px; }
+
+  .chatwin {
+    background: var(--surface); border: 1px solid var(--hairline);
+    border-radius: 10px; overflow: hidden;
+  }
+  .chatbar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 16px; border-bottom: 1px solid var(--hairline-2);
+    background: var(--surface-2);
+  }
+  .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--hairline); }
+  .chatbar span { margin-left: 8px; font-size: 12.5px; color: var(--ink-3); }
+  .chatbody { padding: 26px 26px 8px; min-height: 380px; }
+  .scene { display: none; }
+  .scene.active { display: block; }
+
+  .msg { margin: 0 0 18px; max-width: 92%; }
+  .scene > .hidden { display: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    .scene > .revealed { animation: rise 0.32s ease-out; }
+    @keyframes rise { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+  }
+  .who {
+    font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ink-3); margin-bottom: 5px;
+  }
+  .msg.user { margin-left: auto; }
+  .msg.user .who { text-align: right; }
+  .msg.user .bubble {
+    background: var(--surface-2); border: 1px solid var(--hairline-2);
+    border-radius: 10px 10px 3px 10px; padding: 11px 16px; font-size: 15px; color: var(--ink);
+  }
+  .msg.user .bubble .cmd {
+    font-family: var(--mono); font-size: 13.5px; color: var(--accent); display: block;
+  }
+  .msg.claude .bubble { font-size: 15px; color: var(--ink-2); }
+  .msg.claude .bubble strong { color: var(--ink); font-weight: 600; }
+
+  .timejump {
+    text-align: center; font-size: 12px; color: var(--ink-3);
+    letter-spacing: 0.14em; margin: 4px 0 18px;
+  }
+  .timejump::before, .timejump::after { content: "·"; margin: 0 10px; color: var(--hairline); }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 10px; }
+  .fchip {
+    font-family: var(--mono); font-size: 11.5px; color: var(--good);
+    border: 1px solid rgba(12,163,12,0.3); border-radius: 999px; padding: 2px 10px;
+  }
+  .fchip.plain { color: var(--ink-3); border-color: var(--hairline); }
+
+  .card {
+    background: var(--surface-2); border: 1px solid var(--hairline-2);
+    border-left: 2px solid var(--accent);
+    border-radius: 8px; padding: 16px 20px; margin-top: 10px; font-size: 14px;
+  }
+  .card h4 {
+    margin: 0 0 10px; font-size: 10.5px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--ink-3); font-weight: 500;
+  }
+  .kvrow { display: flex; gap: 14px; padding: 3.5px 0; }
+  .kvrow b { flex: 0 0 96px; font-weight: 500; color: var(--ink-3); font-size: 13px; }
+  .kvrow span { color: var(--ink-2); }
+  .kvrow .q { color: var(--warning); }
+
+  .draft {
+    background: var(--surface-2); border: 1px solid var(--hairline-2);
+    border-radius: 8px; padding: 16px 20px; margin-top: 10px;
+    font-size: 14.5px; color: var(--ink); white-space: pre-line;
+  }
+  .draft .ph { color: var(--warning); font-family: var(--mono); font-size: 13px; }
+  .draft-tag {
+    display: inline-block; margin-top: 10px; font-size: 11px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--ink-3);
+  }
+
+  .dials { margin-top: 6px; }
+  .dial { display: grid; grid-template-columns: 88px 1fr 30px; align-items: center; gap: 12px; padding: 4.5px 0; }
+  .dial .dn { font-size: 12.5px; color: var(--ink-2); }
+  .dial .dv { font-size: 12px; color: var(--ink-3); text-align: right; font-variant-numeric: tabular-nums; }
+  .meter { height: 4px; background: var(--accent-dim); border-radius: 2px; }
+  .meter i { display: block; height: 100%; background: var(--accent); border-radius: 2px; }
+
+  .status-line { display: flex; gap: 8px; align-items: baseline; padding: 4px 0; font-size: 14px; color: var(--ink-2); }
+  .badge { font-size: 11px; letter-spacing: 0.08em; border-radius: 999px; padding: 1px 9px; white-space: nowrap; }
+  .badge.due { color: var(--warning); border: 1px solid rgba(250,178,25,0.35); }
+  .badge.ok  { color: var(--good); border: 1px solid rgba(12,163,12,0.3); }
+
+  .controls {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 26px 18px; border-top: 1px solid var(--hairline-2);
+  }
+  .btn {
+    font-family: var(--sans); font-size: 14px; font-weight: 600; cursor: pointer;
+    border-radius: 999px; padding: 9px 22px; border: 1px solid var(--hairline);
+    background: none; color: var(--ink-2);
+  }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #140b0b; }
+  .btn.primary:hover { background: #ee7f7f; }
+  .btn:disabled { opacity: 0.35; cursor: default; }
+  .progress { margin-left: auto; font-size: 12.5px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+
+  .takeaway {
+    margin: 18px 2px 0; padding-left: 16px; border-left: 2px solid var(--accent);
+    color: var(--ink-2); font-size: 15px; max-width: 62ch;
+  }
+  .takeaway b { color: var(--ink); }
+
+  /* ---------- setup strip ---------- */
+  .setup { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .step {
+    background: var(--surface); border: 1px solid var(--hairline-2); border-radius: 8px;
+    padding: 22px 22px 18px;
+  }
+  .step .sn { font-size: 12px; color: var(--accent); letter-spacing: 0.18em; }
+  .step code {
+    display: block; font-family: var(--mono); font-size: 12.5px; color: var(--ink);
+    margin: 10px 0 8px; overflow-wrap: anywhere;
+  }
+  .step p { margin: 0; font-size: 13px; color: var(--ink-3); }
+  .setup-note { margin-top: 22px; color: var(--ink-2); max-width: 62ch; font-size: 15px; }
+
+  /* ---------- rhythm ---------- */
+  .rhythm { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
+  .beat {
+    background: var(--surface); border: 1px solid var(--hairline-2); border-radius: 8px;
+    padding: 22px 24px;
+  }
+  .beat .bt { font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); }
+  .beat h3 { margin: 8px 0 6px; font-size: 16px; font-weight: 600; }
+  .beat p { margin: 0; font-size: 13.5px; color: var(--ink-2); }
+
+  /* ---------- footer ---------- */
+  .cta {
+    margin: 88px 0 0; padding: 56px 0 72px; border-top: 1px solid var(--hairline);
+    text-align: center;
+  }
+  .cta h2 { max-width: 24ch; margin: 0 auto 12px; }
+  .cta p { color: var(--ink-2); max-width: 52ch; margin: 0 auto; }
+  .cta .sig { margin-top: 34px; font-size: 12px; letter-spacing: 0.26em; text-transform: lowercase; color: var(--ink-3); }
+  .cta .sig b { color: var(--ink); font-weight: 600; }
+  .fineprint { margin-top: 18px; font-size: 12px; color: var(--ink-3); }
+
+  :is(.tab, .btn, .hero-cta):focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  @media (max-width: 760px) {
+    .pains, .setup, .rhythm { grid-template-columns: 1fr; }
+    .hero { padding: 56px 0 48px; }
+    .hero .kanji { display: none; }
+    .chatbody { padding: 18px 14px 4px; min-height: 0; }
+    .msg { max-width: 100%; }
+    .controls { padding: 12px 14px 16px; }
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="topbar">
+    <div>realtor <b>aios</b> · tsang ai consulting</div>
+    <div class="demo-chip">working demo</div>
+  </div>
+
+  <div class="hero">
+    <span class="kanji" aria-hidden="true">間</span>
+    <p class="eyebrow">an ai operating system for one realtor: you</p>
+    <h1>You didn't get licensed to do <em>data entry.</em></h1>
+    <p>
+      Realtor AIOS is an AI assistant we install on your computer and train on
+      <strong>your</strong> business — your market, your process, your way of
+      talking. It answers new leads in minutes, keeps every follow-up on
+      schedule, and writes your weekly content in a voice your clients will
+      recognize as yours. Below is a simulation of exactly what using it
+      looks like.
+    </p>
+    <a class="hero-cta" href="#walkthrough">Watch it work ↓</a>
+    <span class="hero-note">2-minute click-through · no signup, nothing installed</span>
+  </div>
+
+  <section>
+    <p class="label">the leaks</p>
+    <h2>Where a solo realtor's day actually goes</h2>
+    <p class="lede">Four leaks show up in almost every practice. Each one has a module aimed straight at it.</p>
+    <div class="pains">
+      <div class="pain">
+        <h3>Leads lost at intake</h3>
+        <p>The inquiry lands while you're mid-showing. By the time you reply
+        tonight, they've heard back from two other agents — and their name,
+        timeline, and budget live in a DM thread you'll never find again.</p>
+        <div class="fix">fixed in the demo, scene 3 → <code>lead-engine</code></div>
+      </div>
+      <div class="pain">
+        <h3>Follow-up that fizzles</h3>
+        <p>Everyone follows up once. Almost nobody follows up on day 7, day 14,
+        and next month — because remembering that for eleven leads at once is
+        itself a full-time job.</p>
+        <div class="fix">fixed in the demo, scene 4 → <code>lead-engine</code></div>
+      </div>
+      <div class="pain">
+        <h3>The content treadmill</h3>
+        <p>You know you should post. But deciding what to say, writing it,
+        and doing it again every single week is hours you don't have — so
+        the posting stops, and so does the pipeline it feeds.</p>
+        <div class="fix">fixed in the demo, scene 5 → <code>marketing-engine</code></div>
+      </div>
+      <div class="pain">
+        <h3>AI that sounds like AI</h3>
+        <p>You've tried ChatGPT. The posts read like everyone else's:
+        "In today's dynamic market…" Your clients chose you for you — generic
+        words undo that.</p>
+        <div class="fix">fixed in the demo, scene 2 → <code>brain-clone</code></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="walkthrough">
+    <p class="label">the walkthrough</p>
+    <h2>Meet Jas. Watch her AIOS get built — then earn its keep.</h2>
+    <p class="lede">
+      A simulated Claude Code session for a Langley, BC realtor. Click
+      <strong>Next</strong> to step through each conversation — this is the
+      actual flow of the product, message for message.
+    </p>
+
+    <div class="stage">
+      <div class="tabs" role="tablist" aria-label="Demo scenes">
+        <button class="tab" role="tab" data-scene="0"><span class="n">1</span>The install</button>
+        <button class="tab" role="tab" data-scene="1"><span class="n">2</span>Her voice</button>
+        <button class="tab" role="tab" data-scene="2"><span class="n">3</span>A lead comes in</button>
+        <button class="tab" role="tab" data-scene="3"><span class="n">4</span>The morning check</button>
+        <button class="tab" role="tab" data-scene="4"><span class="n">5</span>The content week</button>
+      </div>
+
+      <div class="chatwin">
+        <div class="chatbar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <span>Claude Code — Jas's AIOS workspace</span>
+        </div>
+        <div class="chatbody">
+
+          <!-- Scene 1: install -->
+          <div class="scene" data-scene="0">
+            <div class="msg user"><div class="who">jas types</div><div class="bubble"><span class="cmd">/install-module context-os</span></div></div>
+            <div class="msg claude"><div class="who">claude</div><div class="bubble">
+              Installing <strong>Context OS — Realtor Edition</strong>… done. Two new
+              commands are active, and the module's registered in your system.
+              <div class="chips"><span class="fchip">✓ /context-interview</span><span class="fchip">✓ /context-update</span></div>
+              <p style="margin:12px 0 0">I'm ready to learn your business — the interview takes about
+              30–45 minutes and you can stop anytime. Want to start now?</p>
+            </div></div>
+            <div class="msg user"><div class="who">jas</div><div class="bubble">let's do it</div></div>
+            <div class="msg claude"><div class="who">claude</div><div class="bubble">First things first — what's your name, and which brokerage are you with?</div></div>
+            <div class="msg user"><div class="who">jas</div><div class="bubble">Jas Sandhu, Pacific Gate Realty in Langley</div></div>
+            <div class="msg claude"><div class="who">claude</div><div class="bubble">Nice to meet you, Jas. Where's home turf — the neighbourhoods where people would actually see your signs?</div></div>
+            <div class="msg user"><div class="who">jas</div><div class="bubble">Willoughby and Willowbrook mostly, some Murrayville. Townhomes, lots of first-time buyers.</div></div>
+            <div class="msg claude"><div class="who">claude</div><div class="bubble">
+              Saved — your profile and market files are started. Next: tell me about
+              the last client you <strong>loved</strong> working with…
+              <div class="chips"><span class="fchip">✓ business-profile.md</span><span class="fchip">✓ market.md</span></div>
+            </div></div>
+          </div>
+
+          <!-- Scene 2: voice -->
+          <div class="scene" data-scene="1">
+            <div class="msg user"><div class="who">jas types</div><div class="bubble"><span class="cmd">/brain-dump</span></div></div>
+            <div class="msg claude"><div class="who">claude</div><div class="bubble">
+              Time to learn how you actually <strong>sound</strong>. Paste in 5–10 of
+              your past posts or client emails — don't clean them up. The unpolished
+              you is the point.
+            </div></div>
+            <div class="msg user"><div class="who">jas pastes an old post</div><div class="bubble">
+              "Real talk — everyone's waiting for Langley prices to 'crash.'
+              Meanwhile my buyers from March are sitting pretty. The market doesn't
+              care about your uncle's prediction 🤷"
+            </div></div>
+            <div class="msg claude"><div class="who">claude</div><div class="bubble">
+              That one's gold — saved. I'm hearing: direct, a little cheeky, zero
+              corporate polish. Keep them coming.
+              <div class="chips"><span class="fchip">✓ samples/sample-01.md</span></div>
+            </div></div>
+            <div class="timejump">nine samples and a 20-minute interview later</div>
+            <div class="msg claude"><div class="who">claude</div><div class="bubble">
+              Here's your voice on file:
+              <div class="card">
+                <h4>voice-profile.md</h4>
+                <div class="dials">
+                  <div class="dial"><span class="dn">Formality</span><div class="meter"><i style="width:40%"></i></div><span class="dv">2/5</span></div>
+                  <div class="dial"><span class="dn">Warmth</span><div class="meter"><i style="width:80%"></i></div><span class="dv">4/5</span></div>
+                  <div class="dial"><span class="dn">Directness</span><div class="meter"><i style="width:80%"></i></div><span class="dv">4/5</span></div>
+                  <div class="dial"><span class="dn">Salesiness</span><div class="meter"><i style="width:20%"></i></div><span class="dv">1/5</span></div>
+                </div>
+                <div class="kvrow" style="margin-top:10px"><b>never do</b><span>fear-mongering · "DM me" bait · exclamation pile-ups</span></div>
+              </div>
+              <p style="margin:12px 0 0">And a test post written from it — honestly, does this sound like you?</p>
+              <div class="draft">Willoughby townhome buyers: the "wait for spring" advice you're getting? It's costing you choice, not saving you money. Happy to show you the actual numbers — no pitch, just math.</div>
+            </div></div>
+            <div class="msg user"><div class="who">jas</div><div class="bubble">close… but I'd never say "no pitch." feels salesy about not being salesy 😅</div></div>
+            <div class="msg claude"><div class="who">claude</div><div class="bubble">
+              Fair — that's going on your never-do list, and I've adjusted the profile,
+              not just this post. From here on, <strong>everything client-facing gets
+              written from this file.</strong> Not generic AI. You.
+            </div></div>
+          </div>
+
+          <!-- Scene 3: lead intake -->
+          <div class="scene" data-scene="2">
+            <div class="timejump">tuesday, 2:40 pm — jas is mid-showing when a portal inquiry lands</div>
+            <div class="msg user"><div class="who">jas pastes the inquiry</div><div class="bubble">
+              <span class="cmd">/log-lead</span>
+              "Hi, we saw the townhouse listing on 80th Ave — is it still available?
+              We're pre-approved and hoping to move before our lease ends in
+              September. — Maya"
+            </div></div>
+            <div class="msg claude"><div class="who">claude</div><div class="bubble">
+              Got her. Captured and on your board:
+              <div class="card">
+                <h4>new lead — maya c.</h4>
+                <div class="kvrow"><b>source</b><span>portal inquiry</span></div>
+                <div class="kvrow"><b>interest</b><span>80th Ave townhome listing</span></div>
+                <div class="kvrow"><b>timeline</b><span>before September — lease ending</span></div>
+                <div class="kvrow"><b>signals</b><span>"we're pre-approved" (her words)</span></div>
+                <div class="kvrow"><b>contact</b><span class="q">reply via portal · phone ?</span></div>
+              </div>
+              <div class="chips"><span class="fchip">✓ leads/active/2026-07-07-maya-c.md</span><span class="fchip plain">follow-ups: day 2 · 7 · 14</span></div>
+              <p style="margin:12px 0 0">And your reply, ready to send — in your voice:</p>
+              <div class="draft">Hi Maya — yes, the 80th Ave townhome is still available, and a September move is very workable from here. Since you're pre-approved you're ahead of the pack already. I could walk you through it Saturday at 1:00 or Sunday morning — which suits?
+<span class="draft-tag">drafted for: portal reply</span></div>
+            </div></div>
+            <div class="msg user"><div class="who">jas, between showings</div><div class="bubble">sent 👍</div></div>
+            <div class="msg claude"><div class="who">claude</div><div class="bubble">
+              Logged. And if Maya goes quiet, she won't slip through — I'll put her in
+              front of you the day each follow-up is due.
+            </div></div>
+          </div>
+
+          <!-- Scene 4: morning check -->
+          <div class="scene" data-scene="3">
+            <div class="timejump">thursday, 8:05 am — coffee in hand</div>
+            <div class="msg user"><div class="who">jas types</div><div class="bubble"><span class="cmd">/lead-check</span></div></div>
+            <div class="msg claude"><div class="who">claude</div><div class="bubble">
+              Two touches today, one of them overdue:
+              <div class="card">
+                <div class="status-line"><span class="badge due">● overdue 1 day</span><span><strong>Rob T.</strong> — downsizer, Murrayville — day-7 touch</span></div>
+                <div class="status-line"><span class="badge due">● due today</span><span><strong>Maya C.</strong> — confirm Saturday's showing</span></div>
+                <div class="status-line"><span class="badge ok">✓ on rhythm</span><span><strong>Priya K.</strong> — keep-warm, next touch Jul 20</span></div>
+              </div>
+              <p style="margin:12px 0 0">Rob's follow-up — new angle, since the last one was a market note:</p>
+              <div class="draft">Rob — a 2-bed rancher just came up a short walk from the village core. No stairs, single level, exactly the list you gave me. No rush on my end, but I didn't want you hearing about it after it's gone. Want the address?
+<span class="draft-tag">angle: relevant listing · last touch was: market note</span></div>
+            </div></div>
+            <div class="msg user"><div class="who">jas</div><div class="bubble">send both. and maya replied — confirmed sat 1pm</div></div>
+            <div class="msg claude"><div class="who">claude</div><div class="bubble">
+              Done. Rob's next touch is day 14. Maya's rhythm pauses — her next touch
+              <strong>is</strong> Saturday's showing. Pipeline: 3 active, nothing
+              overdue. Have a good one.
+            </div></div>
+          </div>
+
+          <!-- Scene 5: content week -->
+          <div class="scene" data-scene="4">
+            <div class="timejump">monday morning — the weekly 20-minute sitting</div>
+            <div class="msg user"><div class="who">jas types</div><div class="bubble"><span class="cmd">/content-week</span></div></div>
+            <div class="msg claude"><div class="who">claude</div><div class="bubble">
+              Fresh research first: the "what the rate news means <strong>locally</strong>"
+              topic is outperforming for several creators in suburban markets this
+              week — strong fit for your positioning. Your week:
+              <div class="card">
+                <h4>week of jul 13</h4>
+                <div class="kvrow"><b>mon</b><span>insight — what the rate news means for Willoughby buyers</span></div>
+                <div class="kvrow"><b>wed</b><span>story — the townhome that sold in 6 days (and the mistake we dodged)</span></div>
+                <div class="kvrow"><b>fri</b><span>educational — "subject-free offers, explained like a neighbour"</span></div>
+              </div>
+              <p style="margin:12px 0 0">Monday's Facebook version — LinkedIn's drafted too:</p>
+              <div class="draft">Everyone's asking what this week's rate news actually means for Langley. Short version: <span class="ph">[YOUR STAT: June benchmark, Willoughby townhomes]</span> hasn't budged the way the headlines suggest. If you're pre-approved, your buying power just changed — worth a 10-minute chat before the weekend.
+<span class="draft-tag">1 placeholder — it never invents your numbers</span></div>
+            </div></div>
+            <div class="msg user"><div class="who">jas</div><div class="bubble">tighten monday's and I'll drop the number in</div></div>
+            <div class="msg claude"><div class="who">claude</div><div class="bubble">
+              Trimmed. Three posts are queued for your review — Facebook and LinkedIn
+              versions of each, all in your voice. Post them on the day, tell me
+              "posted," and I'll archive them. That's the whole week: one sitting.
+              <div class="chips"><span class="fchip">✓ 3 drafts in content/queue/</span><span class="fchip plain">calendar updated</span></div>
+            </div></div>
+          </div>
+
+        </div>
+        <div class="controls">
+          <button class="btn primary" id="nextBtn">Next</button>
+          <button class="btn" id="backBtn">Back</button>
+          <span class="progress" id="progress"></span>
+        </div>
+      </div>
+
+      <p class="takeaway" id="takeaway"></p>
+    </div>
+  </section>
+
+  <section>
+    <p class="label">the setup</p>
+    <h2>The whole install is four typed lines</h2>
+    <p class="lede">
+      No terminal. No configuration. Your consultant sets up Claude Code with
+      you, you open your workspace, and each module installs itself when you
+      type its line — then interviews you in plain conversation.
+    </p>
+    <div class="setup">
+      <div class="step"><span class="sn">01</span><code>/install-module context-os</code><p>Learns your business — market, clients, process. A 30–45 min interview.</p></div>
+      <div class="step"><span class="sn">02</span><code>/install-module brain-clone</code><p>Learns your voice from your past content plus a brain-dump chat.</p></div>
+      <div class="step"><span class="sn">03</span><code>/install-module marketing-engine</code><p>Topic research and your weekly Facebook + LinkedIn content.</p></div>
+      <div class="step"><span class="sn">04</span><code>/install-module lead-engine</code><p>Lead capture at intake and follow-up that never slips.</p></div>
+    </div>
+    <p class="setup-note">
+      About two hours end to end, with natural coffee breaks — and it's
+      guided, enforced in the right order, and impossible to break by typing
+      the wrong thing. If you can send a text message, you can run this.
+      Everything it learns is saved as plain files on <strong>your</strong>
+      computer, readable any time.
+    </p>
+  </section>
+
+  <section>
+    <p class="label">the rhythm</p>
+    <h2>What it asks of you, once it's running</h2>
+    <p class="lede">The system is designed around a cadence you'll actually keep.</p>
+    <div class="rhythm">
+      <div class="beat"><span class="bt">every morning · 5 min</span><h3>/prime → /lead-check</h3><p>Your status at a glance, then every due follow-up — already written, waiting for you to hit send.</p></div>
+      <div class="beat"><span class="bt">when a lead arrives · 30 sec</span><h3>/log-lead</h3><p>Paste the inquiry. Get the lead captured, the reply drafted, the follow-ups scheduled.</p></div>
+      <div class="beat"><span class="bt">once a week · 15–30 min</span><h3>/content-week</h3><p>Three posts, two platforms, your voice. Review, tweak, done for the week.</p></div>
+    </div>
+  </section>
+
+  <div class="cta">
+    <p class="label">next step</p>
+    <h2>See it running on a real business — yours.</h2>
+    <p>
+      This demo is a simulation. The real thing gets built around your market,
+      your niche, and your voice, in a guided working session. Ask us for a
+      live walkthrough.
+    </p>
+    <div class="sig">tsang <b>ai consulting</b> · langley, bc</div>
+    <p class="fineprint">"Jas Sandhu" and all leads shown are fictional sample data. Simulated conversation — the real product runs in Claude Code on your computer.</p>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene'));
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
+  var nextBtn = document.getElementById('nextBtn');
+  var backBtn = document.getElementById('backBtn');
+  var progress = document.getElementById('progress');
+  var takeaway = document.getElementById('takeaway');
+
+  var takeaways = [
+    'Setup is a conversation, not a configuration. <b>One typed line starts it</b> — the interview does the rest.',
+    'The difference between AI content and <b>your</b> content is a voice profile that every module is required to load before it writes a word.',
+    'The intake leak, closed: <b>answered in minutes, in her voice, captured and scheduled</b> — all from one paste, between showings.',
+    'Follow-up stops depending on memory. <b>Five minutes a morning</b>, every message already written, every touch with a fresh angle.',
+    'A rhythm she can keep: <b>one sitting, three posts, two platforms</b> — and it never invents her numbers.'
+  ];
+
+  var current = 0;
+  var revealed = scenes.map(function () { return 0; });
+
+  scenes.forEach(function (scene) {
+    Array.prototype.forEach.call(scene.children, function (el) { el.classList.add('hidden'); });
+  });
+
+  function items(i) { return scenes[i].children; }
+
+  function update() {
+    scenes.forEach(function (s, i) { s.classList.toggle('active', i === current); });
+    tabs.forEach(function (t, i) { t.setAttribute('aria-selected', i === current ? 'true' : 'false'); });
+    var total = items(current).length;
+    var shown = revealed[current];
+    var atEnd = current === scenes.length - 1 && shown >= total;
+    nextBtn.textContent = shown >= total ? (atEnd ? 'Replay' : 'Next scene →') : 'Next';
+    backBtn.disabled = current === 0 && shown === 0;
+    progress.textContent = 'scene ' + (current + 1) + ' of ' + scenes.length;
+    takeaway.innerHTML = shown >= total ? takeaways[current] : '';
+  }
+
+  function reveal(i, count, animate) {
+    var els = items(i);
+    for (var k = 0; k < els.length; k++) {
+      var show = k < count;
+      els[k].classList.toggle('hidden', !show);
+      els[k].classList.toggle('revealed', show && animate && k === count - 1);
+    }
+  }
+
+  function next() {
+    var total = items(current).length;
+    if (revealed[current] < total) {
+      revealed[current]++;
+      reveal(current, revealed[current], true);
+    } else if (current < scenes.length - 1) {
+      current++;
+      if (revealed[current] === 0) { revealed[current] = 1; }
+      reveal(current, revealed[current], true);
+    } else {
+      revealed = scenes.map(function () { return 0; });
+      current = 0;
+      revealed[0] = 1;
+      reveal(0, 1, true);
+      scenes.forEach(function (s, i) { if (i !== 0) reveal(i, 0, false); });
+    }
+    update();
+  }
+
+  function back() {
+    if (revealed[current] > 1) {
+      revealed[current]--;
+      reveal(current, revealed[current], false);
+    } else if (current > 0) {
+      current--;
+    }
+    update();
+  }
+
+  nextBtn.addEventListener('click', next);
+  backBtn.addEventListener('click', back);
+  tabs.forEach(function (t) {
+    t.addEventListener('click', function () {
+      current = parseInt(t.getAttribute('data-scene'), 10);
+      if (revealed[current] === 0) {
+        revealed[current] = 1;
+        reveal(current, 1, true);
+      }
+      update();
+    });
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight') { next(); }
+    if (e.key === 'ArrowLeft') { back(); }
+  });
+
+  revealed[0] = 1;
+  reveal(0, 1, false);
+  update();
+})();
+</script>

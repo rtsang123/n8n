@@ -371,6 +371,26 @@ td.c, th.c { text-align: center; }
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20pt; }
 .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14pt; }
 
+/* ---------- Game plan worksheet ---------- */
+.plan-block {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  padding: 11pt 14pt;
+  margin-bottom: 11pt;
+}
+.plan-block .kicker { margin-bottom: 6pt; }
+.plan-block .small { margin-top: 4pt; }
+.plan-row {
+  display: flex;
+  gap: 8pt;
+  align-items: flex-end;
+  margin: 9pt 0;
+  font-size: 10pt;
+}
+.plan-row .lbl { flex: 0 0 auto; color: var(--muted); padding-bottom: 1pt; }
+.plan-row .fill { flex: 1 1 auto; border-bottom: 1px solid #b9c2cc; height: 13pt; min-width: 40pt; }
+.plan-row .cb { color: var(--accent); font-weight: 700; }
+
 /* ---------- Utility ---------- */
 
 .mt-lg { margin-top: 18pt; }

@@ -86,7 +86,9 @@ Every module MUST follow this format so `/install-module` can run it:
 | 2 | `brain-clone` | `context/voice-profile.md` — the captured writing voice |
 | 3 | `marketing-engine` | Topic research, FB/LinkedIn content, weekly cadence |
 | 4 | `lead-engine` | Lead intake capture + follow-up drafting in `leads/` |
+| 5 | `listing-prep` | Prep sheets in `listings/` — no new context files |
+| 6 | `transaction-coordinator` | Deal tracking + client updates in `deals/` |
 
-Install 1 and 2 in that order; 3 and 4 both require the first two but are
+Install 1 and 2 in that order; 3–6 all require the first two but are
 independent of each other. Each module's INSTALL.md enforces its own
 prerequisites, so installing out of order fails safely with instructions.

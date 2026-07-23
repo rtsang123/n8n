@@ -15,6 +15,8 @@ Load the whole workspace and open the session. Steps:
    `content/calendar.md` and list the files in `content/queue/`.
 4. If the `lead-engine` module is installed, also read `leads/pipeline.md`
    and note any follow-ups due or overdue today.
+5. If the `transaction-coordinator` module is installed, also read
+   `deals/pipeline.md` and note any key dates due or overdue today.
 
 Then greet the owner **by name** (from `context/business-profile.md`) with a
 short status report — plain language, no file paths:
@@ -28,6 +30,8 @@ short status report — plain language, no file paths:
   planned this week, and whether the week's content has been generated yet.
 - **Leads:** if lead-engine is installed — how many follow-ups are due or
   overdue today (overdue first; suggest `/lead-check` if any).
+- **Deals:** if transaction-coordinator is installed — how many key dates
+  are due or overdue today (suggest `/deal-check` if any).
 - **Suggested next actions:** exactly 3, ranked, based on the state above.
   Examples: finish an unfinished interview, add past-content samples, run
   `/content-week` because nothing is planned for this week, or review a

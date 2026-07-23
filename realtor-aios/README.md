@@ -22,14 +22,16 @@ realtor-aios/
     ├── .claude/commands/      ← /install-module and /prime
     ├── context/               ← the realtor's "brain" — built by the modules
     ├── system/modules.md      ← module install registry
-    └── modules/               ← the four installable modules
+    └── modules/               ← the six installable modules
         ├── context-os/        ← Context OS, Realtor Edition (install FIRST)
         ├── brain-clone/       ← voice capture → context/voice-profile.md
         ├── marketing-engine/  ← topic research + FB/LinkedIn content + weekly cadence
-        └── lead-engine/       ← lead intake capture + follow-up in their voice
+        ├── lead-engine/       ← lead intake capture + follow-up in their voice
+        ├── listing-prep/      ← one-page prep sheet before a listing appointment
+        └── transaction-coordinator/ ← key-date tracking + client updates, offer to close
 ```
 
-## The four modules, in install order
+## The six modules, in install order
 
 1. **`context-os`** — Context OS, Realtor Edition. A structured interview that
    captures the realtor's market and farm area, niche and client types,
@@ -57,14 +59,31 @@ realtor-aios/
    brain-clone; independent of marketing-engine — installable in either
    order after the first two.)
 
+5. **`listing-prep`** — one command, no new interview: `/prep-listing`
+   builds a one-page prep sheet for an upcoming listing appointment straight
+   from the realtor's existing market, positioning, and process files —
+   pricing narrative, likely objections, table questions, all in voice.
+
+6. **`transaction-coordinator`** — tracks a deal's key dates from accepted
+   offer to close and drafts the client updates around them. Mirrors
+   lead-engine's `/open-escrow` → `/deal-check` rhythm; when lead-engine is
+   installed, a deal can link back to the lead it came from instead of
+   duplicating it. Administrative reminders only — no contract or legal
+   document handling.
+
+Modules 5 and 6 need only `context-os` + `brain-clone` — both reuse the
+context files and folder patterns those already built, so there's no new
+interview and (for listing-prep) no new persistent schema at all.
+
 ## Delivering to a client
 
 1. Copy the whole `realtor-aios/` folder to the client's computer.
 2. Walk them through `INSTALLATION-GUIDE.md` (or do the install with them —
    the guide assumes they have never opened a terminal).
 3. Install order is enforced by the modules themselves: `context-os` →
-   `brain-clone` → then `marketing-engine` and `lead-engine`. Each is
-   installed by typing `/install-module <name>` inside Claude Code.
+   `brain-clone` → then `marketing-engine`, `lead-engine`, `listing-prep`,
+   and `transaction-coordinator` in any order. Each is installed by typing
+   `/install-module <name>` inside Claude Code.
 4. Open `dashboard/dashboard.html` in a browser to show them the at-a-glance
    view of their AIOS (it ships with realistic sample data; it is a static
    companion view, not wired to the workspace).

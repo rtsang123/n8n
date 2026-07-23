@@ -16,30 +16,50 @@
     --sans: system-ui, -apple-system, "Segoe UI", sans-serif;
     --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
   }
-  html { background: var(--page); }
+  * { box-sizing: border-box; }
+  html { background: var(--page); scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
   body {
     background: var(--page); color: var(--ink);
     font-family: var(--sans); font-size: 16px; line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     margin: 0;
   }
-  .wrap { max-width: 960px; margin: 0 auto; padding: 0 24px; }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
 
   .topbar {
     display: flex; justify-content: space-between; align-items: center;
     padding: 22px 0; border-bottom: 1px solid var(--hairline-2);
     font-size: 12px; letter-spacing: 0.26em; text-transform: lowercase; color: var(--ink-3);
+    position: sticky; top: 0; background: rgba(13,13,13,0.86);
+    backdrop-filter: blur(8px); z-index: 20;
   }
   .topbar b { color: var(--ink); font-weight: 600; }
-  .demo-chip {
-    font-size: 11px; letter-spacing: 0.18em; color: var(--accent);
-    border: 1px solid rgba(230,103,103,0.35); border-radius: 999px; padding: 3px 12px;
+  .topbar-cta {
+    font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent);
+    border: 1px solid rgba(230,103,103,0.4); border-radius: 999px; padding: 6px 14px;
+    text-decoration: none; transition: background 0.15s;
   }
+  .topbar-cta:hover { background: var(--accent-dim); }
+
+  /* ---------- buttons ---------- */
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent); color: #180c0c; font-weight: 650; font-size: 15px;
+    padding: 13px 28px; border-radius: 999px; text-decoration: none; border: none;
+    cursor: pointer; font-family: var(--sans); transition: background 0.15s, transform 0.15s;
+  }
+  .cta-btn:hover { background: #ef8181; transform: translateY(-1px); }
+  .cta-btn.ghost {
+    background: none; color: var(--ink-2); border: 1px solid var(--hairline);
+    font-weight: 600;
+  }
+  .cta-btn.ghost:hover { background: var(--surface); color: var(--ink); transform: none; }
 
   /* ---------- hero ---------- */
-  .hero { padding: 88px 0 72px; position: relative; }
+  .hero { padding: 76px 0 60px; position: relative; }
   .hero .kanji {
-    position: absolute; right: 0; top: 34px; font-size: 150px; line-height: 1;
+    position: absolute; right: -10px; top: 20px; font-size: 168px; line-height: 1;
     color: rgba(230,103,103,0.06); user-select: none; pointer-events: none;
   }
   .eyebrow {
@@ -47,45 +67,83 @@
     color: var(--ink-3); margin: 0 0 18px;
   }
   h1 {
-    font-size: clamp(34px, 5.6vw, 54px); font-weight: 650; letter-spacing: -0.02em;
-    line-height: 1.12; margin: 0; max-width: 15ch; text-wrap: balance;
+    font-size: clamp(36px, 6vw, 58px); font-weight: 650; letter-spacing: -0.02em;
+    line-height: 1.1; margin: 0; max-width: 16ch; text-wrap: balance;
   }
   h1 em { font-style: normal; color: var(--accent); }
-  .hero p {
-    color: var(--ink-2); max-width: 56ch; margin: 26px 0 0; font-size: 17px;
+  .hero .sub {
+    color: var(--ink-2); max-width: 58ch; margin: 26px 0 0; font-size: 17px;
   }
-  .hero-cta {
-    display: inline-flex; align-items: center; gap: 10px; margin-top: 36px;
-    background: var(--accent); color: #140b0b; font-weight: 600; font-size: 15px;
-    padding: 12px 26px; border-radius: 999px; text-decoration: none;
-  }
-  .hero-cta:hover { background: #ee7f7f; }
-  .hero-note { display: block; margin-top: 14px; font-size: 13px; color: var(--ink-3); }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+  .hero-note { display: block; margin-top: 16px; font-size: 13px; color: var(--ink-3); }
 
   /* ---------- section scaffolding ---------- */
-  section { padding: 72px 0 0; }
+  section { padding: 68px 0 0; }
   .label {
     font-size: 11.5px; letter-spacing: 0.28em; text-transform: uppercase;
     color: var(--ink-3); margin: 0 0 8px;
   }
-  h2 { font-size: 27px; font-weight: 650; letter-spacing: -0.015em; margin: 0 0 10px; text-wrap: balance; }
-  .lede { color: var(--ink-2); max-width: 60ch; margin: 0 0 36px; }
+  h2 { font-size: 28px; font-weight: 650; letter-spacing: -0.015em; margin: 0 0 10px; text-wrap: balance; }
+  .lede { color: var(--ink-2); max-width: 62ch; margin: 0 0 34px; font-size: 16px; }
 
-  /* ---------- pain cards ---------- */
-  .pains { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-  .pain {
-    background: var(--surface); border: 1px solid var(--hairline-2); border-radius: 8px;
-    padding: 26px 28px; display: flex; flex-direction: column; gap: 10px;
+  /* ---------- before / after grid ---------- */
+  .ba { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .ba-col {
+    border-radius: 10px; padding: 24px 24px 26px; border: 1px solid var(--hairline-2);
   }
-  .pain h3 { margin: 0; font-size: 17px; font-weight: 600; }
-  .pain p { margin: 0; color: var(--ink-2); font-size: 14.5px; flex: 1; }
-  .fix { font-size: 12.5px; color: var(--ink-3); border-top: 1px solid var(--hairline-2); padding-top: 12px; }
-  .fix code {
-    font-family: var(--mono); font-size: 12px; color: var(--accent);
-    background: var(--accent-dim); border-radius: 4px; padding: 1px 7px;
+  .ba-col.before { background: linear-gradient(180deg, rgba(230,103,103,0.05), var(--surface)); }
+  .ba-col.after  { background: linear-gradient(180deg, rgba(12,163,12,0.05), var(--surface)); border-color: rgba(12,163,12,0.16); }
+  .ba-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 18px; }
+  .ba-head .tag {
+    font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600;
+    padding: 3px 10px; border-radius: 999px;
+  }
+  .before .ba-head .tag { color: var(--accent); border: 1px solid rgba(230,103,103,0.4); }
+  .after  .ba-head .tag { color: var(--good); border: 1px solid rgba(12,163,12,0.4); }
+  .ba-head h3 { margin: 0; font-size: 16px; font-weight: 600; }
+  .ba-item {
+    display: flex; gap: 11px; padding: 10px 0; border-top: 1px solid var(--hairline-2);
+    font-size: 14px; line-height: 1.45;
+  }
+  .ba-item:first-of-type { border-top: none; }
+  .ba-item .ic { flex: 0 0 16px; margin-top: 2px; font-size: 13px; }
+  .before .ba-item { color: var(--ink-2); }
+  .before .ba-item .ic { color: var(--accent); }
+  .before .ba-item .t { font-family: var(--mono); font-size: 11px; color: var(--ink-3); display: block; margin-bottom: 1px; letter-spacing: 0.02em; }
+  .after .ba-item { color: var(--ink); }
+  .after .ba-item .ic { color: var(--good); }
+  .after .ba-item .t { font-family: var(--mono); font-size: 11px; color: var(--good); display: block; margin-bottom: 1px; letter-spacing: 0.02em; }
+
+  /* ---------- visual step flow ---------- */
+  .flow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .fcard {
+    background: var(--surface); border: 1px solid var(--hairline-2); border-radius: 10px;
+    padding: 26px 26px 24px; position: relative; overflow: hidden;
+  }
+  .fcard::before {
+    content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: var(--accent);
+    opacity: 0.5;
+  }
+  .fcard .fnum {
+    font-family: var(--mono); font-size: 12px; color: var(--accent); letter-spacing: 0.1em;
+  }
+  .fcard h3 { margin: 12px 0 8px; font-size: 19px; font-weight: 650; letter-spacing: -0.01em; }
+  .fcard p { margin: 0; color: var(--ink-2); font-size: 14.5px; }
+  .fcard .under {
+    margin-top: 16px; padding-top: 14px; border-top: 1px solid var(--hairline-2);
+    font-size: 12px; color: var(--ink-3);
+  }
+  .fcard .under code {
+    font-family: var(--mono); color: var(--ink-2); background: var(--surface-2);
+    border-radius: 4px; padding: 1px 7px; font-size: 11.5px;
+  }
+  .reveal { opacity: 1; }
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.5s ease, transform 0.5s ease; }
+    .reveal.in { opacity: 1; transform: none; }
   }
 
-  /* ---------- chat walkthrough ---------- */
+  /* ---------- chat walkthrough (carried over) ---------- */
   .stage { margin-top: 8px; }
   .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
   .tab {
@@ -193,30 +251,122 @@
     border-radius: 999px; padding: 9px 22px; border: 1px solid var(--hairline);
     background: none; color: var(--ink-2);
   }
-  .btn.primary { background: var(--accent); border-color: var(--accent); color: #140b0b; }
-  .btn.primary:hover { background: #ee7f7f; }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #180c0c; }
+  .btn.primary:hover { background: #ef8181; }
   .btn:disabled { opacity: 0.35; cursor: default; }
   .progress { margin-left: auto; font-size: 12.5px; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 
   .takeaway {
     margin: 18px 2px 0; padding-left: 16px; border-left: 2px solid var(--accent);
-    color: var(--ink-2); font-size: 15px; max-width: 62ch;
+    color: var(--ink-2); font-size: 15px; max-width: 64ch;
   }
   .takeaway b { color: var(--ink); }
 
-  /* ---------- setup strip ---------- */
-  .setup { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .step {
-    background: var(--surface); border: 1px solid var(--hairline-2); border-radius: 8px;
-    padding: 22px 22px 18px;
+  /* ---------- deliverable mock-ups ---------- */
+  .mocks { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
+  .mock {
+    background: var(--surface); border: 1px solid var(--hairline-2); border-radius: 10px;
+    overflow: hidden;
   }
-  .step .sn { font-size: 12px; color: var(--accent); letter-spacing: 0.18em; }
-  .step code {
-    display: block; font-family: var(--mono); font-size: 12.5px; color: var(--ink);
-    margin: 10px 0 8px; overflow-wrap: anywhere;
+  .mock-head {
+    display: flex; align-items: center; gap: 10px; padding: 14px 18px;
+    border-bottom: 1px solid var(--hairline-2); background: var(--surface-2);
   }
-  .step p { margin: 0; font-size: 13px; color: var(--ink-3); }
-  .setup-note { margin-top: 22px; color: var(--ink-2); max-width: 62ch; font-size: 15px; }
+  .mock-head .pill {
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;
+    color: var(--accent); border: 1px solid rgba(230,103,103,0.35); border-radius: 999px; padding: 2px 9px;
+  }
+  .mock-head .ch { font-size: 12.5px; color: var(--ink-3); }
+  .mock-body { padding: 18px 20px 20px; font-size: 14.5px; color: var(--ink); line-height: 1.55; }
+  .mock-body .white { white-space: pre-line; }
+  .mock-note {
+    margin: 12px 20px 16px; font-size: 12px; color: var(--ink-3);
+    border-top: 1px dashed var(--hairline); padding-top: 12px;
+  }
+  .mock-note .ph { color: var(--warning); font-family: var(--mono); font-size: 11.5px; }
+
+  /* social card */
+  .avatar {
+    width: 34px; height: 34px; border-radius: 50%; flex: 0 0 34px;
+    background: linear-gradient(135deg, var(--accent), #a83b3b); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 13px;
+  }
+  .poster { line-height: 1.2; }
+  .poster b { font-size: 13.5px; color: var(--ink); font-weight: 600; display: block; }
+  .poster span { font-size: 11.5px; color: var(--ink-3); }
+  .social-meta { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--hairline-2);
+    display: flex; gap: 18px; font-size: 12px; color: var(--ink-3); }
+
+  /* email card */
+  .email-subj { font-weight: 600; color: var(--ink); margin-bottom: 4px; font-size: 14px; }
+  .email-from { font-size: 12px; color: var(--ink-3); margin-bottom: 14px; }
+
+  /* nurture sequence timeline */
+  .seq { position: relative; padding-left: 6px; }
+  .seq-step {
+    display: grid; grid-template-columns: 92px 1fr; gap: 14px; padding: 12px 0;
+    border-top: 1px solid var(--hairline-2);
+  }
+  .seq-step:first-child { border-top: none; }
+  .seq-when { }
+  .seq-when .day { font-family: var(--mono); font-size: 12px; color: var(--ink); font-weight: 600; }
+  .seq-when .chan {
+    display: inline-block; margin-top: 4px; font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 1px 7px; border-radius: 999px;
+  }
+  .seq-when .chan.text { color: var(--good); border: 1px solid rgba(12,163,12,0.35); }
+  .seq-when .chan.email { color: var(--accent); border: 1px solid rgba(230,103,103,0.35); }
+  .seq-msg { font-size: 13.5px; color: var(--ink-2); line-height: 1.5; }
+  .seq-msg b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- ROI calculator ---------- */
+  .roi {
+    background: var(--surface); border: 1px solid var(--hairline-2); border-radius: 12px;
+    padding: 30px 30px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 34px;
+  }
+  .roi-field label {
+    display: block; font-size: 13px; color: var(--ink-2); margin: 0 0 8px;
+  }
+  .roi-field { margin-bottom: 26px; }
+  .roi-field .val { color: var(--accent); font-weight: 650; font-variant-numeric: tabular-nums; }
+  input[type=range] {
+    -webkit-appearance: none; appearance: none; width: 100%; height: 4px; border-radius: 2px;
+    background: var(--accent-dim); outline: none; margin: 4px 0 0;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%;
+    background: var(--accent); cursor: pointer; border: 3px solid var(--surface);
+  }
+  input[type=range]::-moz-range-thumb {
+    width: 18px; height: 18px; border-radius: 50%; background: var(--accent); cursor: pointer;
+    border: 3px solid var(--surface);
+  }
+  .toggle { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--ink-2); cursor: pointer; user-select: none; }
+  .toggle input { position: absolute; opacity: 0; pointer-events: none; }
+  .toggle .box {
+    width: 40px; height: 22px; border-radius: 999px; background: var(--surface-2);
+    border: 1px solid var(--hairline); position: relative; flex: 0 0 40px; transition: background 0.15s;
+  }
+  .toggle .box::after {
+    content: ""; position: absolute; top: 2px; left: 2px; width: 16px; height: 16px;
+    border-radius: 50%; background: var(--ink-3); transition: transform 0.15s, background 0.15s;
+  }
+  .toggle input:checked + .box { background: var(--accent-dim); border-color: rgba(230,103,103,0.5); }
+  .toggle input:checked + .box::after { transform: translateX(18px); background: var(--accent); }
+  .toggle input:focus-visible + .box { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .roi-out { display: flex; flex-direction: column; justify-content: center; }
+  .roi-big { font-size: 15px; color: var(--ink-3); }
+  .roi-hours {
+    font-size: clamp(48px, 8vw, 68px); font-weight: 650; letter-spacing: -0.03em;
+    color: var(--accent); line-height: 1; margin: 6px 0 2px; font-variant-numeric: tabular-nums;
+  }
+  .roi-hours small { font-size: 18px; color: var(--ink-2); font-weight: 500; letter-spacing: 0; }
+  .roi-sub { display: flex; gap: 26px; margin-top: 20px; }
+  .roi-sub div { }
+  .roi-sub .n { font-size: 22px; font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .roi-sub .k { font-size: 12px; color: var(--ink-3); }
+  .roi-foot { grid-column: 1 / -1; font-size: 12px; color: var(--ink-3); border-top: 1px solid var(--hairline-2); padding-top: 16px; margin-top: 4px; }
 
   /* ---------- rhythm ---------- */
   .rhythm { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; }
@@ -228,26 +378,35 @@
   .beat h3 { margin: 8px 0 6px; font-size: 16px; font-weight: 600; }
   .beat p { margin: 0; font-size: 13.5px; color: var(--ink-2); }
 
-  /* ---------- footer ---------- */
+  /* ---------- final CTA ---------- */
   .cta {
-    margin: 88px 0 0; padding: 56px 0 72px; border-top: 1px solid var(--hairline);
-    text-align: center;
+    margin: 84px 0 0; padding: 60px 0 72px; border-top: 1px solid var(--hairline);
+    text-align: center; position: relative;
   }
-  .cta h2 { max-width: 24ch; margin: 0 auto 12px; }
-  .cta p { color: var(--ink-2); max-width: 52ch; margin: 0 auto; }
-  .cta .sig { margin-top: 34px; font-size: 12px; letter-spacing: 0.26em; text-transform: lowercase; color: var(--ink-3); }
+  .cta .kanji {
+    position: absolute; left: 50%; top: 40px; transform: translateX(-50%);
+    font-size: 150px; line-height: 1; color: rgba(230,103,103,0.05);
+    user-select: none; pointer-events: none;
+  }
+  .cta h2 { max-width: 22ch; margin: 0 auto 14px; font-size: 32px; position: relative; }
+  .cta p { color: var(--ink-2); max-width: 52ch; margin: 0 auto 30px; position: relative; }
+  .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; position: relative; }
+  .cta .alt { margin-top: 18px; font-size: 12.5px; color: var(--ink-3); position: relative; }
+  .cta .sig { margin-top: 40px; font-size: 12px; letter-spacing: 0.26em; text-transform: lowercase; color: var(--ink-3); position: relative; }
   .cta .sig b { color: var(--ink); font-weight: 600; }
-  .fineprint { margin-top: 18px; font-size: 12px; color: var(--ink-3); }
+  .fineprint { margin-top: 18px; font-size: 12px; color: var(--ink-3); max-width: 60ch; margin-left: auto; margin-right: auto; position: relative; }
 
-  :is(.tab, .btn, .hero-cta):focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  :is(a, button, input, .toggle):focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
-  @media (max-width: 760px) {
-    .pains, .setup, .rhythm { grid-template-columns: 1fr; }
-    .hero { padding: 56px 0 48px; }
-    .hero .kanji { display: none; }
+  @media (max-width: 780px) {
+    .ba, .flow, .mocks, .rhythm { grid-template-columns: 1fr; }
+    .roi { grid-template-columns: 1fr; gap: 24px; }
+    .hero { padding: 52px 0 40px; }
+    .hero .kanji, .cta .kanji { display: none; }
     .chatbody { padding: 18px 14px 4px; min-height: 0; }
     .msg { max-width: 100%; }
     .controls { padding: 12px 14px 16px; }
+    .topbar { letter-spacing: 0.16em; }
   }
 </style>
 
@@ -255,68 +414,105 @@
 
   <div class="topbar">
     <div>realtor <b>aios</b> · tsang ai consulting</div>
-    <div class="demo-chip">working demo</div>
+    <a class="topbar-cta" href="#book">Book a walkthrough</a>
   </div>
 
+  <!-- ===================== HERO ===================== -->
   <div class="hero">
     <span class="kanji" aria-hidden="true">間</span>
-    <p class="eyebrow">an ai operating system for one realtor: you</p>
-    <h1>You didn't get licensed to do <em>data entry.</em></h1>
-    <p>
+    <p class="eyebrow">an ai operating system for fraser valley realtors</p>
+    <h1>Your listings sell. Your <em>marketing</em> shouldn't cost you your evenings.</h1>
+    <p class="sub">
       Realtor AIOS is an AI assistant we install on your computer and train on
-      <strong>your</strong> business — your market, your process, your way of
-      talking. It answers new leads in minutes, keeps every follow-up on
-      schedule, and writes your weekly content in a voice your clients will
-      recognize as yours. Below is a simulation of exactly what using it
-      looks like.
+      <strong>your</strong> Langley business — your farm area, your process,
+      your way of talking. It answers new leads in minutes, keeps every
+      follow-up on schedule, and writes your weekly content in a voice your
+      clients recognize as yours. Here's exactly what that looks like.
     </p>
-    <a class="hero-cta" href="#walkthrough">Watch it work ↓</a>
-    <span class="hero-note">2-minute click-through · no signup, nothing installed</span>
+    <div class="hero-actions">
+      <a class="cta-btn" href="#book">Book Your 15-Minute Live Walkthrough</a>
+      <a class="cta-btn ghost" href="#tour">See how it works ↓</a>
+    </div>
+    <span class="hero-note">Built for Langley, Willoughby, Walnut Grove &amp; the Fraser Valley · 2-minute click-through, nothing to install</span>
   </div>
 
-  <section>
-    <p class="label">the leaks</p>
-    <h2>Where a solo realtor's day actually goes</h2>
-    <p class="lede">Four leaks show up in almost every practice. Each one has a module aimed straight at it.</p>
-    <div class="pains">
-      <div class="pain">
-        <h3>Leads lost at intake</h3>
-        <p>The inquiry lands while you're mid-showing. By the time you reply
-        tonight, they've heard back from two other agents — and their name,
-        timeline, and budget live in a DM thread you'll never find again.</p>
-        <div class="fix">fixed in the demo, scene 3 → <code>lead-engine</code></div>
+  <!-- ===================== BEFORE / AFTER ===================== -->
+  <section id="before-after">
+    <p class="label">the difference</p>
+    <h2>Your Tuesday, two ways</h2>
+    <p class="lede">Same leads, same listings, same market. The only thing that changes is whether you're doing it all by hand.</p>
+    <div class="ba">
+      <div class="ba-col before">
+        <div class="ba-head"><span class="tag">Manual realtor chaos</span></div>
+        <div class="ba-item"><span class="ic">✕</span><span><span class="t">2:40 pm</span>Portal lead on the 80th Ave listing — you're mid-showing, phone face-down.</span></div>
+        <div class="ba-item"><span class="ic">✕</span><span><span class="t">9:15 pm</span>Finally replying. They already booked a showing with someone else.</span></div>
+        <div class="ba-item"><span class="ic">✕</span><span><span class="t">sticky note</span>"Call the Dhillons back?? " — from when, exactly?</span></div>
+        <div class="ba-item"><span class="ic">✕</span><span><span class="t">the drawer</span>Three open-house sign-in sheets. Never followed up. Cold now.</span></div>
+        <div class="ba-item"><span class="ic">✕</span><span><span class="t">your feed</span>Haven't posted since… March? The spring listings needed it.</span></div>
+        <div class="ba-item"><span class="ic">✕</span><span><span class="t">Sunday, 10 pm</span>Writing a Willoughby listing description from a blank page. Again.</span></div>
       </div>
-      <div class="pain">
-        <h3>Follow-up that fizzles</h3>
-        <p>Everyone follows up once. Almost nobody follows up on day 7, day 14,
-        and next month — because remembering that for eleven leads at once is
-        itself a full-time job.</p>
-        <div class="fix">fixed in the demo, scene 4 → <code>lead-engine</code></div>
-      </div>
-      <div class="pain">
-        <h3>The content treadmill</h3>
-        <p>You know you should post. But deciding what to say, writing it,
-        and doing it again every single week is hours you don't have — so
-        the posting stops, and so does the pipeline it feeds.</p>
-        <div class="fix">fixed in the demo, scene 5 → <code>marketing-engine</code></div>
-      </div>
-      <div class="pain">
-        <h3>AI that sounds like AI</h3>
-        <p>You've tried ChatGPT. The posts read like everyone else's:
-        "In today's dynamic market…" Your clients chose you for you — generic
-        words undo that.</p>
-        <div class="fix">fixed in the demo, scene 2 → <code>brain-clone</code></div>
+      <div class="ba-col after">
+        <div class="ba-head"><span class="tag">Automated with Realtor AIOS</span></div>
+        <div class="ba-item"><span class="ic">✓</span><span><span class="t">2:41 pm</span>Lead answered in your voice, showing offered — from one paste between showings.</span></div>
+        <div class="ba-item"><span class="ic">✓</span><span><span class="t">every morning</span>Each follow-up already drafted and on schedule — you just hit send.</span></div>
+        <div class="ba-item"><span class="ic">✓</span><span><span class="t">automatic</span>Open-house sign-ins become a nurtured sequence, not a dead drawer.</span></div>
+        <div class="ba-item"><span class="ic">✓</span><span><span class="t">15 min/week</span>Three Fraser Valley–specific posts, Facebook + LinkedIn, in your voice.</span></div>
+        <div class="ba-item"><span class="ic">✓</span><span><span class="t">2 minutes</span>Listing copy that sounds like you — not like every other agent's.</span></div>
+        <div class="ba-item"><span class="ic">✓</span><span><span class="t">9 pm</span>You're actually off the clock. The system kept the plates spinning.</span></div>
       </div>
     </div>
   </section>
 
+  <!-- ===================== VISUAL STEP FLOW ===================== -->
+  <section id="tour">
+    <p class="label">how it works</p>
+    <h2>Four moves. No jargon, no spreadsheets.</h2>
+    <p class="lede">
+      Under the hood it runs on simple typed commands — but you experience it
+      as a conversation. Here's what each part actually does for you.
+    </p>
+    <div class="flow">
+      <div class="fcard reveal">
+        <span class="fnum">STEP 01</span>
+        <h3>Your brand, cloned</h3>
+        <p>It interviews you once — your market, your niche, your process — then
+        learns exactly how you write from your past posts. Everything after this
+        sounds like you, not a robot.</p>
+        <div class="under">runs as <code>/install-module context-os</code> + <code>brain-clone</code></div>
+      </div>
+      <div class="fcard reveal">
+        <span class="fnum">STEP 02</span>
+        <h3>Fraser Valley targeting</h3>
+        <p>It researches what's actually landing with buyers and sellers in
+        Langley, Walnut Grove and the Valley right now — then turns those angles
+        into topics worth posting about.</p>
+        <div class="under">runs as <code>/research-topics</code></div>
+      </div>
+      <div class="fcard reveal">
+        <span class="fnum">STEP 03</span>
+        <h3>Content, done for the week</h3>
+        <p>Three ready-to-post pieces a week for Facebook and LinkedIn, written
+        in your voice. You review, tweak a word, and post.<span style="color:var(--ink-3)">*</span></p>
+        <div class="under">runs as <code>/content-week</code> · <span style="color:var(--ink-3)">*it drafts everything up to the moment you hit post</span></div>
+      </div>
+      <div class="fcard reveal">
+        <span class="fnum">STEP 04</span>
+        <h3>No lead left behind</h3>
+        <p>Every inquiry captured the second it lands, answered in your voice,
+        and followed up on schedule — from portal leads to open-house sign-ins.</p>
+        <div class="under">runs as <code>/log-lead</code> + <code>/lead-check</code></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CHAT WALKTHROUGH (carried) ===================== -->
   <section id="walkthrough">
-    <p class="label">the walkthrough</p>
+    <p class="label">watch it work</p>
     <h2>Meet Jas. Watch her AIOS get built — then earn its keep.</h2>
     <p class="lede">
-      A simulated Claude Code session for a Langley, BC realtor. Click
+      A simulated Claude Code session for a Langley realtor. Click
       <strong>Next</strong> to step through each conversation — this is the
-      actual flow of the product, message for message.
+      real product flow, message for message.
     </p>
 
     <div class="stage">
@@ -492,55 +688,207 @@
     </div>
   </section>
 
-  <section>
-    <p class="label">the setup</p>
-    <h2>The whole install is four typed lines</h2>
+  <!-- ===================== DELIVERABLE MOCK-UPS ===================== -->
+  <section id="deliverables">
+    <p class="label">what it actually makes</p>
+    <h2>Real output, in your voice — not "In today's dynamic market…"</h2>
     <p class="lede">
-      No terminal. No configuration. Your consultant sets up Claude Code with
-      you, you open your workspace, and each module installs itself when you
-      type its line — then interviews you in plain conversation.
+      Every piece below was written to a Fraser Valley realtor's voice profile.
+      This is the kind of thing you'd review and send in a couple of minutes.
     </p>
-    <div class="setup">
-      <div class="step"><span class="sn">01</span><code>/install-module context-os</code><p>Learns your business — market, clients, process. A 30–45 min interview.</p></div>
-      <div class="step"><span class="sn">02</span><code>/install-module brain-clone</code><p>Learns your voice from your past content plus a brain-dump chat.</p></div>
-      <div class="step"><span class="sn">03</span><code>/install-module marketing-engine</code><p>Topic research and your weekly Facebook + LinkedIn content.</p></div>
-      <div class="step"><span class="sn">04</span><code>/install-module lead-engine</code><p>Lead capture at intake and follow-up that never slips.</p></div>
+
+    <div class="mocks">
+
+      <!-- Facebook post -->
+      <div class="mock">
+        <div class="mock-head">
+          <span class="pill">Facebook</span>
+          <span class="ch">market insight post</span>
+        </div>
+        <div class="mock-body">
+          <div style="display:flex;gap:11px;align-items:center;margin-bottom:14px">
+            <div class="avatar">JS</div>
+            <div class="poster"><b>Jas Sandhu · Pacific Gate Realty</b><span>Langley, BC · Just now</span></div>
+          </div>
+          <div class="white">Everyone keeps asking if Willoughby is "about to crash." Short version: no.
+
+Here's what's actually happening — the good townhomes are still gone in under two weeks. What changed is buyers got pickier about price. Priced right, you're fine. Priced on hope, you'll sit.
+
+If you're thinking of listing this fall, let's talk before the rush. I'll run your actual numbers — no pressure, just a plan.
+
+📍 Willoughby · Willowbrook</div>
+          <div class="social-meta"><span>👍 Like</span><span>💬 Comment</span><span>↗ Share</span></div>
+        </div>
+        <div class="mock-note">Notice there's no fake stat here — when a post needs a number, it leaves a <span class="ph">[placeholder]</span> for you to drop in the real one. It never invents your market data.</div>
+      </div>
+
+      <!-- Email follow-up -->
+      <div class="mock">
+        <div class="mock-head">
+          <span class="pill">Email</span>
+          <span class="ch">buyer-lead follow-up</span>
+        </div>
+        <div class="mock-body">
+          <div class="email-subj">The 80th Ave townhome + two you haven't seen</div>
+          <div class="email-from">To: Maya C. · From: Jas Sandhu</div>
+          <div class="white">Hi Maya,
+
+Great chatting today. That 80th Ave place is still available and it fits your September timeline nicely.
+
+I also pulled two others in Willoughby that just came up in your range — one's a corner unit with the extra parking you mentioned wanting.
+
+Want me to line up all three for Saturday afternoon so you can compare them back to back? Easiest way to know what "the one" feels like.
+
+— Jas</div>
+        </div>
+        <div class="mock-note">Pulled straight from her lead record — her timeline, her "extra parking" note. Personal because it's actually about her.</div>
+      </div>
+
+      <!-- Listing write-up -->
+      <div class="mock">
+        <div class="mock-head">
+          <span class="pill">Listing</span>
+          <span class="ch">MLS description · Willoughby townhome</span>
+        </div>
+        <div class="mock-body">
+          <div class="white">Tucked into one of Willoughby's most walkable pockets, this 3-bed, 3-bath townhome is the one you've been waiting for.
+
+Bright open-concept main, a kitchen built for actual dinners (not just the photos), and a fenced yard the dog will thank you for. Steps to R.E. Mountain Secondary and Willoughby Town Centre — coffee, groceries and the gym all under a five-minute walk.
+
+Side-by-side double garage, A/C for the July heat, and a floor plan that finally makes sense. Homes like this in this complex don't linger.
+
+Private showings this weekend — bring your Saturday-morning coffee.</div>
+        </div>
+        <div class="mock-note">Two minutes from a blank page to this — the same local details you'd write, without the Sunday-night grind.</div>
+      </div>
+
+      <!-- LinkedIn post -->
+      <div class="mock">
+        <div class="mock-head">
+          <span class="pill">LinkedIn</span>
+          <span class="ch">same idea, professional register</span>
+        </div>
+        <div class="mock-body">
+          <div class="white">A quiet shift in the Fraser Valley most buyers haven't noticed:
+
+The "wait for a crash" crowd has been waiting since 2022. Meanwhile, well-priced Willoughby townhomes are still moving in under two weeks.
+
+The market didn't get cheaper. It got pickier.
+
+For buyers, that's actually good news — less competition on anything priced on hope, real opportunity on anything priced right. The skill now isn't timing the market. It's reading the individual listing.
+
+Happy to walk through what that looks like for your situation.</div>
+        </div>
+        <div class="mock-note">Same core idea as the Facebook post, reframed as an observation — still unmistakably her, just wearing a blazer.</div>
+      </div>
+
     </div>
-    <p class="setup-note">
-      About two hours end to end, with natural coffee breaks — and it's
-      guided, enforced in the right order, and impossible to break by typing
-      the wrong thing. If you can send a text message, you can run this.
-      Everything it learns is saved as plain files on <strong>your</strong>
-      computer, readable any time.
-    </p>
+
+    <!-- Open-house nurture sequence -->
+    <div style="margin-top:30px" class="mock">
+      <div class="mock-head">
+        <span class="pill">Sequence</span>
+        <span class="ch">open-house lead nurture · drafted for you to send</span>
+      </div>
+      <div class="mock-body">
+        <div class="seq">
+          <div class="seq-step">
+            <div class="seq-when"><div class="day">Day 0</div><span class="chan text">Text · same evening</span></div>
+            <div class="seq-msg">Hi Sarah — Jas here, from the open house on 84th Ave in Walnut Grove today. Great meeting you and the kids! I'll send the info sheet plus a couple of similar homes tomorrow. Any questions in the meantime, just text back. 🏡</div>
+          </div>
+          <div class="seq-step">
+            <div class="seq-when"><div class="day">Day 2</div><span class="chan email">Email</span></div>
+            <div class="seq-msg"><b>Subject: The Walnut Grove info + 3 similar homes</b><br>As promised — here's the full package on the home you toured Saturday, plus three comparable listings in Walnut Grove and Willoughby I think you'll like. The second one has the main-floor office you mentioned.</div>
+          </div>
+          <div class="seq-step">
+            <div class="seq-when"><div class="day">Day 5</div><span class="chan text">Text</span></div>
+            <div class="seq-msg">Hi Sarah — did any of those three catch your eye? Happy to set up a quick tour this week if so. No rush either way, just don't want a good one slipping past you.</div>
+          </div>
+          <div class="seq-step">
+            <div class="seq-when"><div class="day">Day 9</div><span class="chan email">Email</span></div>
+            <div class="seq-msg"><b>Subject: 5 things Fraser Valley first-timers get wrong about offers</b><br>No ask this time — just a short, useful breakdown of the offer mistakes I see most often out here (subjects, deposits, and the "lowball to test them" myth). File it away for when you're ready.</div>
+          </div>
+          <div class="seq-step">
+            <div class="seq-when"><div class="day">Day 14</div><span class="chan text">Text</span></div>
+            <div class="seq-msg">Hey Sarah — still keeping an eye out for you. Want me to ping you the moment something in Walnut Grove in your range hits the market? I can set that up so you're first to know.</div>
+          </div>
+        </div>
+      </div>
+      <div class="mock-note">Five touches, mixed text and email, each with a <em>fresh</em> angle — never five "just checking in"s. You copy, paste, and send on the day; the system tells you which one is due. That drawer full of sign-in sheets? This is where it goes now.</div>
+    </div>
   </section>
 
-  <section>
+  <!-- ===================== ROI CALCULATOR ===================== -->
+  <section id="roi">
+    <p class="label">what that's worth</p>
+    <h2>How many hours would you get back?</h2>
+    <p class="lede">Drag to match your business. This is a rough estimate — the point is the order of magnitude, not the decimal.</p>
+
+    <div class="roi">
+      <div class="roi-controls">
+        <div class="roi-field">
+          <label>New leads a week — <span class="val" id="leadsVal">8</span></label>
+          <input type="range" id="leads" min="0" max="40" value="8" aria-label="New leads per week">
+        </div>
+        <div class="roi-field">
+          <label>New listings a month — <span class="val" id="listingsVal">2</span></label>
+          <input type="range" id="listings" min="0" max="15" value="2" aria-label="New listings per month">
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="content" checked>
+          <span class="box"></span>
+          I want the weekly content handled too
+        </label>
+      </div>
+
+      <div class="roi-out">
+        <div class="roi-big">Hours back, every week</div>
+        <div class="roi-hours" id="hrsWeek">4.8<small> hrs</small></div>
+        <div class="roi-sub">
+          <div><div class="n" id="hrsMonth">21</div><div class="k">hours / month</div></div>
+          <div><div class="n" id="daysYear">31</div><div class="k">workdays / year</div></div>
+        </div>
+      </div>
+
+      <div class="roi-foot" id="roiFoot"></div>
+    </div>
+  </section>
+
+  <!-- ===================== RHYTHM ===================== -->
+  <section id="rhythm">
     <p class="label">the rhythm</p>
     <h2>What it asks of you, once it's running</h2>
-    <p class="lede">The system is designed around a cadence you'll actually keep.</p>
+    <p class="lede">The system is built around a cadence you'll actually keep — not another dashboard to babysit.</p>
     <div class="rhythm">
-      <div class="beat"><span class="bt">every morning · 5 min</span><h3>/prime → /lead-check</h3><p>Your status at a glance, then every due follow-up — already written, waiting for you to hit send.</p></div>
-      <div class="beat"><span class="bt">when a lead arrives · 30 sec</span><h3>/log-lead</h3><p>Paste the inquiry. Get the lead captured, the reply drafted, the follow-ups scheduled.</p></div>
-      <div class="beat"><span class="bt">once a week · 15–30 min</span><h3>/content-week</h3><p>Three posts, two platforms, your voice. Review, tweak, done for the week.</p></div>
+      <div class="beat"><span class="bt">every morning · 5 min</span><h3>Check your leads</h3><p>Your status at a glance, then every due follow-up — already written, waiting for you to hit send.</p></div>
+      <div class="beat"><span class="bt">when a lead arrives · 30 sec</span><h3>Log it</h3><p>Paste the inquiry. Get the lead captured, the reply drafted, the follow-ups scheduled.</p></div>
+      <div class="beat"><span class="bt">once a week · 15–30 min</span><h3>Do your content</h3><p>Three posts, two platforms, your voice. Review, tweak, done for the week.</p></div>
     </div>
   </section>
 
-  <div class="cta">
+  <!-- ===================== FINAL CTA ===================== -->
+  <div class="cta" id="book">
+    <span class="kanji" aria-hidden="true">始</span>
     <p class="label">next step</p>
-    <h2>See it running on a real business — yours.</h2>
+    <h2>See it running on your business — live.</h2>
     <p>
-      This demo is a simulation. The real thing gets built around your market,
-      your niche, and your voice, in a guided working session. Ask us for a
-      live walkthrough.
+      This demo is a simulation. In a 15-minute call I'll build a piece of it
+      around your real farm area, your niche, and your voice, while you watch —
+      so you're deciding on the real thing, not a mockup.
     </p>
+    <div class="cta-actions">
+      <a class="cta-btn" href="#book">Book Your 15-Minute Live Walkthrough</a>
+      <a class="cta-btn ghost" href="#walkthrough">Watch it answer a real lead again</a>
+    </div>
+    <p class="alt">No pressure, no pitch deck — just your business, running on autopilot for 15 minutes.</p>
     <div class="sig">tsang <b>ai consulting</b> · langley, bc</div>
-    <p class="fineprint">"Jas Sandhu" and all leads shown are fictional sample data. Simulated conversation — the real product runs in Claude Code on your computer.</p>
+    <p class="fineprint">"Jas Sandhu," all leads, listings and numbers shown are fictional sample data for demonstration. The simulated conversation reflects the real product, which runs in Claude Code on your own computer.</p>
   </div>
 
 </div>
 
 <script>
+/* ---------- chat walkthrough (unchanged) ---------- */
 (function () {
   var scenes = Array.prototype.slice.call(document.querySelectorAll('.scene'));
   var tabs = Array.prototype.slice.call(document.querySelectorAll('.tab'));
@@ -629,6 +977,7 @@
     });
   });
   document.addEventListener('keydown', function (e) {
+    if (e.target.tagName === 'INPUT') return;
     if (e.key === 'ArrowRight') { next(); }
     if (e.key === 'ArrowLeft') { back(); }
   });
@@ -636,5 +985,70 @@
   revealed[0] = 1;
   reveal(0, 1, false);
   update();
+})();
+
+/* ---------- ROI calculator ---------- */
+(function () {
+  var leads = document.getElementById('leads');
+  var listings = document.getElementById('listings');
+  var content = document.getElementById('content');
+  var leadsVal = document.getElementById('leadsVal');
+  var listingsVal = document.getElementById('listingsVal');
+  var hrsWeek = document.getElementById('hrsWeek');
+  var hrsMonth = document.getElementById('hrsMonth');
+  var daysYear = document.getElementById('daysYear');
+  var foot = document.getElementById('roiFoot');
+
+  // transparent assumptions (minutes saved)
+  var PER_LEAD = 12;        // per lead, per week — drafting first reply + scheduled touches
+  var CONTENT_WEEK = 150;   // flat, per week — the 3-post cadence vs writing from scratch
+  var PER_LISTING = 90;     // per new listing — description + social + flyer package
+  var WEEKS_PER_MONTH = 4.33;
+
+  function calc() {
+    var l = parseInt(leads.value, 10);
+    var s = parseInt(listings.value, 10);
+    var c = content.checked;
+
+    var weeklyMin = l * PER_LEAD
+                  + (c ? CONTENT_WEEK : 0)
+                  + (s * PER_LISTING / WEEKS_PER_MONTH);
+
+    var wk = weeklyMin / 60;
+    var mo = wk * WEEKS_PER_MONTH;
+    var yrDays = (wk * 52) / 8;
+
+    leadsVal.textContent = l;
+    listingsVal.textContent = s;
+    hrsWeek.innerHTML = (wk < 10 ? wk.toFixed(1) : Math.round(wk)) + '<small> hrs</small>';
+    hrsMonth.textContent = Math.round(mo);
+    daysYear.textContent = Math.round(yrDays);
+
+    var parts = [];
+    parts.push(l + ' lead' + (l === 1 ? '' : 's') + '/wk × ~12 min');
+    if (c) parts.push('weekly content ~2.5 hrs');
+    if (s > 0) parts.push(s + ' listing' + (s === 1 ? '' : 's') + '/mo × ~90 min');
+    foot.innerHTML = 'Based on: ' + parts.join(' · ') +
+      '. A conservative estimate of drafting and follow-up time, assuming you use the cadence and follow up on every lead. Your actual time back depends on your volume — but even at half of this, it pays for the time it frees.';
+  }
+
+  [leads, listings].forEach(function (el) { el.addEventListener('input', calc); });
+  content.addEventListener('change', calc);
+  calc();
+})();
+
+/* ---------- scroll reveal for step cards ---------- */
+(function () {
+  var els = document.querySelectorAll('.reveal');
+  if (!('IntersectionObserver' in window) || matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    els.forEach(function (el) { el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.2 });
+  els.forEach(function (el) { io.observe(el); });
 })();
 </script>

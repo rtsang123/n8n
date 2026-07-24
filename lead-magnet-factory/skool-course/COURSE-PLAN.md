@@ -7,9 +7,9 @@
 ## Why these 7 PDFs (of 16)
 
 Ranking rule: **money made > money saved > infrastructure**, and every lesson
-must be finishable in one sitting. The course order is the trust ladder — it
-ends exactly where the discovery call begins (automation = the agency's paid
-service).
+must be finishable in one sitting. The course order builds from habit to
+revenue to systems, and ends with members shipping a real automation — the
+strongest possible proof that the community delivers.
 
 | Module | Lesson | PDF | Video type | Community action |
 |--------|--------|-----|-----------|------------------|
@@ -21,7 +21,7 @@ service).
 | 2 — Get More Clients | L5: Marketing on Autopilot | #15 Content Engine | Loom (screen: memo → posts) | Post one AI-drafted post before publishing |
 | 3 — Systemize & Scale | L6: Get Out of Your Own Head | #07 Business Systems Checklist | Loom (screen: transcript → SOP) | Post which system scored lowest |
 | 3 — Systemize & Scale | L7: Your First Automation (capstone) | #11 Automation Playbook | **Camera** (the pitch-adjacent one) | Post your "When ___, then ___" sentence |
-| 99 — What's Next | Wrap-up + invite | — | **Camera** | Book a discovery call / share your 4-week win |
+| 99 — What's Next | Wrap-up + celebrate | — | **Camera** | Post your before/after score + invite a business owner who needs this |
 
 **Camera vs Loom logic:** camera for the three moments that carry trust and
 emotion (welcome, first lesson, capstone + wrap-up). Loom screen-shares for
@@ -34,8 +34,9 @@ Skool rewards activity. Every lesson ends with "post one thing" —
 a score, a template result, a sentence. This:
 1. Keeps the community feed alive without you creating extra content.
 2. Creates social proof for lurkers ("people are getting wins here").
-3. Gives you lead intel: a member posting "my lowest score is Sales" is
-   telling you exactly what their discovery call is about.
+3. Tells you what members need next: if half the scorecards say "my lowest
+   area is Sales," you know exactly what next month's playbook and live
+   workshop should cover.
 
 ## The bench — where the other 9 PDFs live
 

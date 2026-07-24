@@ -420,14 +420,10 @@ sees it. Ugly and live beats perfect and planned — every time.
 every single one, and I'll tell you honestly: build it yourself this week,
 or flag it if there's a gotcha you can't see yet.**
 
-And let me be straight with you, because you've earned it by getting this
-far. Some of you will build recipe one this week and feel like a wizard —
-that's the goal. And some of you will look at this and think: "I see
-exactly what this is worth. I just don't want to be the one building it."
-
-Both answers are right. That's what the discovery call is for — thirty
-minutes, free, we map your five recipes in priority order, and you decide
-whether you build them or I do. Link's below the video.
+And one promise before you start building: if you get stuck mid-build,
+don't quit quietly. Post exactly where you're stuck — screenshot and all —
+in the community. Between me and the members who've already shipped their
+recipes, you'll be unstuck by tomorrow. Nobody builds alone here.
 
 One more short video to wrap up — where you are now, and what's next.
 
@@ -456,12 +452,13 @@ community — onboarding, hiring, meetings, your business dashboard — and we
 go deep on one live.
 
 Door two: go deeper on your own — the full sixteen-guide Business Growth
-Series is in the classroom resources.
+Series is in the classroom resources. Same format, same steal-everything
+rule.
 
-Door three: if you've seen enough and you want this built — properly,
-end to end, for your business — book the discovery call. Thirty minutes,
-free, zero pressure. You'll walk away with a custom game plan whether we
-work together or not. calendly.com/raymondtsang-ai — link below.
+Door three: pay it forward. You know at least one business owner drowning
+in the exact busywork you just automated. Invite them in. The more real
+businesses in here posting real numbers, the better this community gets
+for all of us — including you.
 
 Whichever door you pick: keep the Monday rhythms. The memo, the numbers,
 the follow-up. Systems beat motivation, every week of the year.
@@ -476,6 +473,5 @@ Proud of you. See you in the community.
 - [ ] Module 0 also gets #08 (Roadmap/syllabus); L7 also gets #03 (Opportunity Finder)
 - [ ] Pin #05 Tech Stack in classroom resources
 - [ ] Set up auto-DM for new members with #02 Buy Back 10 Hours
-- [ ] Discovery call link under L7 and Wrap-Up: calendly.com/raymondtsang-ai
 - [ ] Each lesson description repeats the community action in one line
 - [ ] Loom videos: have the PDF open at the named page before recording

@@ -1,8 +1,8 @@
 # Marketing Engine
 
 *Finds what's actually working in your niche right now, then writes your
-Facebook and LinkedIn content in your voice — on a weekly rhythm you can
-sustain.*
+content in your voice — for the platforms you actually use — on a weekly
+rhythm you can sustain.*
 
 **Requires:** `context-os` AND `brain-clone` installed — your voice profile
 (`context/voice-profile.md`) must exist. This module refuses to write in a
@@ -22,17 +22,21 @@ The engine runs the same workflow your consultant uses:
    then ranks the topics and proposes the angle YOU should take, localized
    to your market and said in your voice.
 2. **Content generation** (`/generate-content`). Takes a topic and produces
-   platform-ready drafts: a Facebook version and a LinkedIn version — same
-   idea, different clothes. Every draft is written against your voice
-   profile and your context files, and anything factual it doesn't know is
-   left as a clearly marked placeholder for you to fill, never invented.
+   platform-ready drafts for the platforms you actually use — Facebook,
+   Instagram, LinkedIn, and short-form video (TikTok / Reels / YouTube
+   Shorts) — same idea, re-cut for each. For video it writes the hook,
+   script and on-screen text; you film it. Which platforms it writes for
+   comes from your Context OS answers, so it never wastes time on a channel
+   you don't post to. Every draft is written against your voice profile and
+   your context files, and anything factual it doesn't know is left as a
+   clearly marked placeholder for you to fill, never invented.
 3. **The weekly cadence** (`/content-week`). The sustainable default: **three
    posts a week** — a market insight (Monday), a story or personal post
-   (Wednesday), and an educational piece (Friday) — each drafted for both
-   Facebook and LinkedIn. One sitting per week: you run `/content-week`,
-   review and tweak the three drafts, and post them on the planned days.
-   Budget 15–30 minutes. If three is too many, tell it — the cadence you
-   keep beats the cadence you quit.
+   (Wednesday), and an educational piece (Friday) — each drafted for every
+   platform you use. One sitting per week: you run `/content-week`, review
+   and tweak the drafts, and post them on the planned days. Budget 15–30
+   minutes. If three is too many, tell it — the cadence you keep beats the
+   cadence you quit.
 
 ## What it creates
 
@@ -47,7 +51,7 @@ content/
 ## Commands it adds
 
 - `/research-topics` — run viral-topic research in your niche.
-- `/generate-content` — draft Facebook + LinkedIn versions of a topic.
+- `/generate-content` — draft a topic for each platform you use.
 - `/content-week` — plan and draft the coming week in one sitting.
 
 ## A note on the research

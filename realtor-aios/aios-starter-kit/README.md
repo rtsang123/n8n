@@ -84,7 +84,7 @@ Every module MUST follow this format so `/install-module` can run it:
 |-------|--------|----------------|
 | 1 | `context-os` | The realtor's business context files in `context/` |
 | 2 | `brain-clone` | `context/voice-profile.md` — the captured writing voice |
-| 3 | `marketing-engine` | Topic research, FB/LinkedIn content, weekly cadence |
+| 3 | `marketing-engine` | Topic research, multi-platform content, weekly cadence |
 | 4 | `lead-engine` | Lead intake capture + follow-up drafting in `leads/` |
 | 5 | `listing-prep` | Prep sheets in `listings/` — no new context files |
 | 6 | `transaction-coordinator` | Deal tracking + client updates in `deals/` |

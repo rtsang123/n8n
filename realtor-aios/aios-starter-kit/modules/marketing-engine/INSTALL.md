@@ -24,7 +24,8 @@ Installs commands: /research-topics, /generate-content, /content-week
      # Content Calendar
 
      Cadence: 3 posts/week — Mon market insight · Wed story/personal ·
-     Fri educational. Each drafted for Facebook + LinkedIn.
+     Fri educational. Each drafted for every platform you use (Facebook,
+     Instagram, LinkedIn, short-form video — whichever you post to).
      (Adjust anytime — tell Claude and it updates this line.)
 
      ## Weeks

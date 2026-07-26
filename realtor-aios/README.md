@@ -48,8 +48,10 @@ realtor-aios/
 
 3. **`marketing-engine`** — viral-topic research in the realtor's niche
    (outlier posts/videos from multiple creators on the same topic, and why
-   they worked), platform-ready Facebook and LinkedIn content generated in the
-   captured voice, and a simple weekly cadence the realtor can sustain.
+   they worked), platform-ready content generated in the captured voice for
+   whichever platforms the realtor uses (Facebook, Instagram, LinkedIn, and
+   short-form video — hook/script/on-screen text they film), and a simple
+   weekly cadence the realtor can sustain.
 
 4. **`lead-engine`** — closes the intake leak. `/log-lead` turns any pasted
    inquiry into a structured lead record plus an instant first reply in the

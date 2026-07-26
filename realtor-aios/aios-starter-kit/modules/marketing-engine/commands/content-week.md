@@ -22,7 +22,8 @@ stale"). Otherwise reuse the latest report's unused topics.
 ## 3 — Plan the week
 
 Default cadence (from `calendar.md` — respect any adjustment the owner has
-made): 3 posts, each drafted for Facebook + LinkedIn:
+made): 3 posts, each drafted for every platform the owner uses (per
+`context/content-history.md`):
 
 - **Mon — market insight:** something true about their market right now,
   from research or `context/market.md`.

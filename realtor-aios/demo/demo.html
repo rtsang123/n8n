@@ -143,6 +143,16 @@
     .reveal.in { opacity: 1; transform: none; }
   }
 
+  /* ---------- ease band ---------- */
+  .ease { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  .ease .e {
+    background: var(--surface); border: 1px solid var(--hairline-2); border-radius: 10px;
+    padding: 26px 26px 24px;
+  }
+  .ease .e .big { font-size: 32px; font-weight: 650; color: var(--accent); letter-spacing: -0.02em; line-height: 1; }
+  .ease .e h3 { margin: 12px 0 5px; font-size: 15px; font-weight: 600; }
+  .ease .e p { margin: 0; font-size: 13.5px; color: var(--ink-2); }
+
   /* ---------- chat walkthrough (carried over) ---------- */
   .stage { margin-top: 8px; }
   .tabs { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 14px; }
@@ -301,6 +311,12 @@
   .email-subj { font-weight: 600; color: var(--ink); margin-bottom: 4px; font-size: 14px; }
   .email-from { font-size: 12px; color: var(--ink-3); margin-bottom: 14px; }
 
+  /* instagram / short-form */
+  .hashtags { color: var(--ink-3); font-size: 13px; }
+  .reel { margin-top: 15px; padding: 13px 15px; border: 1px dashed var(--hairline); border-radius: 8px; background: var(--surface-2); }
+  .reel .k { font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+  .reel .h { font-size: 14px; color: var(--ink); margin-top: 6px; line-height: 1.45; }
+
   /* nurture sequence timeline */
   .seq { position: relative; padding-left: 6px; }
   .seq-step {
@@ -414,26 +430,26 @@
 
   <div class="topbar">
     <div>realtor <b>aios</b> · tsang ai consulting</div>
-    <a class="topbar-cta" href="#book">Book a walkthrough</a>
+    <a class="topbar-cta" href="https://calendly.com/raymondtsang-ai/30min" target="_blank" rel="noopener">Book a walkthrough</a>
   </div>
 
   <!-- ===================== HERO ===================== -->
   <div class="hero">
     <span class="kanji" aria-hidden="true">間</span>
-    <p class="eyebrow">an ai operating system for fraser valley realtors</p>
+    <p class="eyebrow">an ai operating system for realtors</p>
     <h1>Your listings sell. Your <em>marketing</em> shouldn't cost you your evenings.</h1>
     <p class="sub">
       Realtor AIOS is an AI assistant we install on your computer and train on
-      <strong>your</strong> Langley business — your farm area, your process,
-      your way of talking. It answers new leads in minutes, keeps every
-      follow-up on schedule, and writes your weekly content in a voice your
-      clients recognize as yours. Here's exactly what that looks like.
+      <strong>your</strong> business — your market, your process, your way of
+      talking. It answers new leads in minutes, keeps every follow-up on
+      schedule, and writes your content in a voice your clients recognize as
+      yours. Here's exactly what that looks like.
     </p>
     <div class="hero-actions">
-      <a class="cta-btn" href="#book">Book Your 15-Minute Live Walkthrough</a>
+      <a class="cta-btn" href="https://calendly.com/raymondtsang-ai/30min" target="_blank" rel="noopener">Claim Your Live Walkthrough</a>
       <a class="cta-btn ghost" href="#tour">See how it works ↓</a>
     </div>
-    <span class="hero-note">Built for Langley, Willoughby, Walnut Grove &amp; the Fraser Valley · 2-minute click-through, nothing to install</span>
+    <span class="hero-note">Built around your market, your niche and your voice — wherever you sell · 2-minute click-through, nothing to install</span>
   </div>
 
   <!-- ===================== BEFORE / AFTER ===================== -->
@@ -449,14 +465,14 @@
         <div class="ba-item"><span class="ic">✕</span><span><span class="t">sticky note</span>"Call the Dhillons back?? " — from when, exactly?</span></div>
         <div class="ba-item"><span class="ic">✕</span><span><span class="t">the drawer</span>Three open-house sign-in sheets. Never followed up. Cold now.</span></div>
         <div class="ba-item"><span class="ic">✕</span><span><span class="t">your feed</span>Haven't posted since… March? The spring listings needed it.</span></div>
-        <div class="ba-item"><span class="ic">✕</span><span><span class="t">Sunday, 10 pm</span>Writing a Willoughby listing description from a blank page. Again.</span></div>
+        <div class="ba-item"><span class="ic">✕</span><span><span class="t">Sunday, 10 pm</span>Writing a listing description from a blank page. Again.</span></div>
       </div>
       <div class="ba-col after">
         <div class="ba-head"><span class="tag">Automated with Realtor AIOS</span></div>
         <div class="ba-item"><span class="ic">✓</span><span><span class="t">2:41 pm</span>Lead answered in your voice, showing offered — from one paste between showings.</span></div>
         <div class="ba-item"><span class="ic">✓</span><span><span class="t">every morning</span>Each follow-up already drafted and on schedule — you just hit send.</span></div>
         <div class="ba-item"><span class="ic">✓</span><span><span class="t">automatic</span>Open-house sign-ins become a nurtured sequence, not a dead drawer.</span></div>
-        <div class="ba-item"><span class="ic">✓</span><span><span class="t">15 min/week</span>Three Fraser Valley–specific posts, Facebook + LinkedIn, in your voice.</span></div>
+        <div class="ba-item"><span class="ic">✓</span><span><span class="t">15 min/week</span>Ready-to-post content for every platform you use, in your voice.</span></div>
         <div class="ba-item"><span class="ic">✓</span><span><span class="t">2 minutes</span>Listing copy that sounds like you — not like every other agent's.</span></div>
         <div class="ba-item"><span class="ic">✓</span><span><span class="t">9 pm</span>You're actually off the clock. The system kept the plates spinning.</span></div>
       </div>
@@ -482,17 +498,18 @@
       </div>
       <div class="fcard reveal">
         <span class="fnum">STEP 02</span>
-        <h3>Fraser Valley targeting</h3>
+        <h3>Your local market, targeted</h3>
         <p>It researches what's actually landing with buyers and sellers in
-        Langley, Walnut Grove and the Valley right now — then turns those angles
-        into topics worth posting about.</p>
+        <strong>your</strong> city and price range right now — then turns those
+        angles into topics worth posting about.</p>
         <div class="under">runs as <code>/research-topics</code></div>
       </div>
       <div class="fcard reveal">
         <span class="fnum">STEP 03</span>
         <h3>Content, done for the week</h3>
-        <p>Three ready-to-post pieces a week for Facebook and LinkedIn, written
-        in your voice. You review, tweak a word, and post.<span style="color:var(--ink-3)">*</span></p>
+        <p>Ready-to-post pieces for the platforms you actually use — Facebook,
+        Instagram, LinkedIn, short-form video — written in your voice. You
+        review, tweak a word, and post.<span style="color:var(--ink-3)">*</span></p>
         <div class="under">runs as <code>/content-week</code> · <span style="color:var(--ink-3)">*it drafts everything up to the moment you hit post</span></div>
       </div>
       <div class="fcard reveal">
@@ -505,14 +522,39 @@
     </div>
   </section>
 
+  <!-- ===================== EASE BAND ===================== -->
+  <section id="ease">
+    <p class="label">how hard is this?</p>
+    <h2>Set up in an afternoon. No tech skills required.</h2>
+    <p class="lede">The whole thing is a guided conversation — it interviews you and does the work. There's nothing to configure and nothing you can break by typing the wrong thing.</p>
+    <div class="ease">
+      <div class="e">
+        <div class="big">3–5 hrs</div>
+        <h3>One-time setup</h3>
+        <p>Done in an afternoon, guided start to finish — mostly just answering questions about your business.</p>
+      </div>
+      <div class="e">
+        <div class="big">Zero</div>
+        <h3>Tech skills needed</h3>
+        <p>No terminal, no coding, no logins to wire up. If you can send a text message, you can run this.</p>
+      </div>
+      <div class="e">
+        <div class="big">15 min</div>
+        <h3>A day, once it's live</h3>
+        <p>Five minutes each morning for your leads, one short sitting a week for content. That's the whole job.</p>
+      </div>
+    </div>
+  </section>
+
   <!-- ===================== CHAT WALKTHROUGH (carried) ===================== -->
   <section id="walkthrough">
     <p class="label">watch it work</p>
     <h2>Meet Jas. Watch her AIOS get built — then earn its keep.</h2>
     <p class="lede">
-      A simulated Claude Code session for a Langley realtor. Click
-      <strong>Next</strong> to step through each conversation — this is the
-      real product flow, message for message.
+      A simulated Claude Code session for an example realtor — Jas, a Langley
+      agent. Yours runs on your city and your voice. Click <strong>Next</strong>
+      to step through each conversation — this is the real product flow,
+      message for message.
     </p>
 
     <div class="stage">
@@ -663,14 +705,14 @@
                 <div class="kvrow"><b>wed</b><span>story — the townhome that sold in 6 days (and the mistake we dodged)</span></div>
                 <div class="kvrow"><b>fri</b><span>educational — "subject-free offers, explained like a neighbour"</span></div>
               </div>
-              <p style="margin:12px 0 0">Monday's Facebook version — LinkedIn's drafted too:</p>
+              <p style="margin:12px 0 0">Monday's Facebook version — your Instagram and LinkedIn versions are drafted too:</p>
               <div class="draft">Everyone's asking what this week's rate news actually means for Langley. Short version: <span class="ph">[YOUR STAT: June benchmark, Willoughby townhomes]</span> hasn't budged the way the headlines suggest. If you're pre-approved, your buying power just changed — worth a 10-minute chat before the weekend.
 <span class="draft-tag">1 placeholder — it never invents your numbers</span></div>
             </div></div>
             <div class="msg user"><div class="who">jas</div><div class="bubble">tighten monday's and I'll drop the number in</div></div>
             <div class="msg claude"><div class="who">claude</div><div class="bubble">
-              Trimmed. Three posts are queued for your review — Facebook and LinkedIn
-              versions of each, all in your voice. Post them on the day, tell me
+              Trimmed. Three posts are queued for your review — a version for each
+              of your platforms, all in your voice. Post them on the day, tell me
               "posted," and I'll archive them. That's the whole week: one sitting.
               <div class="chips"><span class="fchip">✓ 3 drafts in content/queue/</span><span class="fchip plain">calendar updated</span></div>
             </div></div>
@@ -693,8 +735,10 @@
     <p class="label">what it actually makes</p>
     <h2>Real output, in your voice — not "In today's dynamic market…"</h2>
     <p class="lede">
-      Every piece below was written to a Fraser Valley realtor's voice profile.
-      This is the kind of thing you'd review and send in a couple of minutes.
+      Every piece below was written to one example realtor's voice profile —
+      yours is built around your city, your niche and the platforms you actually
+      post on (Facebook, Instagram, LinkedIn, YouTube, wherever you are). This is
+      what you'd review and send in a couple of minutes.
     </p>
 
     <div class="mocks">
@@ -762,24 +806,27 @@ Private showings this weekend — bring your Saturday-morning coffee.</div>
         <div class="mock-note">Two minutes from a blank page to this — the same local details you'd write, without the Sunday-night grind.</div>
       </div>
 
-      <!-- LinkedIn post -->
+      <!-- Instagram + short-form -->
       <div class="mock">
         <div class="mock-head">
-          <span class="pill">LinkedIn</span>
-          <span class="ch">same idea, professional register</span>
+          <span class="pill">Instagram</span>
+          <span class="ch">caption + short-form video hook</span>
         </div>
         <div class="mock-body">
-          <div class="white">A quiet shift in the Fraser Valley most buyers haven't noticed:
+          <div class="white">The "wait for prices to crash" plan is going on year three. 🙃
 
-The "wait for a crash" crowd has been waiting since 2022. Meanwhile, well-priced Willoughby townhomes are still moving in under two weeks.
+Meanwhile the good townhomes near me are still gone in under two weeks. The market didn't get cheaper — buyers just got pickier.
 
-The market didn't get cheaper. It got pickier.
+Priced right still wins. Thinking of making a move? Let's run your real numbers, no pressure.
 
-For buyers, that's actually good news — less competition on anything priced on hope, real opportunity on anything priced right. The skill now isn't timing the market. It's reading the individual listing.
-
-Happy to walk through what that looks like for your situation.</div>
+📍 your neighbourhood</div>
+          <div class="hashtags">#firsttimebuyer #realestatetips #localrealtor</div>
+          <div class="reel">
+            <div class="k">Reel / TikTok hook · 0:00–0:03</div>
+            <div class="h">"Three things every first-time buyer gets wrong — and number two cost my client thousands."</div>
+          </div>
         </div>
-        <div class="mock-note">Same core idea as the Facebook post, reframed as an observation — still unmistakably her, just wearing a blazer.</div>
+        <div class="mock-note">Same idea as the Facebook post, reshaped for Instagram — plus a scroll-stopping hook and caption for a Reel or TikTok. It writes the words; you hit record.</div>
       </div>
 
     </div>
@@ -862,7 +909,7 @@ Happy to walk through what that looks like for your situation.</div>
     <div class="rhythm">
       <div class="beat"><span class="bt">every morning · 5 min</span><h3>Check your leads</h3><p>Your status at a glance, then every due follow-up — already written, waiting for you to hit send.</p></div>
       <div class="beat"><span class="bt">when a lead arrives · 30 sec</span><h3>Log it</h3><p>Paste the inquiry. Get the lead captured, the reply drafted, the follow-ups scheduled.</p></div>
-      <div class="beat"><span class="bt">once a week · 15–30 min</span><h3>Do your content</h3><p>Three posts, two platforms, your voice. Review, tweak, done for the week.</p></div>
+      <div class="beat"><span class="bt">once a week · 15–30 min</span><h3>Do your content</h3><p>Three posts across your platforms, your voice. Review, tweak, done for the week.</p></div>
     </div>
   </section>
 
@@ -872,15 +919,15 @@ Happy to walk through what that looks like for your situation.</div>
     <p class="label">next step</p>
     <h2>See it running on your business — live.</h2>
     <p>
-      This demo is a simulation. In a 15-minute call I'll build a piece of it
-      around your real farm area, your niche, and your voice, while you watch —
-      so you're deciding on the real thing, not a mockup.
+      This demo is a simulation. On a quick call I'll build a piece of it around
+      your real market, your niche, and your voice, while you watch — so you're
+      deciding on the real thing, not a mockup.
     </p>
     <div class="cta-actions">
-      <a class="cta-btn" href="#book">Book Your 15-Minute Live Walkthrough</a>
+      <a class="cta-btn" href="https://calendly.com/raymondtsang-ai/30min" target="_blank" rel="noopener">Claim Your Live Walkthrough</a>
       <a class="cta-btn ghost" href="#walkthrough">Watch it answer a real lead again</a>
     </div>
-    <p class="alt">No pressure, no pitch deck — just your business, running on autopilot for 15 minutes.</p>
+    <p class="alt">No pressure, no pitch deck — just your business, running live, on a quick call.</p>
     <div class="sig">tsang <b>ai consulting</b> · langley, bc</div>
     <p class="fineprint">"Jas Sandhu," all leads, listings and numbers shown are fictional sample data for demonstration. The simulated conversation reflects the real product, which runs in Claude Code on your own computer.</p>
   </div>

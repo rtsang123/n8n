@@ -1,0 +1,458 @@
+<title>Realtor AIOS — 30-Second Demo</title>
+<style>
+  :root {
+    --page:#0d0d0d; --surface:#141413; --surface-2:#1b1b1a;
+    --ink:#f4f2ec; --ink-2:#c3c2b7; --ink-3:#898781;
+    --hairline:rgba(255,255,255,0.10); --hairline-2:rgba(255,255,255,0.06);
+    --accent:#e66767; --accent-dim:#3a2222; --good:#0ca30c;
+    --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  * { box-sizing:border-box; }
+  html { background:var(--page); scroll-behavior:smooth; }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+  body {
+    margin:0; background:var(--page); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:1000px; margin:0 auto; padding:0 24px; }
+
+  /* topbar */
+  .topbar {
+    display:flex; justify-content:space-between; align-items:center; gap:16px;
+    padding:18px 0; border-bottom:1px solid var(--hairline-2);
+    font-size:12px; letter-spacing:0.24em; text-transform:lowercase; color:var(--ink-3);
+    position:sticky; top:0; background:rgba(13,13,13,0.88); backdrop-filter:blur(8px); z-index:20;
+  }
+  .topbar b { color:var(--ink); font-weight:600; }
+  .topbar a {
+    font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--accent);
+    border:1px solid rgba(230,103,103,0.4); border-radius:999px; padding:6px 14px;
+    text-decoration:none; white-space:nowrap;
+  }
+  .topbar a:hover { background:var(--accent-dim); }
+
+  /* buttons */
+  .btn {
+    display:inline-flex; align-items:center; gap:9px; text-decoration:none;
+    background:var(--accent); color:#180c0c; font-weight:650; font-size:15.5px;
+    padding:14px 30px; border-radius:999px; border:none; cursor:pointer;
+    font-family:var(--sans); transition:background .15s, transform .15s;
+  }
+  .btn:hover { background:#ef8181; transform:translateY(-1px); }
+  .btn.ghost { background:none; color:var(--ink-2); border:1px solid var(--hairline); font-weight:600; }
+  .btn.ghost:hover { background:var(--surface); color:var(--ink); transform:none; }
+
+  /* hero */
+  .hero { padding:84px 0 64px; position:relative; }
+  .hero .kanji {
+    position:absolute; right:-8px; top:26px; font-size:170px; line-height:1;
+    color:rgba(230,103,103,0.06); user-select:none; pointer-events:none;
+  }
+  .eyebrow {
+    font-size:11.5px; letter-spacing:0.26em; text-transform:uppercase; color:var(--ink-3);
+    margin:0 0 26px;
+  }
+  h1 {
+    margin:0; font-size:clamp(38px,6.2vw,62px); font-weight:650; line-height:1.06;
+    letter-spacing:-0.025em; max-width:19ch; text-wrap:balance;
+  }
+  h1 em { font-style:normal; color:var(--accent); }
+  .hero p {
+    margin:28px 0 0; font-size:18px; color:var(--ink-2); max-width:54ch;
+  }
+  .hero p b { color:var(--ink); font-weight:600; }
+  .acts { display:flex; flex-wrap:wrap; gap:12px; margin-top:34px; }
+  .microtrust { margin:18px 0 0; font-size:13px; color:var(--ink-3); letter-spacing:0.01em; }
+
+  /* sections */
+  section { padding:64px 0 0; }
+  .label { font-size:11.5px; letter-spacing:0.26em; text-transform:uppercase; color:var(--ink-3); margin:0 0 10px; }
+  h2 { margin:0 0 30px; font-size:30px; font-weight:650; letter-spacing:-0.018em; text-wrap:balance; }
+  h2.tight { margin-bottom:14px; }
+  .sub { margin:0 0 30px; color:var(--ink-2); max-width:56ch; }
+
+  /* swap cards */
+  .swaps { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+  .swap {
+    background:var(--surface); border:1px solid var(--hairline-2); border-radius:12px;
+    overflow:hidden; display:flex; flex-direction:column;
+  }
+  .swap .cap {
+    padding:16px 20px 14px; font-size:12px; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--ink); font-weight:600; border-bottom:1px solid var(--hairline-2);
+  }
+  .row { padding:18px 20px; display:flex; gap:12px; align-items:flex-start; flex:1; }
+  .row.man { background:linear-gradient(180deg,rgba(230,103,103,.06),transparent); }
+  .row.aio { background:linear-gradient(180deg,rgba(12,163,12,.07),transparent); border-top:1px solid var(--hairline-2); }
+  .row .ic { flex:0 0 18px; font-size:14px; line-height:1.5; }
+  .row.man .ic { color:var(--accent); }
+  .row.aio .ic { color:var(--good); }
+  .row .k {
+    display:block; font-size:10px; letter-spacing:0.16em; text-transform:uppercase;
+    margin-bottom:4px; font-weight:600;
+  }
+  .row.man .k { color:var(--accent); }
+  .row.aio .k { color:var(--good); }
+  .row .v { font-size:15px; }
+  .row.man .v { color:var(--ink-2); }
+  .row.aio .v { color:var(--ink); font-weight:500; }
+
+  /* output preview */
+  .prev { background:var(--surface); border:1px solid var(--hairline); border-radius:12px; overflow:hidden; }
+  .prevbar { display:flex; gap:6px; padding:12px 14px; border-bottom:1px solid var(--hairline-2); background:var(--surface-2); flex-wrap:wrap; }
+  .ptab {
+    font-family:var(--sans); font-size:13px; color:var(--ink-3); background:none;
+    border:1px solid transparent; border-radius:999px; padding:6px 15px; cursor:pointer;
+  }
+  .ptab:hover { color:var(--ink-2); }
+  .ptab[aria-selected="true"] { color:var(--ink); border-color:var(--accent); background:var(--accent-dim); }
+  .pbody { padding:24px 26px 26px; }
+  .pane { display:none; }
+  .pane.on { display:block; }
+  .pane .meta {
+    font-size:10.5px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-3);
+    margin-bottom:12px;
+  }
+  .pane .txt { white-space:pre-line; font-size:15.5px; color:var(--ink); line-height:1.6; max-width:62ch; }
+  .pane .foot { margin-top:16px; padding-top:14px; border-top:1px dashed var(--hairline); font-size:12.5px; color:var(--ink-3); }
+  .brief { display:grid; gap:9px; max-width:62ch; }
+  .brief div { display:flex; gap:12px; font-size:15px; color:var(--ink-2); }
+  .brief b { color:var(--accent); font-family:var(--mono); font-size:12px; flex:0 0 62px; padding-top:3px; }
+
+  /* badges */
+  .badges { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; }
+  .badge {
+    background:var(--surface); border:1px solid var(--hairline-2); border-radius:12px; padding:22px 20px;
+  }
+  .badge .em { font-size:22px; line-height:1; }
+  .badge h3 { margin:12px 0 6px; font-size:14.5px; font-weight:650; }
+  .badge p { margin:0; font-size:13px; color:var(--ink-2); }
+
+  /* customize */
+  .stack { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .box { background:var(--surface); border:1px solid var(--hairline-2); border-radius:12px; padding:24px 24px 22px; }
+  .box .bt { font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--ink-3); }
+  .box h3 { margin:8px 0 14px; font-size:16.5px; font-weight:650; }
+  .mods { display:flex; flex-wrap:wrap; gap:8px; }
+  .mod {
+    font-size:13px; color:var(--ink-2); border:1px solid var(--hairline);
+    border-radius:999px; padding:5px 13px;
+  }
+  .mod.core { color:var(--ink); border-color:rgba(230,103,103,0.45); }
+  .mod.core::before { content:"●"; color:var(--accent); font-size:9px; margin-right:7px; vertical-align:1px; }
+  .box .note { margin:14px 0 0; font-size:12.5px; color:var(--ink-3); }
+
+  /* ease */
+  .ease { display:grid; grid-template-columns:1.1fr 1fr 1fr; gap:14px; align-items:stretch; }
+  .est { background:var(--surface); border:1px solid var(--hairline-2); border-radius:12px; padding:24px; }
+  .est .n { font-family:var(--mono); font-size:12px; color:var(--accent); letter-spacing:0.1em; }
+  .est h3 { margin:10px 0 5px; font-size:15.5px; font-weight:650; }
+  .est p { margin:0; font-size:13.5px; color:var(--ink-2); }
+  .est.big { display:flex; flex-direction:column; justify-content:center; }
+  .est.big .hrs { font-size:40px; font-weight:650; color:var(--accent); letter-spacing:-0.02em; line-height:1; }
+  .est.big .cap { margin-top:8px; font-size:14px; color:var(--ink); font-weight:600; }
+  .est.big .sm { margin-top:4px; font-size:13px; color:var(--ink-3); }
+
+  /* calculator */
+  .calc {
+    background:var(--surface); border:1px solid var(--hairline-2); border-radius:14px;
+    padding:34px 34px 30px; display:grid; grid-template-columns:1fr 1fr; gap:34px; align-items:center;
+  }
+  .calc .big { font-size:clamp(44px,7vw,62px); font-weight:650; color:var(--accent); letter-spacing:-0.03em; line-height:1; font-variant-numeric:tabular-nums; }
+  .calc .big small { font-size:19px; color:var(--ink-2); font-weight:500; letter-spacing:0; }
+  .calc .cap { margin-top:10px; font-size:15px; color:var(--ink); font-weight:600; }
+  .calc .micro { margin:12px 0 0; font-size:13px; color:var(--ink-3); max-width:44ch; }
+  .sliderbox label { display:block; font-size:13.5px; color:var(--ink-2); margin-bottom:10px; }
+  .sliderbox label b { color:var(--accent); font-variant-numeric:tabular-nums; }
+  input[type=range] {
+    -webkit-appearance:none; appearance:none; width:100%; height:4px; border-radius:2px;
+    background:var(--accent-dim); outline:none; margin:0;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance:none; appearance:none; width:20px; height:20px; border-radius:50%;
+    background:var(--accent); border:3px solid var(--surface); cursor:pointer;
+  }
+  input[type=range]::-moz-range-thumb {
+    width:20px; height:20px; border-radius:50%; background:var(--accent);
+    border:3px solid var(--surface); cursor:pointer;
+  }
+  .split { display:flex; gap:28px; margin-top:22px; }
+  .split .n { font-size:23px; font-weight:650; color:var(--ink); font-variant-numeric:tabular-nums; }
+  .split .k { font-size:12.5px; color:var(--ink-3); }
+
+  /* close */
+  .close { margin-top:80px; padding:60px 0 76px; border-top:1px solid var(--hairline); text-align:center; position:relative; }
+  .close .kanji {
+    position:absolute; left:50%; top:44px; transform:translateX(-50%); font-size:150px; line-height:1;
+    color:rgba(230,103,103,0.05); user-select:none; pointer-events:none;
+  }
+  .close h2 { position:relative; max-width:26ch; margin:0 auto 26px; font-size:33px; }
+  .ticks { position:relative; display:inline-grid; gap:11px; text-align:left; margin:0 0 32px; }
+  .tick { display:flex; gap:12px; font-size:16px; color:var(--ink-2); }
+  .tick i { color:var(--good); font-style:normal; }
+  .close .sig { position:relative; margin-top:38px; font-size:12px; letter-spacing:0.24em; text-transform:lowercase; color:var(--ink-3); }
+  .close .sig b { color:var(--ink); font-weight:600; }
+  .fine { position:relative; margin:16px auto 0; font-size:12px; color:var(--ink-3); max-width:58ch; }
+
+  :is(a,button,input):focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+
+  @media (max-width:860px){
+    .swaps,.badges,.ease { grid-template-columns:1fr; }
+    .stack,.calc { grid-template-columns:1fr; }
+    .hero { padding:52px 0 44px; }
+    .hero .kanji,.close .kanji { display:none; }
+    .calc { padding:26px 22px 24px; gap:26px; }
+    .pbody { padding:20px 18px 22px; }
+  }
+</style>
+
+<div class="wrap">
+
+  <div class="topbar">
+    <div>realtor <b>aios</b> · tsang ai consulting</div>
+    <a href="https://calendly.com/raymondtsang-ai/30min" target="_blank" rel="noopener">Book 15-min walkthrough</a>
+  </div>
+
+  <!-- 0–5 SEC -->
+  <div class="hero">
+    <span class="kanji" aria-hidden="true">間</span>
+    <p class="eyebrow">an ai operating system for realtors</p>
+    <h1>You didn't get licensed for <em>data entry.</em></h1>
+    <p>
+      Let AIOS run your backend instead — an AI Operating System installed on
+      your own machine. Every Monday, in <b>one sitting</b>, it delivers a week
+      of Facebook content, 100% of your lead follow-ups drafted, and your
+      market update. All in your voice.
+    </p>
+    <div class="acts">
+      <a class="btn" href="https://calendly.com/raymondtsang-ai/30min" target="_blank" rel="noopener">Book 15-Min Walkthrough</a>
+      <a class="btn ghost" href="#how">See How It Works ↓</a>
+    </div>
+    <p class="microtrust">Trained on your voice · Nothing to migrate · Set up in one afternoon</p>
+  </div>
+
+  <!-- 5–10 SEC -->
+  <section id="how">
+    <p class="label">the swap</p>
+    <h2>Three jobs you stop doing by hand.</h2>
+    <div class="swaps">
+      <div class="swap">
+        <div class="cap">Monday morning</div>
+        <div class="row man"><span class="ic">✕</span><span><span class="k">manual</span><span class="v">Hours writing posts and clearing your inbox.</span></span></div>
+        <div class="row aio"><span class="ic">✓</span><span><span class="k">with aios</span><span class="v">A week of social content, ready to post.</span></span></div>
+      </div>
+      <div class="swap">
+        <div class="cap">Lead inquiries</div>
+        <div class="row man"><span class="ic">✕</span><span><span class="k">manual</span><span class="v">Replies land hours late. Leads drop off.</span></span></div>
+        <div class="row aio"><span class="ic">✓</span><span><span class="k">with aios</span><span class="v">60-second replies, in your exact voice.</span></span></div>
+      </div>
+      <div class="swap">
+        <div class="cap">Market strategy</div>
+        <div class="row man"><span class="ic">✕</span><span><span class="k">manual</span><span class="v">Zero time to track what other agents are doing.</span></span></div>
+        <div class="row aio"><span class="ic">✓</span><span><span class="k">with aios</span><span class="v">Competitor research compiled for you.</span></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- visual demo -->
+  <section id="see">
+    <p class="label">what lands monday</p>
+    <h2 class="tight">Real output. Your voice.</h2>
+    <p class="sub">Written for one example realtor. Yours runs on your market and your niche.</p>
+
+    <div class="prev">
+      <div class="prevbar" role="tablist" aria-label="Monday output">
+        <button class="ptab" role="tab" data-p="0" aria-selected="true">Facebook post</button>
+        <button class="ptab" role="tab" data-p="1" aria-selected="false">Lead reply</button>
+        <button class="ptab" role="tab" data-p="2" aria-selected="false">Market brief</button>
+      </div>
+      <div class="pbody">
+        <div class="pane on" data-p="0">
+          <div class="meta">post 1 of 3 · queued for monday</div>
+          <div class="txt">Everyone keeps asking if prices are about to crash. Short version: no.
+
+Here's what's actually happening — the good townhomes are still gone in under two weeks. What changed is buyers got pickier about price. Priced right, you're fine. Priced on hope, you'll sit.
+
+Thinking of listing this fall? Let's talk before the rush. I'll run your real numbers — no pressure, just a plan.</div>
+          <div class="foot">No invented stats. When a post needs a number, it flags it for you to fill.</div>
+        </div>
+        <div class="pane" data-p="1">
+          <div class="meta">portal inquiry · drafted in 60 seconds</div>
+          <div class="txt">Hi Maya — yes, that townhome is still available, and a September move is very workable from here. Since you're pre-approved, you're ahead of the pack already.
+
+I could walk you through it Saturday at 1:00, or Sunday morning — which suits?</div>
+          <div class="foot">Captured her timeline and pre-approval automatically, then wrote back the way you write.</div>
+        </div>
+        <div class="pane" data-p="2">
+          <div class="meta">weekly market + competitor brief</div>
+          <div class="brief">
+            <div><b>topic</b><span>"What the rate news means locally" — outperforming for 4 agents in comparable markets this week.</span></div>
+            <div><b>why</b><span>Specific + timely. They named neighbourhoods instead of saying "the market."</span></div>
+            <div><b>gap</b><span>Nobody local is answering it for first-time buyers. That's your angle.</span></div>
+            <div><b>next</b><span>Drafted as Monday's post. Approve and it's done.</span></div>
+          </div>
+          <div class="foot">It looks for posts that beat a creator's own average — then tells you why they worked.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 10–20 SEC -->
+  <section id="trust">
+    <div class="badges">
+      <div class="badge">
+        <div class="em">🔌</div>
+        <h3>Works with your stack</h3>
+        <p>Keep your CRM, email and phone exactly as they are. Nothing to migrate, no logins to connect.</p>
+      </div>
+      <div class="badge">
+        <div class="em">🧠</div>
+        <h3>Zero code, zero tech skills</h3>
+        <p>Simple text commands in plain English. No developer, no setup screens.</p>
+      </div>
+      <div class="badge">
+        <div class="em">🎨</div>
+        <h3>100% voice-cloned</h3>
+        <p>Trained on your style, your brand and your offer — from your own past content.</p>
+      </div>
+      <div class="badge">
+        <div class="em">⚙️</div>
+        <h3>Fully customizable</h3>
+        <p>Tuned to your niche, your market and the way you already work.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- customize -->
+  <section id="custom">
+    <p class="label">build your stack</p>
+    <h2 class="tight">Start with the core. Add what you need.</h2>
+    <p class="sub">Each piece installs with one typed line. Add them now or later — nothing breaks.</p>
+    <div class="stack">
+      <div class="box">
+        <span class="bt">included</span>
+        <h3>The core system</h3>
+        <div class="mods">
+          <span class="mod core">Context OS</span>
+          <span class="mod core">Brain Clone</span>
+          <span class="mod">Marketing Engine</span>
+          <span class="mod">Lead Engine</span>
+          <span class="mod">Listing Prep</span>
+          <span class="mod">Transaction Coordinator</span>
+        </div>
+        <p class="note">Context OS and Brain Clone come first — they're what makes everything else sound like you.</p>
+      </div>
+      <div class="box">
+        <span class="bt">optional add-ons</span>
+        <h3>Go further</h3>
+        <div class="mods">
+          <span class="mod">Image clone</span>
+          <span class="mod">Voice clone</span>
+          <span class="mod">Video avatar</span>
+          <span class="mod">Custom module for your niche</span>
+        </div>
+        <p class="note">Delivered with me directly, using outside tools. Ask on the call if they'd fit your business.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ease -->
+  <section id="setup">
+    <p class="label">setup</p>
+    <h2>One afternoon. Then it's just yours.</h2>
+    <div class="ease">
+      <div class="est big">
+        <div class="hrs">3–5 hrs</div>
+        <div class="cap">One-time setup</div>
+        <div class="sm">Guided start to finish. Zero code.</div>
+      </div>
+      <div class="est">
+        <span class="n">01</span>
+        <h3>It interviews you</h3>
+        <p>Answer questions about your market, clients and process. Just talking.</p>
+      </div>
+      <div class="est">
+        <span class="n">02</span>
+        <h3>It learns your voice</h3>
+        <p>Paste in a few old posts or emails. It builds your voice profile from them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 20–25 SEC -->
+  <section id="roi">
+    <p class="label">time saved</p>
+    <h2>Free Up 20+ Hours Every Month</h2>
+    <div class="calc">
+      <div>
+        <div class="big" id="hrs">6.4<small> hrs / week</small></div>
+        <div class="cap" id="cap">That's 28 hours a month back.</div>
+        <p class="micro">Based on automated lead response, weekly content creation, and weekly competitor tracking.</p>
+      </div>
+      <div>
+        <div class="sliderbox">
+          <label for="leads">New leads a week — <b id="lv">12</b></label>
+          <input type="range" id="leads" min="4" max="40" value="12" aria-label="New leads per week">
+        </div>
+        <div class="split">
+          <div><div class="n" id="days">15</div><div class="k">workdays / year</div></div>
+          <div><div class="n">15 min</div><div class="k">a day to run it</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 25–30 SEC -->
+  <div class="close" id="book">
+    <span class="kanji" aria-hidden="true">始</span>
+    <p class="label">no pitch</p>
+    <h2>See It Working On Your Business — Live Demo in 15 Minutes</h2>
+    <div class="ticks">
+      <div class="tick"><i>✓</i><span>Zero pitch deck or sales pressure.</span></div>
+      <div class="tick"><i>✓</i><span>We'll sample your voice and workflow live on the call.</span></div>
+      <div class="tick"><i>✓</i><span>Leave with a customized AI growth roadmap.</span></div>
+    </div>
+    <div>
+      <a class="btn" href="https://calendly.com/raymondtsang-ai/30min" target="_blank" rel="noopener">Claim Your Free Live Walkthrough →</a>
+    </div>
+    <div class="sig">tsang <b>ai consulting</b> · langley, bc</div>
+    <p class="fine">Sample posts, leads and briefs shown are illustrative examples, not real client data. Realtor AIOS runs in Claude Code on your own computer.</p>
+  </div>
+
+</div>
+
+<script>
+/* output preview tabs */
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('.ptab'));
+  var panes=[].slice.call(document.querySelectorAll('.pane'));
+  tabs.forEach(function(t){
+    t.addEventListener('click',function(){
+      var i=t.getAttribute('data-p');
+      tabs.forEach(function(x){ x.setAttribute('aria-selected', x===t ? 'true':'false'); });
+      panes.forEach(function(p){ p.classList.toggle('on', p.getAttribute('data-p')===i); });
+    });
+  });
+})();
+
+/* time-saved calculator */
+(function(){
+  var leads=document.getElementById('leads');
+  var lv=document.getElementById('lv'), hrs=document.getElementById('hrs');
+  var cap=document.getElementById('cap'), days=document.getElementById('days');
+  var PER_LEAD=12, CONTENT=150, RESEARCH=90, WPM=4.33; // minutes/week
+  function calc(){
+    var l=parseInt(leads.value,10);
+    var wk=(l*PER_LEAD+CONTENT+RESEARCH)/60;
+    var mo=wk*WPM;
+    lv.textContent=l;
+    hrs.innerHTML=(wk<10?wk.toFixed(1):Math.round(wk))+'<small> hrs / week</small>';
+    cap.textContent="That's "+Math.round(mo)+" hours a month back.";
+    days.textContent=Math.round(wk*52/8);
+  }
+  leads.addEventListener('input',calc);
+  calc();
+})();
+</script>

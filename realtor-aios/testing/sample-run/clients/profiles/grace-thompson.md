@@ -42,7 +42,18 @@ for potted plants (enjoys gardening). Prefers phone calls over email.
 - 2026-08-30: no longer active — 20250 84 Ave #312, Willoughby (elevator
   condo shown last week; absent from this week's export, likely sold or
   delisted — flagging rather than silently dropping it)
-- Last researched: 2026-08-30
+- 2026-09-06: still active, price drop — 22045 Old Yale Rd, Murrayville is
+  still listed, now $599,900 (down from $618,000, an $18,100 cut). Fit
+  reasoning unchanged from the 8/23 analysis, but a price move like this is
+  worth telling Grace about even though the listing itself isn't new.
+  Outside her stated area, mentioned anyway — 4890 207 St, Willowbrook
+  (ground-floor duplex, 2bd, 2ba, 1,150 sqft, 1 parking, patio, no stairs,
+  $605,000): she only named Murrayville and Willoughby, but this hits every
+  other criterion and Willowbrook is directly adjacent — flagging as a
+  borderline option rather than silently excluding or silently including it.
+- 2026-09-06: no longer active — 22130 44 Ave, Murrayville (shown 8/30;
+  absent from this week's export, likely sold or delisted)
+- Last researched: 2026-09-06
 
 ---
 Last updated: 2026-08-23 · Source: /build-profile (test run — transcript 02-grace-thompson.md)

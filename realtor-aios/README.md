@@ -22,16 +22,18 @@ realtor-aios/
     ├── .claude/commands/      ← /install-module and /prime
     ├── context/               ← the realtor's "brain" — built by the modules
     ├── system/modules.md      ← module install registry
-    └── modules/               ← the six installable modules
+    └── modules/               ← the eight installable modules
         ├── context-os/        ← Context OS, Realtor Edition (install FIRST)
         ├── brain-clone/       ← voice capture → context/voice-profile.md
         ├── marketing-engine/  ← topic research + FB/LinkedIn content + weekly cadence
         ├── lead-engine/       ← lead intake capture + follow-up in their voice
         ├── listing-prep/      ← one-page prep sheet before a listing appointment
-        └── transaction-coordinator/ ← key-date tracking + client updates, offer to close
+        ├── transaction-coordinator/ ← key-date tracking + client updates, offer to close
+        ├── client-profiles/   ← buyer profiles built from conversation transcripts
+        └── monday-skill/      ← weekly focus list + listing matches per profile
 ```
 
-## The six modules, in install order
+## The eight modules, in install order
 
 1. **`context-os`** — Context OS, Realtor Edition. A structured interview that
    captures the realtor's market and farm area, niche and client types,
@@ -77,6 +79,30 @@ Modules 5 and 6 need only `context-os` + `brain-clone` — both reuse the
 context files and folder patterns those already built, so there's no new
 interview and (for listing-prep) no new persistent schema at all.
 
+7. **`client-profiles`** — turns a pasted conversation transcript into a
+   structured buyer profile: what they want, beds/baths, city, price range,
+   size, parking, transit preference, and a freeform notes field for
+   anything else. `/build-profile` extracts it; `/update-profile` folds in a
+   later conversation without starting over. Requires only `context-os` —
+   this module extracts facts, it doesn't write client-facing prose, so it
+   has no voice-profile dependency. One file per buyer in `clients/profiles/`,
+   the same pattern as `leads/active/` and `deals/active/`. No ethnicity or
+   other protected-characteristic field — deliberately excluded (fair-housing
+   /steering risk for a licensed realtor).
+
+8. **`monday-skill`** — the weekly ritual: maintain a persistent focus list
+   of who you're following up with, then match new listings against each
+   profile's criteria. Listings come from the realtor pasting in their own
+   MLS export (the default — no integration, no scraping) or, when the
+   session has web access, a clearly-labeled public-site search — never a
+   claim to "the MLS." Each profile's `## Search log` means re-runs only
+   analyze what's new since last time; previously-shown listings get a
+   one-line reminder instead of a full re-analysis, and anything that's
+   dropped out of a fresh search is flagged as likely sold/delisted. If
+   `brain-clone` is also installed, it can draft the client-facing message
+   presenting the matches, in voice — optional, not required to install.
+   Requires `context-os` + `client-profiles`.
+
 ## Delivering to a client
 
 1. Copy the whole `realtor-aios/` folder to the client's computer.
@@ -84,7 +110,9 @@ interview and (for listing-prep) no new persistent schema at all.
    the guide assumes they have never opened a terminal).
 3. Install order is enforced by the modules themselves: `context-os` →
    `brain-clone` → then `marketing-engine`, `lead-engine`, `listing-prep`,
-   and `transaction-coordinator` in any order. Each is installed by typing
+   and `transaction-coordinator` in any order. `client-profiles` only needs
+   `context-os` and can go in any time after it; `monday-skill` needs
+   `client-profiles` installed first. Each is installed by typing
    `/install-module <name>` inside Claude Code.
 4. Open `dashboard/dashboard.html` in a browser to show them the at-a-glance
    view of their AIOS (it ships with realistic sample data; it is a static

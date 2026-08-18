@@ -88,7 +88,10 @@ Every module MUST follow this format so `/install-module` can run it:
 | 4 | `lead-engine` | Lead intake capture + follow-up drafting in `leads/` |
 | 5 | `listing-prep` | Prep sheets in `listings/` — no new context files |
 | 6 | `transaction-coordinator` | Deal tracking + client updates in `deals/` |
+| 7 | `client-profiles` | Buyer profiles built from conversations, in `clients/profiles/` |
+| 8 | `monday-skill` | Weekly focus list + listing matches (requires client-profiles) |
 
-Install 1 and 2 in that order; 3–6 all require the first two but are
-independent of each other. Each module's INSTALL.md enforces its own
+Install 1 and 2 in that order. 3–6 and 8 all require the first two — 8 also
+requires 7 specifically, since it works from the profiles 7 builds; 7 itself
+only requires 1. Each module's INSTALL.md enforces its own
 prerequisites, so installing out of order fails safely with instructions.

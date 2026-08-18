@@ -35,7 +35,20 @@ profile; Dev's number and Priya's email are both live contacts.
     right price/beds, but Priya was explicit about not wanting a condo —
     excluded on property type); 21870 44A Ave, Murrayville (wrong city, no
     den, smaller than their current place)
-- Last researched: 2026-08-23
+- 2026-08-30: still active, price increase — 8532 214 St, Willoughby is now
+  $786,500 (up from $774,900). Still under their $800K approval, but it's
+  crept past the $750K they said they'd prefer — worth flagging so they
+  know the window may be tightening if they like it. New this week — 22015
+  46 Ave, Willowbrook (townhome, 2bd+den, 2ba, 1,290 sqft, 1 parking,
+  $758,000 — strong match on price/beds/den/bath/city; the one thing it
+  doesn't hit is their newer-construction preference, it's a 2015 resale,
+  not a dealbreaker but worth naming). Outside their stated area, mentioned
+  anyway — 4410 200 St, Murrayville (townhome, 2bd+den, 2ba, 1,310 sqft, 2
+  parking, $748,000, new build 2024): they only named Willoughby and
+  Willowbrook, but this hits every other criterion, including new
+  construction and 2 parking, and comes in under their preferred anchor
+  price — flagging as a borderline option worth their own call.
+- Last researched: 2026-08-30
 
 ---
 Last updated: 2026-08-23 · Source: /build-profile (test run — transcript 01-priya-dev-malhotra.md)

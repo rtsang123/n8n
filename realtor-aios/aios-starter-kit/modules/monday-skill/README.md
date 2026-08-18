@@ -27,8 +27,10 @@ Run it any day — "Monday" is the habit, not a requirement. One command:
 4. **Cheap re-runs.** Each profile keeps a dated search log. Next time you
    run this for the same client, it only analyzes what's new since last
    time — previously-shown listings get a one-line "still active" reminder,
-   not a full re-analysis. If something you showed before doesn't turn up in
-   a fresh search, it's flagged as likely sold or delisted.
+   not a full re-analysis, unless something material changed (a price drop
+   gets surfaced even on a repeat listing — that's real news, not noise). If
+   something you showed before doesn't turn up in a fresh search, it's
+   flagged as likely sold or delisted rather than silently disappearing.
 
 ## What it creates
 

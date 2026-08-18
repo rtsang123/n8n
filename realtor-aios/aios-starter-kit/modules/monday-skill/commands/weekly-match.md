@@ -46,12 +46,24 @@ For each candidate listing:
 
 ### Handle repeats efficiently
 
-- Anything already logged as shown to this client: don't re-analyze it.
-  If it's still present in the new export/search, just note it in one line
-  under "still active from last time."
+- Anything already logged as shown to this client: don't redo the fit
+  reasoning — that's already in the log and hasn't changed.
+- But do check it for **material changes**: a different price, a status
+  change (pending/sold/back on market), or a changed detail that affects
+  fit. A price drop on a listing you already showed is real news, even
+  though the listing itself isn't new — surface it as "still active, price
+  drop: was $X, now $Y" rather than a bare "still active" that buries it.
+  If nothing changed, the plain "still active from last time" one-liner is
+  enough — don't manufacture an update where there isn't one.
 - Anything previously shown that's now missing from a fresh search or
   export: flag as "no longer showing — likely sold or delisted" rather than
-  silently dropping it.
+  silently dropping it. This applies however many rounds ago it was first
+  shown, not just the immediately preceding run.
+- A new listing just outside the client's stated area or a soft criterion,
+  but a strong fit on everything else: don't silently include it (it wasn't
+  asked for) or silently drop it (it might be exactly what changes their
+  mind) — flag it explicitly as a borderline mention, and say which
+  criterion put it outside the stated ask.
 
 ## 3 — Optional: draft the outreach
 
@@ -70,6 +82,7 @@ Append to that client's `## Search log`:
 ```markdown
 ## Search log
 - <date>: shown — <address/listing 1>, <address/listing 2>, …
+- <date>: still active, price drop — <address> (was $X, now $Y)
 - <date>: no longer active — <address>, …
 - Last researched: <date>
 ```

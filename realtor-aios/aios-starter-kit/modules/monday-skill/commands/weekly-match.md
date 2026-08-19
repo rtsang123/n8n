@@ -65,17 +65,55 @@ For each candidate listing:
   mind) — flag it explicitly as a borderline mention, and say which
   criterion put it outside the stated ask.
 
-## 3 — Optional: draft the outreach
+## 3 — Optional: draft the client email
 
 If `brain-clone` is installed (check `system/modules.md` and confirm
-`context/voice-profile.md` exists), ask if the owner wants a message drafted
-presenting the new matches to this client, in their voice. If yes, write it
-using the same truth rules as the rest of the AIOS — no invented details,
+`context/voice-profile.md` exists), ask if the owner wants an email drafted
+presenting the new matches to this client, in their voice. If yes, write a
+proper email — subject line + body, addressed to the client by name — using
+the same truth rules as the rest of the AIOS — no invented details,
 placeholders for anything uncertain. If brain-clone isn't installed, skip
 this step without mentioning it as missing (offering module installs isn't
 this command's job).
 
-## 4 — Update the log
+**Getting it into Gmail — check what's actually available, never assume:**
+- If a Gmail (or other email) connector is available in the current Claude
+  session, offer to create the email as a **draft** in the owner's Gmail —
+  staged and ready for them to review, edit, and send themselves. Never send
+  it automatically; client-facing email always gets a human's eyes first.
+  Tell the owner plainly it's sitting in their Drafts folder, not sent.
+- If no email connector is available (true for most installs — this AIOS
+  workspace doesn't connect to email by default, same as it doesn't connect
+  to a CRM), show the drafted email as text, ready to copy and paste into
+  whatever the owner already uses to send email. This is the normal path
+  and isn't a lesser outcome — it's the default the rest of the product is
+  built on.
+
+## 4 — Optional: export a PDF report
+
+Ask if the owner wants a PDF version of this client's matches — something
+they could forward, print, or hand over directly. If yes, build one using
+the `pdf` skill/tooling, structured as:
+
+- Header: client name, "prepared by" the owner's name and brokerage
+  (from `context/business-profile.md`), today's date
+- "What we're looking for" — a clean recap of the client's `## Looking for`
+  criteria
+- "This week's matches" — each listing with its address, key facts, and the
+  same honest fit reasoning shown in chat (including price-change notes)
+- "Worth a second look" — borderline mentions, clearly separated, same
+  honesty rule: never silently folded into the main matches
+- "No longer available" — anything flagged likely sold/delisted this run
+- A short closing note in the owner's voice (reuse the drafted email's
+  content if one was written this run)
+- A footer disclaimer: listings shown come from what the owner searched or
+  pasted in, not a live MLS feed — current status should be verified before
+  acting on anything in the report
+
+Save it as `clients/reports/<client-slug>-<date>.pdf` (create the folder if
+it doesn't exist) and tell the owner where it landed.
+
+## 5 — Update the log
 
 Append to that client's `## Search log`:
 
@@ -87,8 +125,9 @@ Append to that client's `## Search log`:
 - Last researched: <date>
 ```
 
-## 5 — Close
+## 6 — Close
 
 One-line summary per client (e.g. "Maya: 2 new matches, 1 still active from
-last week, message drafted"), then done. Keep the whole run tight — this is
-meant to take minutes, not become its own research project.
+last week, email drafted to Gmail, PDF saved"), then done. Keep the whole
+run tight — this is meant to take minutes, not become its own research
+project.

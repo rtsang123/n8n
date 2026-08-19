@@ -8,15 +8,31 @@ Conversation content, if given: `$ARGUMENTS`
 
 ## 1 — Get the conversation
 
-If `$ARGUMENTS` is empty, ask the owner to paste the transcript, voice-memo
-transcription, or their own notes from the conversation. Accept it exactly
-as given — messy, partial, out of order, doesn't matter.
+If `$ARGUMENTS` is empty, ask the owner to bring the conversation in as
+text — a transcript, a voice-memo transcription, or their own notes.
+Accept it exactly as given — messy, partial, out of order, doesn't matter.
 
-If what's pasted looks like it's still audio-file shorthand (e.g. a
-filename, or a note like "attached voice memo") rather than actual text,
-tell the owner Claude can't transcribe raw audio reliably and ask them to
-paste the transcribed text instead (most phones, and tools like Fathom or
-Otter, transcribe automatically).
+**If what they have is a raw audio file (a recording, not yet text):**
+Claude can't listen to audio directly, so it needs to become text first.
+The good news is this is almost always a 30-second step, not a new tool to
+learn — most realtors already have something that does it automatically:
+
+- **iPhone Voice Memos** — recordings are transcribed automatically; open
+  the memo, tap it, and the transcript is right there to copy.
+- **Android** — the Recorder app (Pixel and many other phones) transcribes
+  automatically the same way; some phones route this through Google
+  Recorder specifically.
+- **Fathom, Otter, or a similar call-recording tool** — if the owner
+  records client calls, these already produce a transcript alongside the
+  recording; copy that instead of the audio.
+- If none of these apply and all they have is a raw audio file with no
+  transcript anywhere, say so plainly: this module can't turn that into
+  text itself, and ask them to run it through whichever of the above they
+  have access to (or any other transcription tool/app they already use),
+  then bring the resulting text back to `/build-profile`.
+
+Never guess at what a recording might contain from its filename or
+duration — always work from actual text.
 
 ## 2 — Check for an existing profile
 

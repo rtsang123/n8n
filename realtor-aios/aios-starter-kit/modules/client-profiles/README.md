@@ -16,6 +16,13 @@ parking, transit needs, and anything else that came up. Nothing is
 required — a five-minute chat that only covered budget and city still makes
 a useful profile; the rest fills in as you learn more.
 
+Have a recording instead of text? You almost certainly already have a way
+to turn it into text for free: iPhone Voice Memos and the Android Recorder
+app both transcribe automatically, and Fathom or Otter do the same for
+recorded calls. Copy that transcript in — Claude can't listen to audio
+directly, so text is always the input, but getting there is usually a
+30-second copy, not a new tool to learn.
+
 Talked to them again? Run `/update-profile` with the new conversation and it
 folds the new details into the same profile instead of starting over.
 

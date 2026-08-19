@@ -1,7 +1,7 @@
 # INSTALL — Client Profiles
 
 Module: client-profiles
-Version: 1.0.0
+Version: 1.1.0
 Requires: context-os
 Installs commands: /build-profile, /update-profile
 
@@ -22,7 +22,10 @@ Installs commands: /build-profile, /update-profile
    procedure.
 
 5. Tell the owner it's ready: after their next buyer conversation, paste it
-   into `/build-profile`.
+   into `/build-profile`. If they usually have a recording rather than
+   notes, mention that their phone likely already transcribes it for them
+   (iPhone Voice Memos, Android Recorder) — or Fathom/Otter if they record
+   calls — so they always have text ready to paste, no new tool needed.
 
 ## After install
 

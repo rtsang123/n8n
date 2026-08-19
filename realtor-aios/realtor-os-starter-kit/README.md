@@ -10,7 +10,7 @@ starts nearly empty and gains capabilities as modules are installed.
 ## Folder layout
 
 ```
-aios-starter-kit/
+realtor-os-starter-kit/
 ├── CLAUDE.md            # Rules Claude follows in every session in this workspace
 ├── README.md            # This file — the module system conventions
 ├── .claude/

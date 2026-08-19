@@ -38,7 +38,7 @@ The order matters, and the system enforces it — so you can't get it wrong.
 - [ ] The **`realtor-aios` folder** your consultant gave you, copied
       somewhere easy to find — your Desktop or Documents folder is perfect.
       Inside it you should see this guide, a folder called
-      `aios-starter-kit`, a folder called `dashboard`, and a README file.
+      `realtor-os-starter-kit`, a folder called `dashboard`, and a README file.
 - [ ] For Step 5 you'll want **5–10 pieces of your past content** — old
       Facebook posts, Instagram captions, emails to clients, your website
       bio. You can gather these later, but grabbing them now saves a trip.
@@ -78,9 +78,9 @@ attached to the right one.
 
 1. In Claude Code, choose **Open folder / Open project**.
 2. Navigate to where you copied the `realtor-aios` folder, open it, and
-   select the folder inside it called **`aios-starter-kit`**. That exact
+   select the folder inside it called **`realtor-os-starter-kit`**. That exact
    folder — not `realtor-aios` itself, and not anything inside
-   `aios-starter-kit`.
+   `realtor-os-starter-kit`.
 3. If Claude Code asks whether you trust this folder, say **yes/trust** —
    it's your folder, from your consultant.
 
@@ -89,7 +89,7 @@ the bottom where you type. This is where everything happens from now on.
 
 **If something looks wrong:** the most common mistake in this whole guide is
 opening the wrong folder. If anything in the next step says it can't find a
-module, close and reopen — and pick `aios-starter-kit` this time.
+module, close and reopen — and pick `realtor-os-starter-kit` this time.
 
 ## Step 4 — Install Context OS and do your interview (45–60 minutes)
 
@@ -268,7 +268,7 @@ tailors for you — your real work always lives in Claude Code.)
 - **"It's asking permission to create/edit a file."** Normal — that's it
   writing to your AIOS folder. Allow it.
 - **"A command does nothing / isn't recognized."** You're almost certainly
-  in the wrong folder — Step 3, choose `aios-starter-kit`.
+  in the wrong folder — Step 3, choose `realtor-os-starter-kit`.
 - **"My business changed — new brokerage, new focus."** Just type
   `/context-update` and tell it what changed.
 - **"The content is starting to sound off."** Type `/voice-check` and be

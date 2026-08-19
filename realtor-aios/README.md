@@ -16,7 +16,7 @@ realtor-aios/
 │                                non-technical realtor (part of the paid product)
 ├── dashboard/
 │   └── dashboard.html         ← sample status view with fictional data (sales/demo aid)
-└── aios-starter-kit/          ← the workspace the client actually uses
+└── realtor-os-starter-kit/          ← the workspace the client actually uses
     ├── CLAUDE.md              ← workspace rules Claude follows in every session
     ├── README.md              ← how the module system works (conventions spec)
     ├── dashboard.html         ← SKILL DASHBOARD: the front door — every skill,
@@ -39,7 +39,7 @@ realtor-aios/
 ## The front door
 
 Two ways in, same map: the client double-clicks
-`aios-starter-kit/dashboard.html` for the visual version (every skill,
+`realtor-os-starter-kit/dashboard.html` for the visual version (every skill,
 plain-language, click any command to copy it), or types `/dashboard` inside
 Claude Code for the live version — which reads the install registry and can
 launch any skill directly. The HTML is the map; Claude Code is the engine.
@@ -141,6 +141,6 @@ interview and (for listing-prep) no new persistent schema at all.
 ## Adding future modules
 
 The starter kit is module-agnostic. Any new module that follows the
-conventions in `aios-starter-kit/README.md` (a folder under `modules/` with a
+conventions in `realtor-os-starter-kit/README.md` (a folder under `modules/` with a
 `README.md` for humans and an `INSTALL.md` Claude reads and executes) plugs in
 via `/install-module` with no changes to the kit.

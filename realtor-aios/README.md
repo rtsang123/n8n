@@ -15,25 +15,36 @@ realtor-aios/
 ├── INSTALLATION-GUIDE.md      ← client-facing guide, written for a
 │                                non-technical realtor (part of the paid product)
 ├── dashboard/
-│   └── dashboard.html         ← self-contained visual dashboard (open in any browser)
+│   └── dashboard.html         ← sample status view with fictional data (sales/demo aid)
 └── aios-starter-kit/          ← the workspace the client actually uses
     ├── CLAUDE.md              ← workspace rules Claude follows in every session
     ├── README.md              ← how the module system works (conventions spec)
-    ├── .claude/commands/      ← /install-module and /prime
+    ├── dashboard.html         ← SKILL DASHBOARD: the front door — every skill,
+    │                            plain-language, click-to-copy commands
+    ├── .claude/commands/      ← /install-module, /prime, and /dashboard
     ├── context/               ← the realtor's "brain" — built by the modules
     ├── system/modules.md      ← module install registry
-    └── modules/               ← the eight installable modules
+    └── modules/               ← the nine installable modules
         ├── context-os/        ← Context OS, Realtor Edition (install FIRST)
         ├── brain-clone/       ← voice capture → context/voice-profile.md
         ├── marketing-engine/  ← topic research + FB/LinkedIn content + weekly cadence
         ├── lead-engine/       ← lead intake capture + follow-up in their voice
         ├── listing-prep/      ← one-page prep sheet before a listing appointment
         ├── transaction-coordinator/ ← key-date tracking + client updates, offer to close
-        ├── client-profiles/   ← buyer profiles built from conversation transcripts
-        └── monday-skill/      ← weekly focus list + listing matches per profile
+        ├── client-profiles/   ← buyer profiles + CRM-ready block + follow-up email
+        ├── monday-skill/      ← weekly focus list + listing matches per profile
+        └── market-research/   ← price reads from sold comps; sharpens the matching
 ```
 
-## The eight modules, in install order
+## The front door
+
+Two ways in, same map: the client double-clicks
+`aios-starter-kit/dashboard.html` for the visual version (every skill,
+plain-language, click any command to copy it), or types `/dashboard` inside
+Claude Code for the live version — which reads the install registry and can
+launch any skill directly. The HTML is the map; Claude Code is the engine.
+
+## The nine modules, in install order
 
 1. **`context-os`** — Context OS, Realtor Edition. A structured interview that
    captures the realtor's market and farm area, niche and client types,
@@ -102,6 +113,15 @@ interview and (for listing-prep) no new persistent schema at all.
    `brain-clone` is also installed, it can draft the client-facing message
    presenting the matches, in voice — optional, not required to install.
    Requires `context-os` + `client-profiles`.
+
+9. **`market-research`** — price reads from comparable sold listings.
+   `/price-check` takes comps the realtor finds on
+   www.searchhomelistings.ca (paste-in — the site gates sold data and this
+   package never scrapes) and produces a supported price range with every
+   figure traceable to a named comp. When installed alongside
+   `monday-skill`, `/weekly-match` automatically adds a price-position line
+   to each match — under, at, or above what comparable homes actually sold
+   for. Requires only `context-os` (the market interview).
 
 ## Delivering to a client
 

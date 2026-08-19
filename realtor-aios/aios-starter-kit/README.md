@@ -14,7 +14,8 @@ aios-starter-kit/
 ├── CLAUDE.md            # Rules Claude follows in every session in this workspace
 ├── README.md            # This file — the module system conventions
 ├── .claude/
-│   └── commands/        # Slash commands. Ships with /install-module and /prime;
+│   └── commands/        # Slash commands. Ships with /install-module, /prime,
+│                        # and /dashboard (the front-door menu);
 │                        # modules add their own commands here on install.
 ├── context/             # The owner's context files — their "brain".
 │                        # Written by modules, readable and editable as plain text.
@@ -90,8 +91,10 @@ Every module MUST follow this format so `/install-module` can run it:
 | 6 | `transaction-coordinator` | Deal tracking + client updates in `deals/` |
 | 7 | `client-profiles` | Buyer profiles built from conversations, in `clients/profiles/` |
 | 8 | `monday-skill` | Weekly focus list + listing matches (requires client-profiles) |
+| 9 | `market-research` | Price reads from sold comps in `market/` — feeds monday-skill |
 
 Install 1 and 2 in that order. 3–6 and 8 all require the first two — 8 also
-requires 7 specifically, since it works from the profiles 7 builds; 7 itself
-only requires 1. Each module's INSTALL.md enforces its own
-prerequisites, so installing out of order fails safely with instructions.
+requires 7 specifically, since it works from the profiles 7 builds; 7 and 9
+only require 1 (9 needs the market interview done). Each module's INSTALL.md
+enforces its own prerequisites, so installing out of order fails safely with
+instructions.

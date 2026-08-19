@@ -48,7 +48,12 @@ profile; Dev's number and Priya's email are both live contacts.
   Willowbrook, but this hits every other criterion, including new
   construction and 2 parking, and comes in under their preferred anchor
   price — flagging as a borderline option worth their own call.
-- Last researched: 2026-08-30
+- 2026-09-06: price position (per Willoughby townhome read, 2026-09-06) —
+  8532 214 St at $786,500 now sits **just above** the supported range for
+  comparable solds ($760K–$785K; nearest comp: 8455 214 St, same street,
+  sold $781,000 on Aug 20). Fully priced — if they love it, offering under
+  ask is defensible with these comps in hand, not lowballing.
+- Last researched: 2026-09-06
 
 ---
 Last updated: 2026-08-23 · Source: /build-profile (test run — transcript 01-priya-dev-malhotra.md)

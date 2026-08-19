@@ -25,12 +25,15 @@ searched date, listings already shown).
 ### Get new listings
 
 Ask how they want to search for this client — offer both:
-- **Paste a listing export** — from their own MLS search. This is the
-  default; most runs should use this.
-- **Live web search** of public listing sites — only if the current session
-  has web access. Always label results clearly as public-facing listings,
-  not MLS data, and remind the owner to verify against their board's system
-  before contacting anyone about a listing found this way.
+- **Drop in an MLS export** — paste the text or drag the export file
+  straight into the chat; either works. This is the default; most runs
+  should use this.
+- **Describe the search in plain language** ("new Willoughby townhomes
+  under 800 this week") — runs as a live web search of public listing
+  sites, only if the current session has web access. Always label results
+  clearly as public-facing listings, not MLS data, and remind the owner to
+  verify against their board's system before contacting anyone about a
+  listing found this way.
 
 ### Match, don't invent
 
@@ -38,6 +41,13 @@ Compare what's newly given against the client's `## Looking for` criteria.
 For each candidate listing:
 - Show which criteria it matches, which are close-but-not-exact, and which
   it misses — plainly, so the owner can judge fit themselves.
+- **Price position** — if `market-research` is installed, check
+  `market/price-reads/` for a current read (under ~4 weeks old) covering
+  this listing's area and property type. When one exists, add one line per
+  match: whether it's priced under, at, or above what comparable homes
+  actually sold for, citing the read's date. No current read → no line;
+  never estimate market value without one, and never present a price read
+  as an appraisal.
 - Use ONLY details present in what was pasted or found. Never fill in a
   price, size, or feature that wasn't actually given.
 - Skip anything that misses a hard criterion badly (way outside price range

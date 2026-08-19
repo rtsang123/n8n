@@ -23,6 +23,13 @@ recorded calls. Copy that transcript in — Claude can't listen to audio
 directly, so text is always the input, but getting there is usually a
 30-second copy, not a new tool to learn.
 
+Once the profile is saved, it can also hand you two ready-to-use outputs:
+a **CRM-ready block** (plus a CSV line) formatted to paste straight into
+whatever CRM you already use — no integration, no account access, you
+paste — and, if the `brain-clone` module is installed, a **draft follow-up
+email** to the client in your voice, recapping what they told you and
+proposing the next step.
+
 Talked to them again? Run `/update-profile` with the new conversation and it
 folds the new details into the same profile instead of starting over.
 

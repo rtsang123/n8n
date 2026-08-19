@@ -24,6 +24,9 @@ Run it any day — "Monday" is the habit, not a requirement. One command:
 3. **Matches, with reasoning.** For each client, it shows which new listings
    fit their profile and *why* — which criteria matched, which are close but
    not exact. It never invents a detail that wasn't in what you gave it.
+   If the `market-research` module is installed and you have a current
+   price read for the area, each match also gets a price-position line:
+   under, at, or above what comparable homes actually sold for.
 4. **Cheap re-runs.** Each profile keeps a dated search log. Next time you
    run this for the same client, it only analyzes what's new since last
    time — previously-shown listings get a one-line "still active" reminder,

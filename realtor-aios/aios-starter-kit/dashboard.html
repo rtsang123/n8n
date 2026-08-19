@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Realtor AIOS — Skill Dashboard</title>
+<style>
+  :root {
+    --page:#0d0d0d; --surface:#141413; --surface-2:#1b1b1a;
+    --ink:#f4f2ec; --ink-2:#c3c2b7; --ink-3:#898781;
+    --hairline:rgba(255,255,255,0.10); --hairline-2:rgba(255,255,255,0.06);
+    --accent:#e66767; --accent-dim:#3a2222; --good:#0ca30c;
+    --sans:system-ui,-apple-system,"Segoe UI",sans-serif;
+    --mono:ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  }
+  * { box-sizing:border-box; }
+  html { background:var(--page); scroll-behavior:smooth; }
+  @media (prefers-reduced-motion:reduce){ html{scroll-behavior:auto;} }
+  body {
+    margin:0; background:var(--page); color:var(--ink);
+    font-family:var(--sans); font-size:16px; line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap { max-width:1020px; margin:0 auto; padding:0 24px 72px; }
+
+  .topbar {
+    display:flex; justify-content:space-between; align-items:center; gap:16px;
+    padding:20px 0; border-bottom:1px solid var(--hairline-2);
+    font-size:12px; letter-spacing:0.24em; text-transform:lowercase; color:var(--ink-3);
+  }
+  .topbar b { color:var(--ink); font-weight:600; }
+  .topbar span.right { letter-spacing:0.18em; }
+
+  /* hero */
+  .hero { padding:64px 0 40px; position:relative; }
+  .hero .kanji {
+    position:absolute; right:-6px; top:16px; font-size:150px; line-height:1;
+    color:rgba(230,103,103,0.06); user-select:none; pointer-events:none;
+  }
+  .eyebrow { font-size:11.5px; letter-spacing:0.26em; text-transform:uppercase; color:var(--ink-3); margin:0 0 18px; }
+  h1 {
+    margin:0; font-size:clamp(32px,5vw,46px); font-weight:650; letter-spacing:-0.02em;
+    line-height:1.1; max-width:18ch; text-wrap:balance;
+  }
+  h1 em { font-style:normal; color:var(--accent); }
+  .hero p { margin:22px 0 0; font-size:16.5px; color:var(--ink-2); max-width:58ch; }
+
+  /* the one command */
+  .onecmd {
+    margin-top:30px; background:var(--surface); border:1px solid var(--hairline);
+    border-left:2px solid var(--accent); border-radius:10px;
+    padding:18px 22px; display:flex; flex-wrap:wrap; align-items:center; gap:16px;
+  }
+  .onecmd .t { font-size:13.5px; color:var(--ink-2); flex:1; min-width:220px; }
+  .onecmd .t b { color:var(--ink); }
+
+  /* command chip w/ copy */
+  .cmd {
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--mono); font-size:12.5px; color:var(--accent);
+    background:var(--accent-dim); border:1px solid rgba(230,103,103,0.3);
+    border-radius:7px; padding:6px 12px; cursor:pointer; white-space:nowrap;
+    transition:border-color .15s;
+  }
+  .cmd:hover { border-color:rgba(230,103,103,0.6); }
+  .cmd::after { content:"⧉"; font-size:11px; color:var(--ink-3); }
+  .cmd.copied { border-color:var(--good); }
+  .cmd.copied::after { content:"copied"; font-family:var(--sans); font-size:10px;
+    letter-spacing:0.08em; text-transform:uppercase; color:var(--good); }
+
+  /* groups */
+  .grouplabel {
+    display:flex; align-items:baseline; gap:14px;
+    margin:52px 0 16px;
+  }
+  .grouplabel .gl {
+    font-size:11.5px; letter-spacing:0.26em; text-transform:uppercase; color:var(--accent);
+  }
+  .grouplabel .gd { font-size:13px; color:var(--ink-3); }
+
+  .cards { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+  .card {
+    background:var(--surface); border:1px solid var(--hairline-2); border-radius:12px;
+    padding:24px 26px 22px; display:flex; flex-direction:column; gap:12px;
+  }
+  .card .head { display:flex; align-items:baseline; justify-content:space-between; gap:10px; }
+  .card h3 { margin:0; font-size:17px; font-weight:650; letter-spacing:-0.01em; }
+  .card .mod { font-family:var(--mono); font-size:10.5px; color:var(--ink-3); white-space:nowrap; }
+  .card p { margin:0; font-size:14px; color:var(--ink-2); flex:1; }
+  .card .cmds { display:flex; flex-wrap:wrap; gap:8px; padding-top:4px; border-top:1px solid var(--hairline-2); padding-top:14px; }
+  .card .req {
+    font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:var(--ink-3);
+  }
+  .card .req b { color:var(--ink-2); font-weight:600; }
+
+  /* order strip */
+  .order {
+    margin-top:56px; background:var(--surface); border:1px solid var(--hairline-2);
+    border-radius:12px; padding:24px 26px;
+  }
+  .order h2 { margin:0 0 6px; font-size:16px; font-weight:650; }
+  .order p { margin:0 0 16px; font-size:13.5px; color:var(--ink-2); max-width:64ch; }
+  .steps { display:flex; flex-wrap:wrap; gap:10px; align-items:center; font-size:13px; color:var(--ink-2); }
+  .steps .arrow { color:var(--ink-3); }
+  .steps .then { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--ink-3); margin:0 4px; }
+
+  /* footer */
+  .foot {
+    margin-top:56px; padding-top:22px; border-top:1px solid var(--hairline);
+    display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap;
+    font-size:12.5px; color:var(--ink-3);
+  }
+  .foot b { color:var(--ink-2); font-weight:600; }
+
+  :is(.cmd,a):focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+
+  @media (max-width:780px) {
+    .cards { grid-template-columns:1fr; }
+    .hero { padding:44px 0 32px; }
+    .hero .kanji { display:none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div>realtor <b>aios</b> · skill dashboard</div>
+    <span class="right">your front door</span>
+  </div>
+
+  <div class="hero">
+    <span class="kanji" aria-hidden="true">道</span>
+    <p class="eyebrow">everything your aios can do</p>
+    <h1>One page. Every skill. <em>No hunting.</em></h1>
+    <p>
+      Each card below is one skill in your AIOS: what it does in plain
+      language, and the exact command that runs it. Click any command to
+      copy it, then paste it into Claude Code — that's the whole trick.
+    </p>
+    <div class="onecmd">
+      <div class="t"><b>Only remember one thing:</b> open your AIOS folder in
+      Claude Code and type this. It shows this same menu in chat — and can
+      launch any skill for you from there.</div>
+      <button class="cmd" data-copy="/dashboard">/dashboard</button>
+    </div>
+  </div>
+
+  <div class="grouplabel"><span class="gl">foundation</span><span class="gd">install these two first — everything else builds on them</span></div>
+  <div class="cards">
+    <div class="card">
+      <div class="head"><h3>Teach it your business</h3><span class="mod">context-os</span></div>
+      <p>A guided interview about your market, your clients, and how you
+      work — so everything your AIOS produces is about your business, not a
+      generic realtor's.</p>
+      <div class="cmds">
+        <button class="cmd" data-copy="/install-module context-os">/install-module context-os</button>
+        <button class="cmd" data-copy="/context-interview">/context-interview</button>
+        <button class="cmd" data-copy="/context-update">/context-update</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="head"><h3>Teach it your voice</h3><span class="mod">brain-clone</span></div>
+      <p>Learns how you actually write from your past posts and emails, then
+      checks itself against you until it sounds right. Every client-facing
+      draft uses this.</p>
+      <div class="cmds">
+        <button class="cmd" data-copy="/install-module brain-clone">/install-module brain-clone</button>
+        <button class="cmd" data-copy="/brain-dump">/brain-dump</button>
+        <button class="cmd" data-copy="/voice-check">/voice-check</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="grouplabel"><span class="gl">every day</span><span class="gd">the five-minute habits that catch what used to slip</span></div>
+  <div class="cards">
+    <div class="card">
+      <div class="head"><h3>Never lose a lead</h3><span class="mod">lead-engine</span></div>
+      <p>Paste any inquiry the moment it lands — get the lead captured, your
+      reply drafted in your voice, and a follow-up rhythm that surfaces each
+      touch on the day it's due.</p>
+      <div class="cmds">
+        <button class="cmd" data-copy="/log-lead">/log-lead</button>
+        <button class="cmd" data-copy="/lead-check">/lead-check</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="head"><h3>Conversation → client profile</h3><span class="mod">client-profiles</span></div>
+      <p>Paste a call transcript or your notes; get a structured profile of
+      what they want, a CRM-ready block to paste into your CRM, and a draft
+      follow-up email in your voice.</p>
+      <div class="cmds">
+        <button class="cmd" data-copy="/build-profile">/build-profile</button>
+        <button class="cmd" data-copy="/update-profile">/update-profile</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="grouplabel"><span class="gl">every week</span><span class="gd">one sitting each — the rhythm that compounds</span></div>
+  <div class="cards">
+    <div class="card">
+      <div class="head"><h3>Match listings to your clients</h3><span class="mod">monday-skill</span></div>
+      <p>Pick who you're focused on, drop in an MLS export (or describe the
+      search in plain language), and get honest best-fit matches per client —
+      with price position, a drafted email, and a client-ready PDF.</p>
+      <div class="cmds">
+        <button class="cmd" data-copy="/weekly-match">/weekly-match</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="head"><h3>Your week of content</h3><span class="mod">marketing-engine</span></div>
+      <p>Researches what's actually landing in your niche right now, then
+      writes your week of posts for the platforms you use — in your voice,
+      never inventing your numbers.</p>
+      <div class="cmds">
+        <button class="cmd" data-copy="/content-week">/content-week</button>
+        <button class="cmd" data-copy="/research-topics">/research-topics</button>
+        <button class="cmd" data-copy="/generate-content">/generate-content</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="head"><h3>What homes actually sell for</h3><span class="mod">market-research</span></div>
+      <p>Paste sold comps from searchhomelistings.ca and get a current price
+      read for an area — which then sharpens every listing match with an
+      under / at / over-market call.</p>
+      <div class="cmds">
+        <button class="cmd" data-copy="/price-check">/price-check</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="grouplabel"><span class="gl">per deal</span><span class="gd">from the listing appointment to the keys</span></div>
+  <div class="cards">
+    <div class="card">
+      <div class="head"><h3>Walk into listings ready</h3><span class="mod">listing-prep</span></div>
+      <p>A one-page prep sheet before every listing appointment — the pricing
+      story, the objections you're likely to hear, and your talking points,
+      all from what your AIOS already knows.</p>
+      <div class="cmds">
+        <button class="cmd" data-copy="/prep-listing">/prep-listing</button>
+      </div>
+    </div>
+    <div class="card">
+      <div class="head"><h3>Offer to keys, nothing slips</h3><span class="mod">transaction-coordinator</span></div>
+      <p>Tracks every key date on every active deal — subjects, financing,
+      possession — and drafts the client updates that keep everyone calm in
+      between.</p>
+      <div class="cmds">
+        <button class="cmd" data-copy="/open-escrow">/open-escrow</button>
+        <button class="cmd" data-copy="/deal-check">/deal-check</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="order">
+    <h2>Installing for the first time?</h2>
+    <p>Each skill installs with one typed line, and the system enforces the
+    right order — you can't break it by going out of sequence.</p>
+    <div class="steps">
+      <button class="cmd" data-copy="/install-module context-os">/install-module context-os</button>
+      <span class="arrow">→</span>
+      <button class="cmd" data-copy="/install-module brain-clone">/install-module brain-clone</button>
+      <span class="then">then any of</span>
+      <button class="cmd" data-copy="/install-module lead-engine">lead-engine</button>
+      <button class="cmd" data-copy="/install-module client-profiles">client-profiles</button>
+      <button class="cmd" data-copy="/install-module monday-skill">monday-skill</button>
+      <button class="cmd" data-copy="/install-module marketing-engine">marketing-engine</button>
+      <button class="cmd" data-copy="/install-module market-research">market-research</button>
+      <button class="cmd" data-copy="/install-module listing-prep">listing-prep</button>
+      <button class="cmd" data-copy="/install-module transaction-coordinator">transaction-coordinator</button>
+    </div>
+  </div>
+
+  <div class="foot">
+    <span>This page is the <b>map</b> — Claude Code is the engine. Nothing runs
+    from your browser; commands run when you paste them into your AIOS
+    workspace in Claude Code (or just type <b>/dashboard</b> there).</span>
+    <span>tsang <b>ai consulting</b></span>
+  </div>
+
+</div>
+
+<script>
+document.querySelectorAll('.cmd').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var text = btn.getAttribute('data-copy');
+    function done() {
+      btn.classList.add('copied');
+      setTimeout(function () { btn.classList.remove('copied'); }, 1400);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, done);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = text; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (e) {}
+      document.body.removeChild(ta); done();
+    }
+  });
+});
+</script>
+</body>
+</html>

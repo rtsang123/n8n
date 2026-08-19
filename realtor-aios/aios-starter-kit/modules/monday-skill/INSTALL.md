@@ -1,7 +1,7 @@
 # INSTALL — Monday Skill
 
 Module: monday-skill
-Version: 1.2.0
+Version: 1.3.0
 Requires: context-os, client-profiles
 Installs commands: /weekly-match
 

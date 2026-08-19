@@ -1,7 +1,7 @@
 # INSTALL — Client Profiles
 
 Module: client-profiles
-Version: 1.1.0
+Version: 1.2.0
 Requires: context-os
 Installs commands: /build-profile, /update-profile
 

@@ -99,7 +99,36 @@ Last updated: <date> · Source: /build-profile
 If a matching file exists in `leads/active/` (lead-engine installed), note
 its path in `Linked lead:` rather than duplicating contact info.
 
-## 5 — Confirm
+## 5 — Offer the hand-offs (both optional)
+
+**CRM block.** Ask if the owner wants the profile as a CRM-ready block —
+formatted to drop into whatever CRM they already use (this module never
+connects to a CRM itself; it formats, they paste). If yes, produce both:
+
+```
+Name: <full name>
+Phone: <phone or blank>
+Email: <email or blank>
+Lead source: <how they came in, if known>
+Tags: buyer, <city/area>, <property type>
+Notes: <one-paragraph summary: what they want, budget, timeline, key
+personal details — assembled ONLY from the profile, nothing new>
+```
+
+and a single CSV line with header, for CRMs that import:
+`name,phone,email,source,tags,notes`. Blank fields stay blank.
+
+**Follow-up email.** If `brain-clone` is installed (check
+`system/modules.md` and confirm `context/voice-profile.md` exists), ask if
+they want a draft follow-up email to this client — subject + body, in the
+owner's voice: thanks for the conversation, a recap of what the client
+said they're looking for (from the profile, their words where possible),
+and the concrete next step. Same truth rules as everywhere: nothing
+invented, placeholders for anything uncertain, shown as text to copy —
+never sent. If brain-clone isn't installed, skip this without mentioning
+it.
+
+## 6 — Confirm
 
 Show the saved profile and ask if anything needs fixing. Tell the owner
 this person is now available to add to their weekly focus list if

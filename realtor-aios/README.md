@@ -24,7 +24,7 @@ realtor-aios/
     ├── .claude/commands/      ← /install-module, /prime, and /dashboard
     ├── context/               ← the realtor's "brain" — built by the modules
     ├── system/modules.md      ← module install registry
-    └── modules/               ← the nine installable modules
+    └── modules/               ← the ten installable modules
         ├── context-os/        ← Context OS, Realtor Edition (install FIRST)
         ├── brain-clone/       ← voice capture → context/voice-profile.md
         ├── marketing-engine/  ← topic research + FB/LinkedIn content + weekly cadence
@@ -32,6 +32,7 @@ realtor-aios/
         ├── listing-prep/      ← one-page prep sheet before a listing appointment
         ├── transaction-coordinator/ ← key-date tracking + client updates, offer to close
         ├── client-profiles/   ← buyer profiles + CRM-ready block + follow-up email
+        ├── listing-marketing/ ← listing description + social package per active listing
         ├── monday-skill/      ← weekly focus list + listing matches per profile
         └── market-research/   ← price reads from sold comps; sharpens the matching
 ```
@@ -44,7 +45,7 @@ plain-language, click any command to copy it), or types `/dashboard` inside
 Claude Code for the live version — which reads the install registry and can
 launch any skill directly. The HTML is the map; Claude Code is the engine.
 
-## The nine modules, in install order
+## The ten modules, in install order
 
 1. **`context-os`** — Context OS, Realtor Edition. A structured interview that
    captures the realtor's market and farm area, niche and client types,
@@ -122,6 +123,18 @@ interview and (for listing-prep) no new persistent schema at all.
    `monday-skill`, `/weekly-match` automatically adds a price-position line
    to each match — under, at, or above what comparable homes actually sold
    for. Requires only `context-os` (the market interview).
+
+10. **`listing-marketing`** — the description and full social package for
+    one active listing. `/market-listing` writes the MLS/portal
+    description plus a post for every platform the realtor uses, shaped by
+    the moment (just listed / open house / general promotion). Distinct
+    from `marketing-engine` (evergreen niche content, not property-specific)
+    and `listing-prep` (pre-appointment prep to *win* the listing, not
+    market it after). Reuses a `listing-prep` prep sheet if one exists for
+    the address; works standalone otherwise. Same no-invented-facts
+    discipline as everywhere, plus an explicit fair-housing guardrail:
+    describes the property, never an ideal buyer ("perfect for a young
+    family," etc.). Requires `context-os` + `brain-clone`.
 
 ## Delivering to a client
 

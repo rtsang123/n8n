@@ -92,8 +92,9 @@ Every module MUST follow this format so `/install-module` can run it:
 | 7 | `client-profiles` | Buyer profiles built from conversations, in `clients/profiles/` |
 | 8 | `monday-skill` | Weekly focus list + listing matches (requires client-profiles) |
 | 9 | `market-research` | Price reads from sold comps in `market/` — feeds monday-skill |
+| 10 | `listing-marketing` | Listing description + social package in `listings/marketing/` |
 
-Install 1 and 2 in that order. 3–6 and 8 all require the first two — 8 also
+Install 1 and 2 in that order. 3–6, 8, and 10 all require the first two — 8 also
 requires 7 specifically, since it works from the profiles 7 builds; 7 and 9
 only require 1 (9 needs the market interview done). Each module's INSTALL.md
 enforces its own prerequisites, so installing out of order fails safely with

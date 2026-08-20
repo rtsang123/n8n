@@ -9,3 +9,4 @@ module is installed. Don't edit by hand unless you're removing a module.
 | brain-clone | 1.0.0 | 2026-08-23 | installed |
 | client-profiles | 1.0.0 | 2026-08-23 | installed |
 | monday-skill | 1.0.0 | 2026-08-23 | installed |
+| listing-marketing | 1.0.0 | 2026-09-13 | installed |

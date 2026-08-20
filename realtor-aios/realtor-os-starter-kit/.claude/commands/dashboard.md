@@ -25,8 +25,9 @@ plain language, no file paths:
 - **Every week** — Monday Skill (match listings to your clients), Marketing
   Engine (your week of content), Market Research (what homes actually sell
   for)
-- **Per deal** — Listing Prep (walk in ready), Transaction Coordinator
-  (offer to keys, nothing slips)
+- **Per deal** — Listing Prep (walk in ready), Listing Marketing (description
+  + social package for one listing), Transaction Coordinator (offer to
+  keys, nothing slips)
 
 Mark each as ✓ installed or ○ not yet installed (from the registry). For
 installed ones show the command(s) to run; for uninstalled ones show
